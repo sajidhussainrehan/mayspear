@@ -1,4 +1,5 @@
 import { Logo } from "./Navbar.jsx";
+import { Link } from "react-router-dom";
 import T from "../styles/theme.js";
 
 export default function Footer() {
@@ -8,7 +9,7 @@ export default function Footer() {
     { title: "Company", links: ["Our Approach", "Team", "Contact"] },
   ];
   return (
-    <footer style={{ borderTop: `1px solid rgba(200,165,92,0.08)`, padding: "60px clamp(24px,5vw,80px) 40px", background: T.midnight }}>
+    <footer id="contact" style={{ borderTop: `1px solid rgba(200,165,92,0.08)`, padding: "60px clamp(24px,5vw,80px) 40px", background: T.midnight }}>
       <div style={{ maxWidth: 1280, margin: "0 auto" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(180px,1fr))", gap: 48, marginBottom: 48 }}>
           <div>
@@ -21,8 +22,8 @@ export default function Footer() {
               <ul style={{ listStyle: "none" }}>
                 {c.links.map(l => (
                   <li key={l} style={{ marginBottom: 10 }}>
-                    <a href="#" style={{ fontSize: "0.88rem", color: T.mist, textDecoration: "none" }}
-                      onMouseEnter={e => e.target.style.color = T.gold} onMouseLeave={e => e.target.style.color = T.mist}>{l}</a>
+                    <Link to="/" style={{ fontSize: "0.88rem", color: T.mist, textDecoration: "none" }}
+                      onMouseEnter={e => e.target.style.color = T.gold} onMouseLeave={e => e.target.style.color = T.mist}>{l}</Link>
                   </li>
                 ))}
               </ul>
@@ -33,8 +34,8 @@ export default function Footer() {
           <div style={{ fontSize: "0.78rem", color: T.steel }}>© 2026 Sandspire Global Ltd. All rights reserved. Registered in England & Wales.</div>
           <div style={{ display: "flex", gap: 24 }}>
             {["Privacy Policy", "Terms of Use", "Cookie Policy"].map(l => (
-              <a key={l} href="#" style={{ fontSize: "0.78rem", color: T.steel, textDecoration: "none" }}
-                onMouseEnter={e => e.target.style.color = T.goldDim} onMouseLeave={e => e.target.style.color = T.steel}>{l}</a>
+              <Link key={l} to="/" style={{ fontSize: "0.78rem", color: T.steel, textDecoration: "none" }}
+                onMouseEnter={e => e.target.style.color = T.goldDim} onMouseLeave={e => e.target.style.color = T.steel}>{l}</Link>
             ))}
           </div>
         </div>

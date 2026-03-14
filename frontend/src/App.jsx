@@ -1,17 +1,10 @@
 import { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GLOBAL_CSS from "./styles/global.js";
-import Navbar from "./components/Navbar.jsx";
-import Hero from "./components/Hero.jsx";
-import UspStrip from "./components/UspStrip.jsx";
-import Services from "./components/Services.jsx";
-import Approach from "./components/Approach.jsx";
-import Sectors from "./components/Sectors.jsx";
-import Process from "./components/Process.jsx";
-import Team from "./components/Team.jsx";
-import CTA from "./components/CTA.jsx";
-import Blog from "./components/Blog.jsx";
-import News from "./components/News.jsx";
-import Footer from "./components/Footer.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import BlogPage from "./pages/BlogPage.jsx";
+import NewsPage from "./pages/NewsPage.jsx";
+import Admin from "./pages/Admin.jsx";
 
 export default function App() {
   useEffect(() => {
@@ -22,19 +15,13 @@ export default function App() {
   }, []);
 
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <UspStrip />
-      <Services />
-      <Approach />
-      <Sectors />
-      <Process />
-      <Team />
-      <Blog />
-      <News />
-      <CTA />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/news" element={<NewsPage />} />
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
