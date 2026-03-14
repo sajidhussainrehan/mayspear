@@ -16,7 +16,7 @@ function NewsItem({ date, category, title, description, thumbnail }) {
       alignItems: "start"
     }}>
       {thumbnail && (
-        <img src={`http://localhost:3000${thumbnail}`} alt={title} style={{ width: 120, height: 80, objectFit: "cover", borderRadius: "4px" }} />
+        <img src={thumbnail} alt={title} style={{ width: 120, height: 80, objectFit: "cover", borderRadius: "4px" }} />
       )}
       <div style={{ flex: 1 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>

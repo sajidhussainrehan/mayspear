@@ -338,7 +338,7 @@ export default function Admin() {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
                 {team.map(m => (
                   <div key={m.id} style={{ background: T.navy, padding: 16, borderRadius: "6px", border: `1px solid ${T.slate}`, textAlign: "center" }}>
-                    {m.image && <img src={`http://localhost:3000${m.image}`} alt={m.name} style={{ width: 80, height: 80, borderRadius: "50%", objectFit: "cover", marginBottom: 12 }} />}
+                    {m.image && <img src={m.image} alt={m.name} style={{ width: 80, height: 80, borderRadius: "50%", objectFit: "cover", marginBottom: 12 }} />}
                     <h4 style={{ color: T.pure, fontSize: "0.9rem" }}>{m.name}</h4>
                     <p style={{ color: T.goldDim, fontSize: "0.75rem" }}>{m.role}</p>
                     <button onClick={() => handleDeleteTeam(m.id)} style={{ background: "none", border: "none", color: T.mist, cursor: "pointer", fontSize: "0.75rem", marginTop: 8 }}>Delete</button>
@@ -373,7 +373,7 @@ export default function Admin() {
               <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 {blogs.map(b => (
                   <div key={b.id} style={{ background: T.navy, padding: 16, borderRadius: "6px", border: `1px solid ${T.slate}`, display: "flex", gap: 16 }}>
-                    {b.thumbnail && <img src={`http://localhost:3000${b.thumbnail}`} alt="" style={{ width: 80, height: 60, objectFit: "cover", borderRadius: "4px" }} />}
+                    {b.thumbnail && <img src={b.thumbnail} alt="" style={{ width: 80, height: 60, objectFit: "cover", borderRadius: "4px" }} />}
                     <div style={{ flex: 1 }}>
                       <div style={{ display: "flex", justifyContent: "space-between" }}>
                         <span style={{ color: T.gold, fontSize: "0.7rem" }}>{b.category}</span>
@@ -394,7 +394,7 @@ export default function Admin() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
             <form onSubmit={handleNewsSubmit} style={{ background: T.navy, padding: 32, borderRadius: "8px", border: `1px solid ${T.slate}` }}>
               <h2 className="serif" style={{ fontSize: "1.3rem", fontWeight: 400, color: T.gold, marginBottom: 24 }}>Add News Item</h2>
-              <label style={labelStyle}>Date (auto: today's date if empty)</label>
+              <label style={labelStyle}>Date (auto: today if empty)</label>
               <input type="text" value={newsForm.date} onChange={e => setNewsForm({...newsForm, date: e.target.value})} placeholder="e.g., 12 Mar 2026" style={inputStyle} />
               <label style={labelStyle}>Category</label>
               <select value={newsForm.category} onChange={e => setNewsForm({...newsForm, category: e.target.value})} style={inputStyle}>
@@ -413,7 +413,7 @@ export default function Admin() {
               <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 {news.map(n => (
                   <div key={n.id} style={{ background: T.navy, padding: 16, borderRadius: "6px", border: `1px solid ${T.slate}`, display: "flex", gap: 16 }}>
-                    {n.thumbnail && <img src={`http://localhost:3000${n.thumbnail}`} alt="" style={{ width: 80, height: 60, objectFit: "cover", borderRadius: "4px" }} />}
+                    {n.thumbnail && <img src={n.thumbnail} alt="" style={{ width: 80, height: 60, objectFit: "cover", borderRadius: "4px" }} />}
                     <div style={{ flex: 1 }}>
                       <div style={{ display: "flex", justifyContent: "space-between" }}>
                         <span style={{ color: T.goldDim, fontSize: "0.7rem" }}>{n.category}</span>

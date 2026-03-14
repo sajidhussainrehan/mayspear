@@ -1,311 +1,266 @@
+require('dotenv').config();
 const express = require('express');
 const multer = require('multer');
 const cors = require('cors');
-const path = require('path');
-const fs = require('fs');
+const connectDB = require('./config/db.js');
+const cloudinary = require('./config/cloudinary.js');
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+
+// Import models
+const Service = require('./models/Service.js');
+const Team = require('./models/Team.js');
+const News = require('./models/News.js');
+const Blog = require('./models/Blog.js');
 
 const app = express();
+
+// Connect to MongoDB
+connectDB();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use('/uploads', express.static('uploads'));
 
-// Ensure uploads directory exists
-if (!fs.existsSync('uploads')) {
-  fs.mkdirSync('uploads');
-}
-
-// Configure multer for image uploads
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads/');
-  },
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, uniqueSuffix + path.extname(file.originalname));
+// Configure Cloudinary storage for multer
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'sandspire',
+    allowed_formats: ['jpg', 'jpeg', 'png', 'webp'],
+    transformation: [{ width: 1000, height: 1000, crop: 'limit' }]
   }
 });
 
 const upload = multer({ 
   storage: storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
-  fileFilter: (req, file, cb) => {
-    const allowedTypes = /jpeg|jpg|png|webp/;
-    const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
-    const mimetype = allowedTypes.test(file.mimetype);
-    if (extname && mimetype) {
-      return cb(null, true);
-    }
-    cb(new Error('Only image files are allowed'));
-  }
+  limits: { fileSize: 5 * 1024 * 1024 } // 5MB limit
 });
-
-// In-memory data storage
-let data = {
-  services: [
-    { id: '1', icon: 'shield', title: 'Loan Administration', description: 'Comprehensive loan servicing including payment processing, escrow management, and covenant monitoring for institutional portfolios.' },
-    { id: '2', icon: 'file', title: 'Facility Agency', description: 'Expert agency services for syndicated facilities, managing lender communications, waivers, and consent processes.' },
-    { id: '3', icon: 'eye', title: 'Asset Surveillance', description: 'Proactive monitoring and early warning systems to identify and address credit deterioration before it impacts returns.' },
-    { id: '4', icon: 'tool', title: 'Special Servicing', description: 'Workout and restructuring expertise for distressed assets, maximizing recovery value through active management.' },
-    { id: '5', icon: 'search', title: 'Due Diligence', description: 'Thorough pre-acquisition reviews and ongoing compliance monitoring to protect investor interests.' },
-    { id: '6', icon: 'chart', title: 'Investor Reporting', description: 'Transparent, timely reporting tailored to fund requirements and regulatory standards.' }
-  ],
-  team: [
-    { 
-      id: '1', 
-      name: 'James Richardson', 
-      role: 'Managing Partner', 
-      bio: 'Former head of European loan servicing at a major global bank with 20+ years of experience in credit asset management.',
-      image: null
-    },
-    { 
-      id: '2', 
-      name: 'Sarah Chen', 
-      role: 'Head of Operations', 
-      bio: 'Led servicing operations for €15B+ of private credit assets across multiple European jurisdictions.',
-      image: null
-    },
-    { 
-      id: '3', 
-      name: 'Michael Torres', 
-      role: 'Chief Risk Officer', 
-      bio: 'Deep expertise in credit risk assessment, portfolio surveillance, and regulatory compliance frameworks.',
-      image: null
-    },
-    { 
-      id: '4', 
-      name: 'Emma Williams', 
-      role: 'Head of Special Servicing', 
-      bio: 'Specialized in distressed debt restructuring with a track record of maximizing recovery values.',
-      image: null
-    }
-  ],
-  news: [
-    {
-      id: '1',
-      date: '12 Mar 2026',
-      category: 'Company',
-      title: 'Sandspire Global Announces New Advisory Board Member',
-      description: 'We are pleased to welcome a senior industry executive with over 25 years of experience in European credit markets to our advisory board.',
-      thumbnail: null
-    },
-    {
-      id: '2',
-      date: '28 Feb 2026',
-      category: 'Expansion',
-      title: 'New Office Opening in Luxembourg',
-      description: 'Sandspire Global expands its European presence with a new office in Luxembourg to better serve clients in the Benelux region.',
-      thumbnail: null
-    }
-  ],
-  blogs: [
-    {
-      id: '1',
-      date: 'March 2026',
-      category: 'Market Insights',
-      title: 'European Private Credit: Servicing Trends for 2026',
-      description: 'As the European private credit market continues to mature, institutional investors are demanding higher standards in loan administration and portfolio surveillance.',
-      thumbnail: null
-    },
-    {
-      id: '2',
-      date: 'February 2026',
-      category: 'Regulatory',
-      title: 'SFDR Compliance: What Fund Managers Need to Know',
-      description: 'The Sustainable Finance Disclosure Regulation continues to evolve. Our guide to SFDR reporting requirements.',
-      thumbnail: null
-    }
-  ]
-};
 
 // ============ SERVICES API ============
-app.get('/api/services', (req, res) => {
-  res.json(data.services);
-});
-
-app.post('/api/services', (req, res) => {
-  const { icon, title, description } = req.body;
-  const newService = {
-    id: Date.now().toString(),
-    icon,
-    title,
-    description
-  };
-  data.services.push(newService);
-  res.status(201).json(newService);
-});
-
-app.put('/api/services/:id', (req, res) => {
-  const { id } = req.params;
-  const index = data.services.findIndex(s => s.id === id);
-  if (index === -1) {
-    return res.status(404).json({ error: 'Service not found' });
+app.get('/api/services', async (req, res) => {
+  try {
+    const services = await Service.find().sort({ createdAt: 1 });
+    res.json(services);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
-  data.services[index] = { ...data.services[index], ...req.body };
-  res.json(data.services[index]);
 });
 
-app.delete('/api/services/:id', (req, res) => {
-  const { id } = req.params;
-  data.services = data.services.filter(s => s.id !== id);
-  res.json({ message: 'Service deleted' });
+app.post('/api/services', async (req, res) => {
+  try {
+    const { icon, title, description } = req.body;
+    const newService = await Service.create({ icon, title, description });
+    res.status(201).json(newService);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+app.put('/api/services/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedService = await Service.findByIdAndUpdate(id, req.body, { new: true });
+    if (!updatedService) return res.status(404).json({ error: 'Service not found' });
+    res.json(updatedService);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+app.delete('/api/services/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleted = await Service.findByIdAndDelete(id);
+    if (!deleted) return res.status(404).json({ error: 'Service not found' });
+    res.json({ message: 'Service deleted' });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 });
 
 // ============ TEAM API ============
-app.get('/api/team', (req, res) => {
-  res.json(data.team);
-});
-
-app.post('/api/team', upload.single('image'), (req, res) => {
-  const { name, role, bio } = req.body;
-  const newMember = {
-    id: Date.now().toString(),
-    name,
-    role,
-    bio,
-    image: req.file ? `/uploads/${req.file.filename}` : null
-  };
-  data.team.push(newMember);
-  res.status(201).json(newMember);
-});
-
-app.put('/api/team/:id', upload.single('image'), (req, res) => {
-  const { id } = req.params;
-  const index = data.team.findIndex(t => t.id === id);
-  if (index === -1) {
-    return res.status(404).json({ error: 'Team member not found' });
+app.get('/api/team', async (req, res) => {
+  try {
+    const team = await Team.find().sort({ createdAt: 1 });
+    res.json(team);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
-  const updateData = { ...req.body };
-  if (req.file) {
-    // Delete old image if exists
-    if (data.team[index].image) {
-      const oldPath = data.team[index].image.replace('/uploads/', 'uploads/');
-      if (fs.existsSync(oldPath)) {
-        fs.unlinkSync(oldPath);
+});
+
+app.post('/api/team', upload.single('image'), async (req, res) => {
+  try {
+    const { name, role, bio } = req.body;
+    const image = req.file ? req.file.path : null;
+    const newMember = await Team.create({ name, role, bio, image });
+    res.status(201).json(newMember);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+app.put('/api/team/:id', upload.single('image'), async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updateData = { ...req.body };
+    if (req.file) {
+      // Delete old image from Cloudinary if exists
+      const existing = await Team.findById(id);
+      if (existing && existing.image) {
+        const publicId = existing.image.split('/').pop().split('.')[0];
+        await cloudinary.uploader.destroy(`sandspire/${publicId}`);
       }
+      updateData.image = req.file.path;
     }
-    updateData.image = `/uploads/${req.file.filename}`;
+    const updated = await Team.findByIdAndUpdate(id, updateData, { new: true });
+    if (!updated) return res.status(404).json({ error: 'Team member not found' });
+    res.json(updated);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
-  data.team[index] = { ...data.team[index], ...updateData };
-  res.json(data.team[index]);
 });
 
-app.delete('/api/team/:id', (req, res) => {
-  const { id } = req.params;
-  const member = data.team.find(t => t.id === id);
-  if (member && member.image) {
-    const imagePath = member.image.replace('/uploads/', 'uploads/');
-    if (fs.existsSync(imagePath)) {
-      fs.unlinkSync(imagePath);
+app.delete('/api/team/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const member = await Team.findById(id);
+    if (!member) return res.status(404).json({ error: 'Team member not found' });
+    
+    // Delete image from Cloudinary if exists
+    if (member.image) {
+      const publicId = member.image.split('/').pop().split('.')[0];
+      await cloudinary.uploader.destroy(`sandspire/${publicId}`);
     }
+    
+    await Team.findByIdAndDelete(id);
+    res.json({ message: 'Team member deleted' });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
-  data.team = data.team.filter(t => t.id !== id);
-  res.json({ message: 'Team member deleted' });
 });
 
 // ============ NEWS API ============
-app.get('/api/news', (req, res) => {
-  res.json(data.news);
-});
-
-app.post('/api/news', upload.single('thumbnail'), (req, res) => {
-  const { date, category, title, description } = req.body;
-  const newNews = {
-    id: Date.now().toString(),
-    date: date || new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }),
-    category,
-    title,
-    description,
-    thumbnail: req.file ? `/uploads/${req.file.filename}` : null
-  };
-  data.news.unshift(newNews);
-  res.status(201).json(newNews);
-});
-
-app.put('/api/news/:id', upload.single('thumbnail'), (req, res) => {
-  const { id } = req.params;
-  const index = data.news.findIndex(n => n.id === id);
-  if (index === -1) {
-    return res.status(404).json({ error: 'News not found' });
+app.get('/api/news', async (req, res) => {
+  try {
+    const news = await News.find().sort({ createdAt: -1 });
+    res.json(news);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
-  const updateData = { ...req.body };
-  if (req.file) {
-    if (data.news[index].thumbnail) {
-      const oldPath = data.news[index].thumbnail.replace('/uploads/', 'uploads/');
-      if (fs.existsSync(oldPath)) {
-        fs.unlinkSync(oldPath);
+});
+
+app.post('/api/news', upload.single('thumbnail'), async (req, res) => {
+  try {
+    const { date, category, title, description } = req.body;
+    const newsDate = date || new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+    const thumbnail = req.file ? req.file.path : null;
+    const newNews = await News.create({ date: newsDate, category, title, description, thumbnail });
+    res.status(201).json(newNews);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+app.put('/api/news/:id', upload.single('thumbnail'), async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updateData = { ...req.body };
+    if (req.file) {
+      // Delete old thumbnail from Cloudinary if exists
+      const existing = await News.findById(id);
+      if (existing && existing.thumbnail) {
+        const publicId = existing.thumbnail.split('/').pop().split('.')[0];
+        await cloudinary.uploader.destroy(`sandspire/${publicId}`);
       }
+      updateData.thumbnail = req.file.path;
     }
-    updateData.thumbnail = `/uploads/${req.file.filename}`;
+    const updated = await News.findByIdAndUpdate(id, updateData, { new: true });
+    if (!updated) return res.status(404).json({ error: 'News not found' });
+    res.json(updated);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
-  data.news[index] = { ...data.news[index], ...updateData };
-  res.json(data.news[index]);
 });
 
-app.delete('/api/news/:id', (req, res) => {
-  const { id } = req.params;
-  const newsItem = data.news.find(n => n.id === id);
-  if (newsItem && newsItem.thumbnail) {
-    const imagePath = newsItem.thumbnail.replace('/uploads/', 'uploads/');
-    if (fs.existsSync(imagePath)) {
-      fs.unlinkSync(imagePath);
+app.delete('/api/news/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const newsItem = await News.findById(id);
+    if (!newsItem) return res.status(404).json({ error: 'News not found' });
+    
+    // Delete thumbnail from Cloudinary if exists
+    if (newsItem.thumbnail) {
+      const publicId = newsItem.thumbnail.split('/').pop().split('.')[0];
+      await cloudinary.uploader.destroy(`sandspire/${publicId}`);
     }
+    
+    await News.findByIdAndDelete(id);
+    res.json({ message: 'News deleted' });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
-  data.news = data.news.filter(n => n.id !== id);
-  res.json({ message: 'News deleted' });
 });
 
 // ============ BLOGS API ============
-app.get('/api/blogs', (req, res) => {
-  res.json(data.blogs);
-});
-
-app.post('/api/blogs', upload.single('thumbnail'), (req, res) => {
-  const { date, category, title, description } = req.body;
-  const newBlog = {
-    id: Date.now().toString(),
-    date: date || new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }),
-    category,
-    title,
-    description,
-    thumbnail: req.file ? `/uploads/${req.file.filename}` : null
-  };
-  data.blogs.unshift(newBlog);
-  res.status(201).json(newBlog);
-});
-
-app.put('/api/blogs/:id', upload.single('thumbnail'), (req, res) => {
-  const { id } = req.params;
-  const index = data.blogs.findIndex(b => b.id === id);
-  if (index === -1) {
-    return res.status(404).json({ error: 'Blog not found' });
+app.get('/api/blogs', async (req, res) => {
+  try {
+    const blogs = await Blog.find().sort({ createdAt: -1 });
+    res.json(blogs);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
-  const updateData = { ...req.body };
-  if (req.file) {
-    if (data.blogs[index].thumbnail) {
-      const oldPath = data.blogs[index].thumbnail.replace('/uploads/', 'uploads/');
-      if (fs.existsSync(oldPath)) {
-        fs.unlinkSync(oldPath);
+});
+
+app.post('/api/blogs', upload.single('thumbnail'), async (req, res) => {
+  try {
+    const { date, category, title, description } = req.body;
+    const blogDate = date || new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+    const thumbnail = req.file ? req.file.path : null;
+    const newBlog = await Blog.create({ date: blogDate, category, title, description, thumbnail });
+    res.status(201).json(newBlog);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+app.put('/api/blogs/:id', upload.single('thumbnail'), async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updateData = { ...req.body };
+    if (req.file) {
+      // Delete old thumbnail from Cloudinary if exists
+      const existing = await Blog.findById(id);
+      if (existing && existing.thumbnail) {
+        const publicId = existing.thumbnail.split('/').pop().split('.')[0];
+        await cloudinary.uploader.destroy(`sandspire/${publicId}`);
       }
+      updateData.thumbnail = req.file.path;
     }
-    updateData.thumbnail = `/uploads/${req.file.filename}`;
+    const updated = await Blog.findByIdAndUpdate(id, updateData, { new: true });
+    if (!updated) return res.status(404).json({ error: 'Blog not found' });
+    res.json(updated);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
-  data.blogs[index] = { ...data.blogs[index], ...updateData };
-  res.json(data.blogs[index]);
 });
 
-app.delete('/api/blogs/:id', (req, res) => {
-  const { id } = req.params;
-  const blog = data.blogs.find(b => b.id === id);
-  if (blog && blog.thumbnail) {
-    const imagePath = blog.thumbnail.replace('/uploads/', 'uploads/');
-    if (fs.existsSync(imagePath)) {
-      fs.unlinkSync(imagePath);
+app.delete('/api/blogs/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const blog = await Blog.findById(id);
+    if (!blog) return res.status(404).json({ error: 'Blog not found' });
+    
+    // Delete thumbnail from Cloudinary if exists
+    if (blog.thumbnail) {
+      const publicId = blog.thumbnail.split('/').pop().split('.')[0];
+      await cloudinary.uploader.destroy(`sandspire/${publicId}`);
     }
+    
+    await Blog.findByIdAndDelete(id);
+    res.json({ message: 'Blog deleted' });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
-  data.blogs = data.blogs.filter(b => b.id !== id);
-  res.json({ message: 'Blog deleted' });
 });
 
 // Error handling middleware
@@ -316,7 +271,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: err.message });
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

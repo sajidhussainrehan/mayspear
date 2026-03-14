@@ -12,7 +12,7 @@ function TeamCard({ image, name, role, bio }) {
     <div onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)}
       style={{ textAlign: "center", padding: "40px 28px", background: T.navy, border: `1px solid ${hov ? "rgba(200,165,92,0.15)" : "rgba(200,165,92,0.06)"}`, transition: "all 0.35s", transform: hov ? "translateY(-2px)" : "none" }}>
       {image ? (
-        <img src={`http://localhost:3000${image}`} alt={name} style={{ width: 100, height: 100, margin: "0 auto 20px", borderRadius: "50%", objectFit: "cover" }} />
+        <img src={image} alt={name} style={{ width: 100, height: 100, margin: "0 auto 20px", borderRadius: "50%", objectFit: "cover" }} />
       ) : (
         <div className="serif" style={{ width: 100, height: 100, margin: "0 auto 20px", background: `linear-gradient(135deg,${T.slate},${T.steel})`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "2rem", color: T.gold, fontWeight: 300, borderRadius: "50%" }}>{initials}</div>
       )}

@@ -25,7 +25,7 @@ function BlogCard({ date, category, title, description, thumbnail }) {
       e.currentTarget.style.transform = "translateY(0)";
     }}>
       {thumbnail && (
-        <img src={`http://localhost:3000${thumbnail}`} alt={title} style={{ width: "100%", height: 180, objectFit: "cover" }} />
+        <img src={thumbnail} alt={title} style={{ width: "100%", height: 180, objectFit: "cover" }} />
       )}
       <div style={{ padding: "24px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
