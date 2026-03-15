@@ -14,9 +14,10 @@ export default function ServicesSection() {
   async function fetchServices() {
     try {
       const data = await getServices();
-      setServices(data);
+      setServices(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error("Failed to fetch services:", error);
+      setServices([]);
     } finally {
       setLoading(false);
     }

@@ -13,9 +13,10 @@ export default function NewsSection() {
   async function fetchNews() {
     try {
       const data = await getNews();
-      setNews(data);
+      setNews(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error("Failed to fetch news:", error);
+      setNews([]);
     } finally {
       setLoading(false);
     }

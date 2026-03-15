@@ -13,9 +13,10 @@ export default function EventsSection() {
   async function fetchBlogs() {
     try {
       const data = await getBlogs();
-      setBlogs(data);
+      setBlogs(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error("Failed to fetch blogs:", error);
+      setBlogs([]);
     } finally {
       setLoading(false);
     }
