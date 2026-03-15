@@ -15,16 +15,32 @@ const Enquiry = require('./models/Enquiry.js');
 
 const app = express();
 
-// Connect to MongoDB
-connectDB();
+// Connect to MongoDB with connection caching for serverless
+let dbConnected = false;
+const connectToDatabase = async () => {
+  if (!dbConnected) {
+    await connectDB();
+    dbConnected = true;
+  }
+};
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
+// Ensure DB connection for all routes (serverless-safe)
+app.use(async (req, res, next) => {
+  try {
+    await connectToDatabase();
+    next();
+  } catch (error) {
+    res.status(500).json({ error: 'Database connection failed: ' + error.message });
+  }
+});
+
 // Root route
 app.get('/', (req, res) => {
-  res.json({ message: 'API is running' });
+  res.json({ message: 'API is running', db: dbConnected });
 });
 
 // Configure Cloudinary storage for multer
