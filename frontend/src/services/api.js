@@ -110,7 +110,7 @@ export async function updateNews(id, news) {
   return res.json();
 }
 
-export async function deleteNewsAPI(id) {
+export async function deleteNews(id) {
   await fetch(`${API_URL}/news/${id}`, { method: 'DELETE' });
 }
 
@@ -154,6 +154,6 @@ export async function updateBlog(id, blog) {
   return res.json();
 }
 
-export async function deleteBlogAPI(id) {
+export async function deleteBlog(id) {
   await fetch(`${API_URL}/blogs/${id}`, { method: 'DELETE' });
 }

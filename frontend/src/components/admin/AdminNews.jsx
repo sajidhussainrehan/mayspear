@@ -1,0 +1,204 @@
+import { useState, useEffect } from "react";
+import { getNews, createNews, updateNews, deleteNews } from "../../services/api";
+
+export default function AdminNews() {
+  const [news, setNews] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [formData, setFormData] = useState({ date: "", category: "", title: "", description: "", thumbnail: null });
+  const [editingId, setEditingId] = useState(null);
+  const [showForm, setShowForm] = useState(false);
+
+  useEffect(() => {
+    fetchNews();
+  }, []);
+
+  const fetchNews = async () => {
+    try {
+      const data = await getNews();
+      setNews(data);
+    } catch (error) {
+      console.error("Error fetching news:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      if (editingId) {
+        await updateNews(editingId, formData);
+      } else {
+        await createNews(formData);
+      }
+      fetchNews();
+      resetForm();
+    } catch (error) {
+      console.error("Error saving news:", error);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    if (confirm("Are you sure you want to delete this news item?")) {
+      try {
+        await deleteNewsAPI(id);
+        fetchNews();
+      } catch (error) {
+        console.error("Error deleting news:", error);
+      }
+    }
+  };
+
+  const handleEdit = (item) => {
+    setFormData({ date: item.date, category: item.category, title: item.title, description: item.description, thumbnail: null });
+    setEditingId(item._id);
+    setShowForm(true);
+  };
+
+  const resetForm = () => {
+    setFormData({ date: "", category: "", title: "", description: "", thumbnail: null });
+    setEditingId(null);
+    setShowForm(false);
+  };
+
+  const inputStyle = {
+    width: "100%",
+    padding: "10px 12px",
+    background: "rgba(200,191,176,0.05)",
+    border: "1px solid rgba(200,191,176,0.15)",
+    color: "#EDE8E0",
+    fontSize: "0.9rem",
+    borderRadius: "4px",
+    marginBottom: "12px"
+  };
+
+  const buttonStyle = {
+    padding: "10px 20px",
+    background: "#B8964A",
+    color: "#0C0B09",
+    border: "none",
+    borderRadius: "4px",
+    cursor: "pointer",
+    fontSize: "0.85rem",
+    fontWeight: 500
+  };
+
+  if (loading) return <div style={{ padding: "40px", textAlign: "center", color: "#C8BFB0" }}>Loading...</div>;
+
+  return (
+    <div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px" }}>
+        <h2 style={{ fontSize: "1.5rem", fontWeight: 300, color: "#B8964A", margin: 0 }}>News Management</h2>
+        <button 
+          onClick={() => setShowForm(!showForm)}
+          style={buttonStyle}
+        >
+          {showForm ? "Cancel" : "+ Add News"}
+        </button>
+      </div>
+
+      {showForm && (
+        <form onSubmit={handleSubmit} style={{ 
+          background: "rgba(200,191,176,0.05)", 
+          padding: "20px", 
+          borderRadius: "4px",
+          marginBottom: "24px",
+          border: "1px solid rgba(200,191,176,0.1)"
+        }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+            <input 
+              type="text" 
+              placeholder="Date (e.g., 15 Mar 2026)" 
+              value={formData.date}
+              onChange={(e) => setFormData({...formData, date: e.target.value})}
+              style={inputStyle}
+              required
+            />
+            <input 
+              type="text" 
+              placeholder="Category" 
+              value={formData.category}
+              onChange={(e) => setFormData({...formData, category: e.target.value})}
+              style={inputStyle}
+              required
+            />
+          </div>
+          <input 
+            type="text" 
+            placeholder="Title" 
+            value={formData.title}
+            onChange={(e) => setFormData({...formData, title: e.target.value})}
+            style={inputStyle}
+            required
+          />
+          <textarea 
+            placeholder="Description" 
+            value={formData.description}
+            onChange={(e) => setFormData({...formData, description: e.target.value})}
+            style={{...inputStyle, minHeight: "100px", resize: "vertical"}}
+            required
+          />
+          <input 
+            type="file" 
+            accept="image/*"
+            onChange={(e) => setFormData({...formData, thumbnail: e.target.files[0]})}
+            style={{...inputStyle, padding: "8px"}}
+          />
+          <div style={{ display: "flex", gap: "12px" }}>
+            <button type="submit" style={buttonStyle}>
+              {editingId ? "Update News" : "Create News"}
+            </button>
+            {editingId && (
+              <button type="button" onClick={resetForm} style={{...buttonStyle, background: "#5C4920"}}>
+                Cancel Edit
+              </button>
+            )}
+          </div>
+        </form>
+      )}
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+        {news.length === 0 ? (
+          <p style={{ color: "#C8BFB0", textAlign: "center", padding: "40px" }}>No news items found.</p>
+        ) : (
+          news.map((item) => (
+            <div 
+              key={item._id} 
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                padding: "16px 20px",
+                background: "rgba(200,191,176,0.03)",
+                border: "1px solid rgba(200,191,176,0.08)",
+                borderRadius: "4px"
+              }}
+            >
+              <div style={{ flex: 1 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "6px" }}>
+                  <span style={{ fontSize: "0.75rem", color: "#B8964A" }}>{item.date}</span>
+                  <span style={{ fontSize: "0.7rem", color: "#C8BFB0", background: "rgba(200,191,176,0.1)", padding: "2px 8px", borderRadius: "3px" }}>{item.category}</span>
+                </div>
+                <h3 style={{ margin: 0, fontSize: "1rem", fontWeight: 400, color: "#EDE8E0" }}>{item.title}</h3>
+              </div>
+              <div style={{ display: "flex", gap: "8px" }}>
+                <button 
+                  onClick={() => handleEdit(item)}
+                  style={{...buttonStyle, padding: "8px 16px", fontSize: "0.8rem", background: "#5C4920"}}
+                >
+                  Edit
+                </button>
+                <button 
+                  onClick={() => handleDelete(item._id)}
+                  style={{...buttonStyle, padding: "8px 16px", fontSize: "0.8rem", background: "#C4503A"}}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+    </div>
+  );
+}
