@@ -41,7 +41,7 @@ export default function AdminNews() {
   const handleDelete = async (id) => {
     if (confirm("Are you sure you want to delete this news item?")) {
       try {
-        await deleteNewsAPI(id);
+        await deleteNews(id);
         fetchNews();
       } catch (error) {
         console.error("Error deleting news:", error);
