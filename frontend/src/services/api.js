@@ -1,4 +1,4 @@
-const API_URL = 'https://mayspear-rfsr.vercel.app';
+const API_URL = 'https://mayspear-rfsr.vercel.app/api';
 
 // ============ SERVICES API ============
 export async function getServices() {
