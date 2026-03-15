@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
 import Navigation from "./components/sections/Navigation";
 import Hero from "./components/sections/Hero";
 import Marquee from "./components/sections/Marquee";
@@ -23,26 +23,13 @@ import AdminDashboard from "./components/admin/AdminDashboard";
 import AdminNews from "./components/admin/AdminNews";
 import AdminBlogs from "./components/admin/AdminBlogs";
 import AdminServices from "./components/admin/AdminServices";
+import AdminLogin from "./components/admin/AdminLogin";
 import { useScrollReveal } from "./hooks/useUtils";
 import "./App.css";
 
 /* ─── CSS-in-JS styles injected once ─── */
 const STYLES = `
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Fira+Mono:wght@400;500&display=swap');
-
-:root {
-  --ch:#0C0B09; --ch2:#141210; --ch3:#1C1A16; --ch4:#242018;
-  --stone:#C8BFB0; --stone2:#E2D9CC; --stone3:#F0EBE3; --parch:#FAF7F2;
-  --brass:#9A7B3C; --brass2:#B8964A; --brass3:#D4AE5A;
-  --brass-dim:#5C4920; --brass-faint:rgba(184,150,74,0.12);
-  --text:#EDE8E0; --textD:rgba(237,232,224,0.58); --textF:rgba(237,232,224,0.28);
-  --resolve:#0A0A08; --resolve2:#111110;
-  --resolve-acc:#C4503A; --resolve-acc2:#D96448;
-  --serif:'Cormorant Garamond',Georgia,serif;
-  --body:'EB Garamond',Georgia,serif;
-  --mono:'Fira Mono',monospace;
-  --ease:cubic-bezier(0.16,1,0.3,1);
-}
 
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
 html { scroll-behavior:smooth; font-size:16px; -webkit-font-smoothing:antialiased; margin-top:0; }
@@ -605,17 +592,26 @@ function MainWebsite() {
   );
 }
 
+// Protected route wrapper for admin
+function ProtectedRoute() {
+  const isAuth = localStorage.getItem("adminAuth") === "true";
+  return isAuth ? <Outlet /> : <Navigate to="/admin/login" replace />;
+}
+
 // App with routing
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainWebsite />} />
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<AdminDashboard />} />
-          <Route path="news" element={<AdminNews />} />
-          <Route path="blogs" element={<AdminBlogs />} />
-          <Route path="services" element={<AdminServices />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<ProtectedRoute />}>
+          <Route element={<AdminLayout />}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="news" element={<AdminNews />} />
+            <Route path="blogs" element={<AdminBlogs />} />
+            <Route path="services" element={<AdminServices />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
