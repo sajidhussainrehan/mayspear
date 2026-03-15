@@ -16,7 +16,6 @@ import Geography from "./components/sections/Geography";
 import Contact from "./components/sections/Contact";
 import Footer from "./components/sections/Footer";
 import NewsSection from "./components/sections/NewsSection";
-import EventsSection from "./components/sections/EventsSection";
 import ServicesSection from "./components/sections/ServicesSection";
 import AdminLayout from "./components/admin/AdminLayout";
 import AdminDashboard from "./components/admin/AdminDashboard";
@@ -573,7 +572,6 @@ function MainWebsite() {
 
       <Hero scrollTo={scrollTo} hoverProps={hoverProps} />
       <NewsSection />
-      <EventsSection />
       <ServicesSection />
       <Marquee />
       <Manifesto />
