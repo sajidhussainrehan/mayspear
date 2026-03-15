@@ -21,6 +21,11 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({ message: 'API is running' });
+});
+
 // Configure Cloudinary storage for multer
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
@@ -281,4 +286,6 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 // Export for Vercel serverless
-module.exports = app;
+module.exports = (req, res) => {
+  return app(req, res);
+};
