@@ -11,6 +11,7 @@ const Service = require('./models/Service.js');
 const Team = require('./models/Team.js');
 const News = require('./models/News.js');
 const Blog = require('./models/Blog.js');
+const Enquiry = require('./models/Enquiry.js');
 
 const app = express();
 
@@ -263,6 +264,50 @@ app.delete('/api/blogs/:id', async (req, res) => {
     
     await Blog.findByIdAndDelete(id);
     res.json({ message: 'Blog deleted' });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// ============ ENQUIRIES API ============
+app.get('/api/enquiries', async (req, res) => {
+  try {
+    const enquiries = await Enquiry.find().sort({ createdAt: -1 });
+    res.json(enquiries);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.post('/api/enquiries', async (req, res) => {
+  try {
+    const { name, firm, role, email, type, size, sector, geo, timing, overview } = req.body;
+    const newEnquiry = await Enquiry.create({ 
+      name, firm, role, email, type, size, sector, geo, timing, overview 
+    });
+    res.status(201).json(newEnquiry);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+app.put('/api/enquiries/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updated = await Enquiry.findByIdAndUpdate(id, req.body, { new: true });
+    if (!updated) return res.status(404).json({ error: 'Enquiry not found' });
+    res.json(updated);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+app.delete('/api/enquiries/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleted = await Enquiry.findByIdAndDelete(id);
+    if (!deleted) return res.status(404).json({ error: 'Enquiry not found' });
+    res.json({ message: 'Enquiry deleted' });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

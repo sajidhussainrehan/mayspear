@@ -1,10 +1,31 @@
 import { useState } from "react";
+import { createEnquiry } from "../../services/api";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [form, setForm] = useState({ name:"", firm:"", role:"", email:"", type:"", size:"", sector:"", geo:"", timing:"", overview:"" });
-  const handle = (e) => { e.preventDefault(); setSubmitted(true); setTimeout(() => { setSubmitted(false); setForm({ name:"",firm:"",role:"",email:"",type:"",size:"",sector:"",geo:"",timing:"",overview:"" }); }, 3500); };
+  
+  const handle = async (e) => { 
+    e.preventDefault(); 
+    setSubmitting(true);
+    try {
+      await createEnquiry(form);
+      setSubmitted(true); 
+      setTimeout(() => { 
+        setSubmitted(false); 
+        setForm({ name:"",firm:"",role:"",email:"",type:"",size:"",sector:"",geo:"",timing:"",overview:"" }); 
+      }, 3500); 
+    } catch (error) {
+      console.error("Failed to submit enquiry:", error);
+      alert("Failed to submit enquiry. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+  
   const inp = (f) => ({ value: form[f], onChange: (e) => setForm(p => ({...p, [f]: e.target.value})) });
+  
   return (
     <form className="mg-cform" onSubmit={handle}>
       <div className="mg-f-row">
@@ -52,8 +73,8 @@ export default function ContactForm() {
         </div>
       </div>
       <div className="mg-f-field"><label className="mg-f-lbl">Transaction Overview</label><textarea className="mg-f-ta" placeholder="Brief description of the transaction or situation" {...inp("overview")} /></div>
-      <button type="submit" className="mg-f-btn" style={submitted ? {background:"#5C4920"} : {}}>
-        {submitted ? "Enquiry Received" : "Submit Mandate Enquiry"}
+      <button type="submit" className="mg-f-btn" disabled={submitting} style={submitted ? {background:"#5C4920"} : {}}>
+        {submitting ? "Submitting..." : submitted ? "Enquiry Received" : "Submit Mandate Enquiry"}
       </button>
       <p className="mg-f-note">Mayspear Global does not hold FCA authorisation, does not manage client funds, and does not provide investment advice. All advisory activities are carried out on an unregulated basis. Enquiries are treated as strictly confidential.</p>
     </form>

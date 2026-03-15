@@ -9,6 +9,7 @@ export default function AdminLayout() {
     { path: "/admin/news", label: "News" },
     { path: "/admin/blogs", label: "Blogs" },
     { path: "/admin/services", label: "Services" },
+    { path: "/admin/enquiries", label: "Enquiries" },
   ];
 
   const handleLogout = () => {

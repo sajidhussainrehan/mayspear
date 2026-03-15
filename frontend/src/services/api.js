@@ -157,3 +157,31 @@ export async function updateBlog(id, blog) {
 export async function deleteBlog(id) {
   await fetch(`${API_URL}/blogs/${id}`, { method: 'DELETE' });
 }
+
+// ============ ENQUIRIES API ============
+export async function getEnquiries() {
+  const res = await fetch(`${API_URL}/enquiries`);
+  return res.json();
+}
+
+export async function createEnquiry(enquiry) {
+  const res = await fetch(`${API_URL}/enquiries`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(enquiry)
+  });
+  return res.json();
+}
+
+export async function updateEnquiry(id, enquiry) {
+  const res = await fetch(`${API_URL}/enquiries/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(enquiry)
+  });
+  return res.json();
+}
+
+export async function deleteEnquiry(id) {
+  await fetch(`${API_URL}/enquiries/${id}`, { method: 'DELETE' });
+}

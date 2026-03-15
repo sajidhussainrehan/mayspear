@@ -22,6 +22,7 @@ import AdminDashboard from "./components/admin/AdminDashboard";
 import AdminNews from "./components/admin/AdminNews";
 import AdminBlogs from "./components/admin/AdminBlogs";
 import AdminServices from "./components/admin/AdminServices";
+import AdminEnquiries from "./components/admin/AdminEnquiries";
 import AdminLogin from "./components/admin/AdminLogin";
 import { useScrollReveal } from "./hooks/useUtils";
 import "./App.css";
@@ -609,6 +610,7 @@ export default function App() {
             <Route path="news" element={<AdminNews />} />
             <Route path="blogs" element={<AdminBlogs />} />
             <Route path="services" element={<AdminServices />} />
+            <Route path="enquiries" element={<AdminEnquiries />} />
           </Route>
         </Route>
       </Routes>
