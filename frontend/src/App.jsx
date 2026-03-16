@@ -17,7 +17,7 @@ import Contact from "./components/sections/Contact";
 import Footer from "./components/sections/Footer";
 import NewsSection from "./components/sections/NewsSection";
 import ServicesSection from "./components/sections/ServicesSection";
-import EventsSection from "./components/sections/EventsSection";
+import BlogsSection from "./components/sections/BlogsSection";
 import AdminLayout from "./components/admin/AdminLayout";
 import AdminDashboard from "./components/admin/AdminDashboard";
 import AdminNews from "./components/admin/AdminNews";
@@ -574,7 +574,7 @@ function MainWebsite() {
 
       <Hero scrollTo={scrollTo} hoverProps={hoverProps} />
       <NewsSection />
-      <EventsSection />
+      <BlogsSection />
       <ServicesSection />
       <Marquee />
       <Manifesto />

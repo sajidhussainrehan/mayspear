@@ -41,7 +41,7 @@ export default function AdminBlogs() {
   const handleDelete = async (id) => {
     if (confirm("Are you sure you want to delete this blog post?")) {
       try {
-        await deleteBlogAPI(id);
+        await deleteBlog(id);
         fetchBlogs();
       } catch (error) {
         console.error("Error deleting blog:", error);

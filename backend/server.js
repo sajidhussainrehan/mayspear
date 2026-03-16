@@ -66,6 +66,11 @@ app.get('/', withDB(async (req, res) => {
   res.json({ message: 'API is running', db: dbConnected });
 }));
 
+// Base API route for health check
+app.get('/api', (req, res) => {
+  res.json({ message: 'Mayspear API is running' });
+});
+
 // ============ SERVICES API ============
 app.get('/api/services', withDB(async (req, res) => {
   const services = await Service.find().sort({ createdAt: 1 });

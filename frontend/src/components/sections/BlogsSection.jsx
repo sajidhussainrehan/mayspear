@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getBlogs } from "../../services/api";
 import { ScrollReveal } from "../common/ScrollReveal";
 
-export default function EventsSection() {
+export default function BlogsSection() {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -24,9 +24,9 @@ export default function EventsSection() {
 
   if (loading) {
     return (
-      <section id="events" className="mg-events" style={{ padding: "100px 0", background: "var(--ch)" }}>
+      <section id="blogs" className="mg-events" style={{ padding: "100px 0", background: "var(--ch)" }}>
         <div className="mg-container">
-          <div className="mg-sec-label">Events & Insights</div>
+          <div className="mg-sec-label">Blogs & Insights</div>
           <h2 className="mg-sec-h">Loading...</h2>
         </div>
       </section>
@@ -34,10 +34,10 @@ export default function EventsSection() {
   }
 
   return (
-    <section id="events" className="mg-events" style={{ padding: "130px 0", background: "var(--ch)", borderTop: "1px solid rgba(200,191,176,0.06)" }}>
+    <section id="blogs" className="mg-events" style={{ padding: "130px 0", background: "var(--ch)", borderTop: "1px solid rgba(200,191,176,0.06)" }}>
       <div className="mg-container">
         <ScrollReveal>
-          <div className="mg-sec-label">Events & Insights</div>
+          <div className="mg-sec-label">Blogs & Insights</div>
           <h2 className="mg-sec-h">Thought <em>Leadership</em></h2>
         </ScrollReveal>
 
@@ -118,7 +118,7 @@ export default function EventsSection() {
 
         {blogs.length === 0 && (
           <div style={{ textAlign: "center", padding: "60px 0", color: "var(--textF)" }}>
-            <p>No events or insights available.</p>
+            <p>No blog posts available.</p>
           </div>
         )}
       </div>

@@ -2,16 +2,43 @@ import { useEffect, useRef } from "react";
 
 export function useScrollReveal() {
   useEffect(() => {
-    const els = document.querySelectorAll(".mg-rv");
-    const check = () => {
-      const wh = window.innerHeight;
-      els.forEach(el => {
-        if (el.getBoundingClientRect().top < wh * 0.92) el.classList.add("in");
-      });
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
     };
-    window.addEventListener("scroll", check);
-    check();
-    return () => window.removeEventListener("scroll", check);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    const scanAndObserve = () => {
+      const els = document.querySelectorAll(".mg-rv:not(.in)");
+      els.forEach(el => observer.observe(el));
+    };
+
+    // Initial scan
+    scanAndObserve();
+
+    // Watch for new elements added to the DOM
+    const mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.addedNodes.length) {
+          scanAndObserve();
+        }
+      });
+    });
+
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutationObserver.disconnect();
+    };
   }, []);
 }
 

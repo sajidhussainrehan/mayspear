@@ -1,5 +1,5 @@
 export default function Navigation({ navScrolled, mobileOpen, setMobileOpen, scrollTo, hoverProps }) {
-  const navLinks = ["#news","#services","#pillars","#sectors","#serve","#approach","#intelligence","#contact"];
+  const navLinks = ["#news", "#blogs", "#services", "#pillars", "#sectors", "#serve", "#approach", "#intelligence", "#contact"];
   
   return (
     <>
