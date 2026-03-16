@@ -22,7 +22,7 @@ export default function Hero({ scrollTo, hoverProps }) {
         </p>
 
         <div className="mg-hero-stats">
-          {[["5","Pillars"],["4","Markets"],["100M+","Mid-Market Focus"],["25+","Lender Panel"]].map(([n,l]) => (
+          {[["4","Pillars"],["4","Markets"],["100M+","Mid-Market Focus"],["25+","Lender Panel"]].map(([n,l]) => (
             <div key={l} className="mg-hero-stat">
               <span className="mg-hero-stat-n">{n}</span>
               <span className="mg-hero-stat-l">{l}</span>
@@ -35,7 +35,7 @@ export default function Hero({ scrollTo, hoverProps }) {
             <span>Request Mandate Discussion</span>
           </button>
           <button className="mg-btn-outline" style={{ backgroundColor: "#000", color: "#e5e5e5", border: "2px solid #000", transition: "all 0.2s ease" }} onMouseEnter={(e) => {e.target.style.borderColor = "#fff";}} onMouseLeave={(e) => {e.target.style.borderColor = "#000";}} onClick={() => scrollTo("#pillars")} {...hoverProps}>
-            Our Five Pillars
+            Our Four Pillars
           </button>
         </div>
       </div>

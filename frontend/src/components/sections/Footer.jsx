@@ -9,9 +9,9 @@ export default function Footer({ scrollTo, hoverProps }) {
             <p style={{fontFamily:"var(--mono)",fontSize:"0.56rem",letterSpacing:"0.15em",color:"var(--brass)",marginTop:"8px"}}>engagement@mayspear.com</p>
           </div>
           <div>
-            <div className="mg-footer-col-h">Five Pillars</div>
+            <div className="mg-footer-col-h">Four Pillars</div>
             <ul className="mg-footer-links">
-              {["Shield","Command","Capital","Intelligence","Resolve"].map(p=><li key={p}><a onClick={()=>scrollTo("#pillars")} {...hoverProps}>{p}</a></li>)}
+              {["Shield","Command","Capital","Intelligence"].map(p=><li key={p}><a onClick={()=>scrollTo("#pillars")} {...hoverProps}>{p}</a></li>)}
             </ul>
           </div>
           <div>
