@@ -457,11 +457,12 @@ button,input,select,textarea { font:inherit; outline:none; }
 /* RESPONSIVE */
 @media(max-width:1100px) {
   .mg-container { padding-left:28px; padding-right:28px; }
-  .mg-nav { padding:18px 28px; }
+  .mg-nav { padding:18px 28px; flex-wrap:wrap; gap:12px; }
   .mg-nav.scrolled { padding:14px 28px; }
-  .mg-nav-links { display:none; }
-  .mg-nav-cta { display:none; }
-  .mg-nav-burger { display:flex; }
+  .mg-nav-links { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; width:100%; order:3; margin-top:8px; }
+  .mg-nav-links a { font-size:0.55rem; letter-spacing:0.12em; }
+  .mg-nav-cta { display:inline-flex; font-size:0.55rem; padding:8px 16px; }
+  .mg-nav-burger { display:none; }
   .mg-hero { grid-template-columns:1fr; }
   .mg-hero-right { display:none; }
   .mg-hero-left { padding:120px 28px 60px; }
