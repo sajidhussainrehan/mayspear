@@ -18,7 +18,7 @@ export default function ResolveDepth() {
         </ScrollReveal>
         <div className="mg-resolve-grid">
           <ScrollReveal className="mg-resolve-photo">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80&fit=crop" alt="Boardroom"/>
+            <img src="/6.jpeg" alt="Boardroom"/>
             <div className="mg-resolve-photo-overlay"/>
           </ScrollReveal>
           <ScrollReveal className="mg-resolve-right">
