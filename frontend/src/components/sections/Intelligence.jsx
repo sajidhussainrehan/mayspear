@@ -1,10 +1,10 @@
 import { ScrollReveal } from "../common/ScrollReveal";
 
 const INTEL_CARDS = [
-  { cat:"Special Situations", t:"The Pre-Distress Window: Why Mid-Market Companies Leave Capital on the Table", img:"https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=75&fit=crop" },
-  { cat:"GCC Infrastructure", t:"Infrastructure Debt Markets in the GCC: Where Capital Is Moving in 2026", img:"https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?w=600&q=75&fit=crop" },
-  { cat:"Capital Structuring", t:"Structuring for Lenders: What Separates Bankable from Unbankable Infrastructure Transactions", img:"https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=75&fit=crop" },
-  { cat:"Distressed M&A", t:"The Buyer's Advantage in Distressed Mid-Market Situations", img:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=75&fit=crop" },
+  { cat:"Special Situations", t:"The Pre-Distress Window: Why Mid-Market Companies Leave Capital on the Table", img:"/1.png" },
+  { cat:"GCC Infrastructure", t:"Infrastructure Debt Markets in the GCC: Where Capital Is Moving in 2026", img:"/2.png" },
+  { cat:"Capital Structuring", t:"Structuring for Lenders: What Separates Bankable from Unbankable Infrastructure Transactions", img:"/3.jpeg" },
+  { cat:"Distressed M&A", t:"The Buyer's Advantage in Distressed Mid-Market Situations", img:"/5.jpeg" },
 ];
 
 export default function Intelligence() {
