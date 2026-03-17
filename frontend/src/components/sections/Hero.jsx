@@ -4,7 +4,7 @@ export default function Hero({ scrollTo, hoverProps }) {
   return (
     <section id="hero" className="mg-hero">
       <div className="mg-hero-bg">
-        <img src="https://images.unsplash.com/photo-1494522358652-f30e61a60313?w=1600&q=80&fit=crop" alt="Infrastructure" />
+        <img src="/4.jpeg" alt="Infrastructure" />
       </div>
       <ParticleCanvas />
       
