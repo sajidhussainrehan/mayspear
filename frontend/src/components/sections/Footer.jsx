@@ -5,7 +5,7 @@ export default function Footer({ scrollTo, hoverProps }) {
         <div className="mg-footer-grid">
           <div>
             <div className="mg-footer-brand">Mayspear<div className="mg-footer-brand-dot"/></div>
-            <p className="mg-footer-desc">Specialist infrastructure advisory, capital structuring and special situations firm. Berkeley Square, London. Wyoming, United States. Operating across GCC, UK, Africa and North America.</p>
+            <p className="mg-footer-desc">Specialist infrastructure advisory, capital structuring and special situations firm. Operating across GCC, UK, Africa and North America.</p>
             <p style={{fontFamily:"var(--mono)",fontSize:"0.56rem",letterSpacing:"0.15em",color:"var(--brass)",marginTop:"8px"}}>engagement@mayspear.com</p>
           </div>
           <div>
@@ -23,10 +23,8 @@ export default function Footer({ scrollTo, hoverProps }) {
           <div>
             <div className="mg-footer-col-h">Contact</div>
             <ul className="mg-footer-links">
-              <li><a onClick={()=>scrollTo("#contact")} {...hoverProps}>Request Mandate Discussion</a></li>
+              <li><a onClick={() => scrollTo("#contact")} {...hoverProps}>Request Mandate Discussion</a></li>
               <li><a href="mailto:engagement@mayspear.com" {...hoverProps}>engagement@mayspear.com</a></li>
-              <li><a onClick={()=>scrollTo("#contact")} {...hoverProps}>Berkeley Square, London</a></li>
-              <li><a onClick={()=>scrollTo("#contact")} {...hoverProps}>Sheridan, Wyoming</a></li>
             </ul>
           </div>
         </div>

@@ -15,12 +15,10 @@ export default function Hero({ scrollTo, hoverProps }) {
           <span className="mg-h-line">Capital</span>
           <span className="mg-h-line">Structured.</span>
           <span className="mg-h-line">Situations <em style={{ fontStyle: "italic", color: "var(--brass2)" }}>Resolved.</em></span>
-          <span className="mg-h-line">Transactions</span>
-          <span className="mg-h-line">Closed.</span>
         </h1>
 
         <p className="mg-hero-body">
-          Mayspear Global advises on the architecture and execution of complex capital transactions across infrastructure and special situations. Berkeley Square, London. Wyoming, United States.
+          Mayspear Global advises on the architecture and execution of complex capital transactions across infrastructure and special situations.
         </p>
 
         <div className="mg-hero-stats">

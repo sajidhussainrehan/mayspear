@@ -1,10 +1,10 @@
 import { ScrollReveal } from "../common/ScrollReveal";
 
 const GEO = [
-  { status:"Headquarters", name:"London", desc:"Berkeley Square House, W1J 6BD. Primary operating base for UK infrastructure advisory, European special situations, and international mandate coordination.", img:"https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600&q=75&fit=crop" },
-  { status:"Priority One Market", name:"GCC and UAE", desc:"Abu Dhabi, Dubai, Riyadh. Sovereign infrastructure programmes, PPP pipelines, energy transition mandates. Key institutions: ADIA, Mubadala, ADQ, PIF, DEWA.", img:"https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=75&fit=crop" },
-  { status:"Priority Three Market", name:"Africa", desc:"Pan-African infrastructure deficit. DFI-backed transactions, BII, African Development Bank, Proparco, DEG. Renewable energy, transport, water, and telecommunications infrastructure.", img:"https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&q=75&fit=crop" },
-  { status:"Active Market", name:"North America", desc:"30 N Gould Street, Sheridan, Wyoming. US infrastructure bill beneficiaries, middle market project finance, state and municipal infrastructure.", img:"https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?w=600&q=75&fit=crop" },
+  { status:"Strategic Sector", name:"Energy & Refineries", desc:"Downstream and upstream energy infrastructure, refining capacity, and storage terminals. Advising on capital intensive energy transition projects.", img:"/images/infrastructure/oil_rig.jpeg" },
+  { status:"Priority Asset", name:"Toll Roads & Transport", desc:"Major arterial transport corridors, toll road concessions, and multi-modal transport hubs. Structuring for long-term yield and public-private partnerships.", img:"/images/infrastructure/coastal_city.png" },
+  { status:"Key Infrastructure", name:"Ports & Logistics", desc:"Deepwater ports, container terminals, and integrated logistics parks. Enhancing global trade connectivity through structured capital and operational efficiency.", img:"/images/infrastructure/port_plane.jpeg" },
+  { status:"Industrial Growth", name:"Marine Infrastructure", desc:"Shipyards, drydocks, and specialized maritime facilities. Supporting the backbone of international shipping and heavy industrial development.", img:"/images/infrastructure/shipyard.jpeg" },
 ];
 
 export default function Geography() {

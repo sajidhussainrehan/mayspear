@@ -45,7 +45,7 @@ const storage = new CloudinaryStorage({
   }
 });
 
-const upload = multer({ 
+const upload = multer({
   storage: storage,
   limits: { fileSize: 5 * 1024 * 1024 } // 5MB limit
 });
@@ -130,12 +130,12 @@ app.delete('/api/team/:id', withDB(async (req, res) => {
   const { id } = req.params;
   const member = await Team.findById(id);
   if (!member) return res.status(404).json({ error: 'Team member not found' });
-  
+
   if (member.image) {
     const publicId = member.image.split('/').pop().split('.')[0];
     await cloudinary.uploader.destroy(`sandspire/${publicId}`);
   }
-  
+
   await Team.findByIdAndDelete(id);
   res.json({ message: 'Team member deleted' });
 }));
@@ -144,6 +144,13 @@ app.delete('/api/team/:id', withDB(async (req, res) => {
 app.get('/api/news', withDB(async (req, res) => {
   const news = await News.find().sort({ createdAt: -1 });
   res.json(news);
+}));
+
+app.get('/api/news/:id', withDB(async (req, res) => {
+  const { id } = req.params;
+  const item = await News.findById(id);
+  if (!item) return res.status(404).json({ error: 'News not found' });
+  res.json(item);
 }));
 
 app.post('/api/news', upload.single('thumbnail'), withDB(async (req, res) => {
@@ -174,12 +181,12 @@ app.delete('/api/news/:id', withDB(async (req, res) => {
   const { id } = req.params;
   const newsItem = await News.findById(id);
   if (!newsItem) return res.status(404).json({ error: 'News not found' });
-  
+
   if (newsItem.thumbnail) {
     const publicId = newsItem.thumbnail.split('/').pop().split('.')[0];
     await cloudinary.uploader.destroy(`sandspire/${publicId}`);
   }
-  
+
   await News.findByIdAndDelete(id);
   res.json({ message: 'News deleted' });
 }));
@@ -188,6 +195,13 @@ app.delete('/api/news/:id', withDB(async (req, res) => {
 app.get('/api/blogs', withDB(async (req, res) => {
   const blogs = await Blog.find().sort({ createdAt: -1 });
   res.json(blogs);
+}));
+
+app.get('/api/blogs/:id', withDB(async (req, res) => {
+  const { id } = req.params;
+  const blog = await Blog.findById(id);
+  if (!blog) return res.status(404).json({ error: 'Blog not found' });
+  res.json(blog);
 }));
 
 app.post('/api/blogs', upload.single('thumbnail'), withDB(async (req, res) => {
@@ -218,12 +232,12 @@ app.delete('/api/blogs/:id', withDB(async (req, res) => {
   const { id } = req.params;
   const blog = await Blog.findById(id);
   if (!blog) return res.status(404).json({ error: 'Blog not found' });
-  
+
   if (blog.thumbnail) {
     const publicId = blog.thumbnail.split('/').pop().split('.')[0];
     await cloudinary.uploader.destroy(`sandspire/${publicId}`);
   }
-  
+
   await Blog.findByIdAndDelete(id);
   res.json({ message: 'Blog deleted' });
 }));
@@ -236,8 +250,8 @@ app.get('/api/enquiries', withDB(async (req, res) => {
 
 app.post('/api/enquiries', withDB(async (req, res) => {
   const { name, firm, role, email, type, size, sector, geo, timing, overview } = req.body;
-  const newEnquiry = await Enquiry.create({ 
-    name, firm, role, email, type, size, sector, geo, timing, overview 
+  const newEnquiry = await Enquiry.create({
+    name, firm, role, email, type, size, sector, geo, timing, overview
   });
   res.status(201).json(newEnquiry);
 }));

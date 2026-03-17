@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { BrowserRouter, Routes, Route, Navigate, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, Outlet, useLocation } from "react-router-dom";
 import Navigation from "./components/sections/Navigation";
 import Hero from "./components/sections/Hero";
 import Marquee from "./components/sections/Marquee";
@@ -18,6 +18,11 @@ import Footer from "./components/sections/Footer";
 import NewsSection from "./components/sections/NewsSection";
 import ServicesSection from "./components/sections/ServicesSection";
 import BlogsSection from "./components/sections/BlogsSection";
+import NewsPage from "./pages/NewsPage";
+import NewsDetailPage from "./pages/NewsDetailPage";
+import BlogPage from "./pages/BlogPage";
+import BlogDetailPage from "./pages/BlogDetailPage";
+import ServicesPage from "./pages/ServicesPage";
 import AdminLayout from "./components/admin/AdminLayout";
 import AdminDashboard from "./components/admin/AdminDashboard";
 import AdminNews from "./components/admin/AdminNews";
@@ -395,7 +400,7 @@ button,input,select,textarea { font:inherit; outline:none; }
 .mg-contact-left-photo { position:absolute; inset:0; }
 .mg-contact-left-photo img { filter:brightness(0.3); }
 .mg-contact-left-overlay { position:absolute; inset:0; background:linear-gradient(90deg,transparent 50%,var(--ch3) 100%); }
-.mg-contact-left-content { position:absolute; bottom:60px; left:60px; right:60px; z-index:1; }
+.mg-contact-left-content { position:absolute; top:50%; left:60px; right:60px; z-index:1; transform:translateY(-50%); }
 .mg-contact-left-h { font-family:var(--serif); font-size:2.8rem; font-weight:300; color:var(--text); line-height:1.1; margin-bottom:20px; }
 .mg-contact-left-d { font-family:var(--body); font-size:0.95rem; color:var(--textD); line-height:1.8; margin-bottom:32px; }
 .mg-contact-offices { display:flex; flex-direction:column; gap:16px; }
@@ -475,7 +480,7 @@ button,input,select,textarea { font:inherit; outline:none; }
 `;
 
 /* ─── DATA ─── */
-const MARQUEE_ITEMS = ["Shield","Command","Capital","Intelligence","Resolve","Project Finance","Debt Restructuring","Special Situations","PPP","Infrastructure Advisory","Distressed M&A","Capital Structuring","GCC","Sub-Saharan Africa","Greenfield","Refinancing"];
+const MARQUEE_ITEMS = ["Shield", "Command", "Capital", "Intelligence", "Resolve", "Project Finance", "Debt Restructuring", "Special Situations", "PPP", "Infrastructure Advisory", "Distressed M&A", "Capital Structuring", "GCC", "Sub-Saharan Africa", "Greenfield", "Refinancing"];
 
 // Main website component
 function MainWebsite() {
@@ -485,8 +490,9 @@ function MainWebsite() {
   const [hovering, setHovering] = useState(false);
   const dotRef = useRef(null);
   const ringRef = useRef(null);
-  const mouseRef = useRef({ x:0, y:0 });
-  const ringPos = useRef({ x:0, y:0 });
+  const mouseRef = useRef({ x: 0, y: 0 });
+  const ringPos = useRef({ x: 0, y: 0 });
+  const location = useLocation();
 
   useScrollReveal();
 
@@ -512,12 +518,12 @@ function MainWebsite() {
   }, []);
 
   useEffect(() => {
-    const mm = (e) => { 
-      mouseRef.current = { x: e.clientX, y: e.clientY }; 
-      if (dotRef.current) { 
-        dotRef.current.style.left = e.clientX+"px"; 
-        dotRef.current.style.top = e.clientY+"px"; 
-      } 
+    const mm = (e) => {
+      mouseRef.current = { x: e.clientX, y: e.clientY };
+      if (dotRef.current) {
+        dotRef.current.style.left = e.clientX + "px";
+        dotRef.current.style.top = e.clientY + "px";
+      }
     };
     document.addEventListener("mousemove", mm);
     let id;
@@ -525,37 +531,46 @@ function MainWebsite() {
       const { x, y } = mouseRef.current;
       ringPos.current.x += (x - ringPos.current.x) * 0.11;
       ringPos.current.y += (y - ringPos.current.y) * 0.11;
-      if (ringRef.current) { 
-        ringRef.current.style.left = ringPos.current.x+"px"; 
-        ringRef.current.style.top = ringPos.current.y+"px"; 
+      if (ringRef.current) {
+        ringRef.current.style.left = ringPos.current.x + "px";
+        ringRef.current.style.top = ringPos.current.y + "px";
       }
       id = requestAnimationFrame(anim);
     };
     anim();
-    return () => { 
-      document.removeEventListener("mousemove", mm); 
-      cancelAnimationFrame(id); 
+    return () => {
+      document.removeEventListener("mousemove", mm);
+      cancelAnimationFrame(id);
     };
   }, []);
+
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const el = document.querySelector(location.hash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 500);
+    }
+  }, [location.hash]);
 
   const scrollTo = useCallback((id) => {
     setMobileOpen(false);
     const el = document.querySelector(id);
-    if (el) el.scrollIntoView({ behavior:"smooth", block:"start" });
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   }, []);
 
-  const hoverProps = { 
-    onMouseEnter: () => setHovering(true), 
-    onMouseLeave: () => setHovering(false) 
+  const hoverProps = {
+    onMouseEnter: () => setHovering(true),
+    onMouseLeave: () => setHovering(false)
   };
 
   return (
-    <div className={`mg-noise ${hovering ? "mg-hovering" : ""}`} style={{position:"relative"}}>
+    <div className={`mg-noise ${hovering ? "mg-hovering" : ""}`} style={{ position: "relative" }}>
       <div className="mg-cur-dot" ref={dotRef} />
       <div className="mg-cur-ring" ref={ringRef} />
 
       <div className={`mg-loader ${loaderOut ? "out" : ""}`}>
-        <div className="mg-loader-photo"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80&fit=crop" alt="" /></div>
+        <div className="mg-loader-photo"><img src="/images/infrastructure/oil_rig.jpeg" alt="" /></div>
         <div className="mg-loader-overlay" />
         <div className="mg-loader-content">
           <div className="mg-loader-name"><span className="mg-loader-name-inner">Mayspear</span></div>
@@ -564,9 +579,9 @@ function MainWebsite() {
         </div>
       </div>
 
-      <Navigation 
-        navScrolled={navScrolled} 
-        mobileOpen={mobileOpen} 
+      <Navigation
+        navScrolled={navScrolled}
+        mobileOpen={mobileOpen}
         setMobileOpen={setMobileOpen}
         scrollTo={scrollTo}
         hoverProps={hoverProps}
@@ -605,6 +620,11 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainWebsite />} />
+        <Route path="/news" element={<NewsPage />} />
+        <Route path="/news/:id" element={<NewsDetailPage />} />
+        <Route path="/blogs" element={<BlogPage />} />
+        <Route path="/blogs/:id" element={<BlogDetailPage />} />
+        <Route path="/services" element={<ServicesPage />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin" element={<ProtectedRoute />}>
           <Route element={<AdminLayout />}>

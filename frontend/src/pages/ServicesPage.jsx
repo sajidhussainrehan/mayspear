@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback } from "react";
 import Navigation from "../components/sections/Navigation";
 import Footer from "../components/sections/Footer";
-import BlogsSection from "../components/sections/BlogsSection";
+import ServicesSection from "../components/sections/ServicesSection";
 import { useScrollReveal } from "../hooks/useUtils";
 
-export default function BlogPage() {
+export default function ServicesPage() {
   const [navScrolled, setNavScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hovering, setHovering] = useState(false);
@@ -39,7 +39,7 @@ export default function BlogPage() {
         hoverProps={hoverProps}
       />
       <div style={{ paddingTop: "100px" }}>
-        <BlogsSection isFull={true} />
+        <ServicesSection isFull={true} />
       </div>
       <Footer scrollTo={scrollTo} hoverProps={hoverProps} />
     </div>

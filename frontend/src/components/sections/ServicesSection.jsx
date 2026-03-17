@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { getServices } from "../../services/api";
 import { ScrollReveal } from "../common/ScrollReveal";
 import ServeIcon from "../common/ServeIcon";
+import { Link } from "react-router-dom";
 
-export default function ServicesSection() {
+export default function ServicesSection({ isFull = false }) {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -34,6 +35,8 @@ export default function ServicesSection() {
     );
   }
 
+  const displayServices = isFull ? services : services.slice(0, 6);
+
   return (
     <section id="services" className="mg-services-display" style={{ padding: "130px 0", background: "var(--ch2)", borderTop: "1px solid rgba(200,191,176,0.06)" }}>
       <div className="mg-container">
@@ -44,12 +47,12 @@ export default function ServicesSection() {
 
         <div style={{ 
           display: "grid", 
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", 
+          gridTemplateColumns: "repeat(3, 1fr)", 
           gap: "2px", 
           marginTop: "60px",
           background: "rgba(200,191,176,0.06)"
-        }}>
-          {services.map((service, index) => (
+        }} className="mg-services-grid">
+          {displayServices.map((service, index) => (
             <ScrollReveal key={service._id || index} style={{ transitionDelay: `${index * 65}ms` }}>
               <div style={{
                 background: "var(--ch3)",
@@ -57,6 +60,7 @@ export default function ServicesSection() {
                 position: "relative",
                 overflow: "hidden",
                 transition: "background 0.4s",
+                height: "100%",
                 minHeight: "280px"
               }} className="service-card">
                 <div style={{
@@ -99,6 +103,14 @@ export default function ServicesSection() {
           ))}
         </div>
 
+        {!isFull && services.length > 0 && (
+          <div style={{ textAlign: "center", marginTop: "60px" }}>
+            <Link to="/services" className="mg-btn-brass" style={{ textDecoration: 'none' }}>
+              <span>View All Services</span>
+            </Link>
+          </div>
+        )}
+
         {services.length === 0 && (
           <div style={{ textAlign: "center", padding: "60px 0", color: "var(--textF)", background: "var(--ch3)", marginTop: "60px" }}>
             <p>No services available.</p>
@@ -112,6 +124,12 @@ export default function ServicesSection() {
         }
         .service-card:hover .service-card-line {
           transform: scaleX(1);
+        }
+        @media(max-width: 1000px) {
+          .mg-services-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media(max-width: 600px) {
+          .mg-services-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>

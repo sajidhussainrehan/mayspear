@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { getBlogs } from "../../services/api";
 import { ScrollReveal } from "../common/ScrollReveal";
+import { Link } from "react-router-dom";
 
-export default function BlogsSection() {
+export default function BlogsSection({ isFull = false }) {
   const [blogs, setBlogs] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -33,6 +34,8 @@ export default function BlogsSection() {
     );
   }
 
+  const displayBlogs = isFull ? blogs : blogs.slice(0, 6);
+
   return (
     <section id="blogs" className="mg-events" style={{ padding: "130px 0", background: "var(--ch)", borderTop: "1px solid rgba(200,191,176,0.06)" }}>
       <div className="mg-container">
@@ -41,14 +44,22 @@ export default function BlogsSection() {
           <h2 className="mg-sec-h">Thought <em>Leadership</em></h2>
         </ScrollReveal>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "32px", marginTop: "60px" }}>
-          {blogs.map((blog, index) => (
+        <div style={{ 
+          display: "grid", 
+          gridTemplateColumns: "repeat(3, 1fr)", 
+          gap: "32px", 
+          marginTop: "60px" 
+        }} className="mg-blogs-grid">
+          {displayBlogs.map((blog, index) => (
             <ScrollReveal key={blog._id || index} style={{ transitionDelay: `${index * 100}ms` }}>
               <article style={{
                 background: "var(--ch3)",
                 borderLeft: "3px solid var(--brass)",
                 padding: "32px",
-                transition: "all 0.3s"
+                transition: "all 0.3s",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column"
               }} className="blog-card">
                 <div style={{ 
                   display: "flex",
@@ -107,14 +118,33 @@ export default function BlogsSection() {
                   color: "var(--textD)",
                   lineHeight: 1.8,
                   borderTop: "1px solid rgba(200,191,176,0.1)",
-                  paddingTop: "16px"
+                  paddingTop: "16px",
+                  marginBottom: "24px",
+                  display: "-webkit-box",
+                  WebkitLineClamp: 3,
+                  WebkitBoxOrient: "vertical",
+                  overflow: "hidden"
                 }}>
                   {blog.description}
                 </p>
+
+                <div style={{ marginTop: "auto" }}>
+                  <Link to={`/blogs/${blog._id}`} className="mg-btn-brass" style={{ padding: "8px 20px", fontSize: "0.58rem", textDecoration: 'none' }}>
+                    <span>Read Full Post</span>
+                  </Link>
+                </div>
               </article>
             </ScrollReveal>
           ))}
         </div>
+
+        {!isFull && blogs.length > 0 && (
+          <div style={{ textAlign: "center", marginTop: "60px" }}>
+            <Link to="/blogs" className="mg-btn-brass" style={{ textDecoration: 'none' }}>
+              <span>View All Blogs</span>
+            </Link>
+          </div>
+        )}
 
         {blogs.length === 0 && (
           <div style={{ textAlign: "center", padding: "60px 0", color: "var(--textF)" }}>
@@ -128,6 +158,12 @@ export default function BlogsSection() {
           background: var(--ch4);
           border-left-color: var(--brass2);
           transform: translateX(4px);
+        }
+        @media(max-width: 1100px) {
+          .mg-blogs-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media(max-width: 700px) {
+          .mg-blogs-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </section>

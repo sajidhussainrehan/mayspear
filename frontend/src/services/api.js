@@ -42,7 +42,7 @@ export async function createTeamMember(member) {
   if (member.image) {
     formData.append('image', member.image);
   }
-  
+
   const res = await fetch(`${API_URL}/team`, {
     method: 'POST',
     body: formData
@@ -58,7 +58,7 @@ export async function updateTeamMember(id, member) {
   if (member.image) {
     formData.append('image', member.image);
   }
-  
+
   const res = await fetch(`${API_URL}/team/${id}`, {
     method: 'PUT',
     body: formData
@@ -85,7 +85,7 @@ export async function createNews(news) {
   if (news.thumbnail) {
     formData.append('thumbnail', news.thumbnail);
   }
-  
+
   const res = await fetch(`${API_URL}/news`, {
     method: 'POST',
     body: formData
@@ -102,7 +102,7 @@ export async function updateNews(id, news) {
   if (news.thumbnail) {
     formData.append('thumbnail', news.thumbnail);
   }
-  
+
   const res = await fetch(`${API_URL}/news/${id}`, {
     method: 'PUT',
     body: formData
@@ -112,6 +112,11 @@ export async function updateNews(id, news) {
 
 export async function deleteNews(id) {
   await fetch(`${API_URL}/news/${id}`, { method: 'DELETE' });
+}
+
+export async function getNewsById(id) {
+  const res = await fetch(`${API_URL}/news/${id}`);
+  return res.json();
 }
 
 // ============ BLOGS API ============
@@ -129,7 +134,7 @@ export async function createBlog(blog) {
   if (blog.thumbnail) {
     formData.append('thumbnail', blog.thumbnail);
   }
-  
+
   const res = await fetch(`${API_URL}/blogs`, {
     method: 'POST',
     body: formData
@@ -146,7 +151,7 @@ export async function updateBlog(id, blog) {
   if (blog.thumbnail) {
     formData.append('thumbnail', blog.thumbnail);
   }
-  
+
   const res = await fetch(`${API_URL}/blogs/${id}`, {
     method: 'PUT',
     body: formData
@@ -156,6 +161,11 @@ export async function updateBlog(id, blog) {
 
 export async function deleteBlog(id) {
   await fetch(`${API_URL}/blogs/${id}`, { method: 'DELETE' });
+}
+
+export async function getBlogById(id) {
+  const res = await fetch(`${API_URL}/blogs/${id}`);
+  return res.json();
 }
 
 // ============ ENQUIRIES API ============
