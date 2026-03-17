@@ -133,6 +133,13 @@ button,input,select,textarea { font:inherit; outline:none; }
   font-family:var(--serif); font-size:2rem; font-weight:300; color:var(--textD); transition:color .3s; cursor:pointer;
 }
 .mg-nav-mobile a:hover { color:var(--brass2); }
+.mg-nav-mobile-close {
+  position:absolute; top:24px; right:28px;
+  font-family:var(--serif); font-size:2.5rem; font-weight:300;
+  color:var(--textD); cursor:pointer; transition:color .3s;
+  line-height:1; z-index:491;
+}
+.mg-nav-mobile-close:hover { color:var(--brass2); }
 
 /* SHARED */
 .mg-container { max-width:1440px; margin:0 auto; padding:0 72px; }

@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 export default function Navigation({ navScrolled, mobileOpen, setMobileOpen, scrollTo, hoverProps }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const navLinks = ["#news", "#blogs", "#services", "#pillars", "#sectors", "#serve", "#approach", "#intelligence", "#contact"];
+  const navLinks = ["#services", "#pillars", "#sectors", "#serve", "#approach", "#intelligence", "#contact"];
 
   const handleNav = (href) => {
     setMobileOpen(false);
@@ -33,6 +33,7 @@ export default function Navigation({ navScrolled, mobileOpen, setMobileOpen, scr
 
       {/* MOBILE NAV */}
       <div className={`mg-nav-mobile ${mobileOpen ? "open" : ""}`}>
+        <div className="mg-nav-mobile-close" onClick={() => setMobileOpen(false)} {...hoverProps}>×</div>
         {navLinks.map((href,i)=>(
           <a key={i} onClick={() => handleNav(href)} {...hoverProps}>{href.slice(1).charAt(0).toUpperCase()+href.slice(2)}</a>
         ))}
