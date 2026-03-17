@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 export default function Navigation({ navScrolled, mobileOpen, setMobileOpen, scrollTo, hoverProps }) {
   const navigate = useNavigate();
   const location = useLocation();
-  const navLinks = ["#services", "#pillars", "#sectors", "#serve", "#approach", "#intelligence", "#contact"];
+  const navLinks = ["#services", "#pillars", "#sectors", "#serve", "#approach", "#intelligence", "#news", "#blogs", "#contact"];
 
   const handleNav = (href) => {
     setMobileOpen(false);
