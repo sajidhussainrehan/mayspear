@@ -588,8 +588,6 @@ function MainWebsite() {
       />
 
       <Hero scrollTo={scrollTo} hoverProps={hoverProps} />
-      <NewsSection />
-      <BlogsSection />
       <ServicesSection />
       <Marquee />
       <Manifesto />
@@ -602,6 +600,8 @@ function MainWebsite() {
       <ResolveDepth />
       <Intelligence />
       <Geography />
+      <NewsSection />
+      <BlogsSection />
       <Contact />
       <Footer scrollTo={scrollTo} hoverProps={hoverProps} />
     </div>
