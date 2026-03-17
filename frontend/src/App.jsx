@@ -463,7 +463,7 @@ button,input,select,textarea { font:inherit; outline:none; }
   .mg-nav-links { display:none; }
   .mg-nav-cta { display:none; }
   .mg-nav-burger { display:flex; }
-  .mg-hero { grid-template-columns:1fr; }
+  .mg-hero { grid-template-columns:1fr; min-height:auto; }
   .mg-hero-right { display:none; }
   .mg-hero-left { padding:120px 28px 60px; }
   .mg-manifesto-grid, .mg-manifesto-cols, .mg-resolve-grid, .mg-contact-grid, .mg-approach-grid { grid-template-columns:1fr; }
@@ -484,11 +484,130 @@ button,input,select,textarea { font:inherit; outline:none; }
   .mg-hero-stats { flex-wrap:wrap; }
   .mg-sectors-head, .mg-serve-head, .mg-intel-head, .mg-pillars-intro { grid-template-columns:1fr; }
   .mg-sectors-grid { grid-template-columns:repeat(2,1fr); }
+  .mg-manifesto { padding:80px 0; }
+  .mg-manifesto-left { padding:40px 28px; }
+  .mg-gap { padding:60px 0; }
+  .mg-pillars { padding:80px 0; }
+  .mg-pillars-intro { gap:40px; margin-bottom:48px; }
+  .mg-sectors { padding:80px 0; }
+  .mg-sectors-head { gap:40px; margin-bottom:40px; }
+  .mg-capabilities { padding:80px 0; }
+  .mg-serve { padding:80px 0; }
+  .mg-serve-head { gap:40px; margin-bottom:40px; }
+  .mg-approach { padding:80px 0; }
+  .mg-approach-grid { gap:40px; margin-top:40px; }
+  .mg-approach-photo { height:400px; }
+  .mg-approach-steps { padding-left:24px; }
+  .mg-resolve-depth { padding:80px 0; }
+  .mg-resolve-grid { min-height:auto; margin-top:40px; }
+  .mg-intelligence { padding:80px 0; }
+  .mg-intel-head { gap:40px; margin-bottom:40px; }
+  .mg-contact { padding:80px 0; }
+  .mg-contact-grid { min-height:auto; }
 }
-`;
 
-/* ─── DATA ─── */
-const MARQUEE_ITEMS = ["Shield", "Command", "Capital", "Intelligence", "Resolve", "Project Finance", "Debt Restructuring", "Special Situations", "PPP", "Infrastructure Advisory", "Distressed M&A", "Capital Structuring", "GCC", "Sub-Saharan Africa", "Greenfield", "Refinancing"];
+@media(max-width:768px) {
+  .mg-container { padding-left:20px; padding-right:20px; }
+  .mg-nav { padding:16px 20px; }
+  .mg-nav.scrolled { padding:12px 20px; }
+  .mg-hero-left { padding:100px 20px 40px; }
+  .mg-hero-h1 { font-size:clamp(2.2rem,8vw,3.5rem); }
+  .mg-hero-body { font-size:0.95rem; margin-bottom:32px; }
+  .mg-hero-stats { margin-bottom:32px; }
+  .mg-hero-stat { padding:14px 20px; }
+  .mg-hero-stat-n { font-size:1.3rem; }
+  .mg-manifesto { padding:60px 0; }
+  .mg-manifesto-left { padding:30px 20px; }
+  .mg-manifesto-quote { font-size:clamp(1.3rem,4vw,1.8rem); padding-left:20px; margin-bottom:30px; }
+  .mg-manifesto-cols { grid-template-columns:1fr; gap:24px; }
+  .mg-manifesto-right { height:250px; }
+  .mg-gap { padding:50px 0; }
+  .mg-gap-grid { margin-top:40px; }
+  .mg-gap-card { padding:36px 24px; }
+  .mg-gap-card-num { font-size:3.5rem; }
+  .mg-pillars { padding:60px 0; }
+  .mg-pillars-intro { gap:24px; margin-bottom:36px; }
+  .mg-pillar-card { min-height:400px; }
+  .mg-pillar-content { padding:32px 24px; }
+  .mg-pillar-name { font-size:1.6rem; }
+  .mg-sectors { padding:60px 0; }
+  .mg-sectors-head { gap:24px; margin-bottom:32px; }
+  .mg-sectors-grid { grid-template-columns:1fr; }
+  .mg-sector-item { min-height:220px; }
+  .mg-capabilities { padding:60px 0; }
+  .mg-caps-head { margin-bottom:40px; }
+  .mg-tab-panel { padding:40px 24px; }
+  .mg-tab-panel-h { font-size:1.6rem; }
+  .mg-serve { padding:60px 0; }
+  .mg-serve-head { gap:24px; margin-bottom:32px; }
+  .mg-serve-card { padding:36px 24px; }
+  .mg-approach { padding:60px 0; }
+  .mg-approach-grid { gap:32px; margin-top:32px; }
+  .mg-approach-photo { height:300px; }
+  .mg-approach-steps { padding-left:20px; }
+  .mg-approach-step { padding:24px 0; }
+  .mg-resolve-depth { padding:60px 0; }
+  .mg-resolve-grid { margin-top:32px; }
+  .mg-resolve-photo { height:250px; }
+  .mg-resolve-right { padding:32px 20px; }
+  .mg-resolve-service { padding:24px 0; }
+  .mg-resolve-service-t { font-size:1.2rem; }
+  .mg-intelligence { padding:60px 0; }
+  .mg-intel-head { gap:24px; margin-bottom:32px; }
+  .mg-intel-grid { grid-template-columns:1fr; }
+  .mg-intel-card { min-height:280px; }
+  .mg-geo-grid { grid-template-columns:1fr; }
+  .mg-geo-city { height:200px; }
+  .mg-contact { padding:60px 0; }
+  .mg-contact-left { height:250px; }
+  .mg-contact-left-content { left:20px; right:20px; bottom:20px; }
+  .mg-contact-left-h { font-size:2.2rem; }
+  .mg-contact-right { padding:32px 20px; }
+  .mg-f-row { grid-template-columns:1fr; }
+  .mg-footer { padding:60px 0 0; }
+  .mg-footer-grid { grid-template-columns:1fr; gap:40px; padding-bottom:40px; }
+  .mg-footer-bottom { padding:20px 0; }
+  .mg-sec-h { font-size:clamp(2.2rem,6vw,3rem); }
+}
+
+@media(max-width:480px) {
+  .mg-container { padding-left:16px; padding-right:16px; }
+  .mg-nav { padding:14px 16px; }
+  .mg-hero-left { padding:90px 16px 32px; }
+  .mg-hero-h1 { font-size:clamp(1.9rem,7vw,2.8rem); margin-bottom:20px; }
+  .mg-hero-body { font-size:0.9rem; line-height:1.7; margin-bottom:24px; }
+  .mg-hero-stats { flex-direction:column; gap:8px; margin-bottom:24px; }
+  .mg-hero-stat { padding:12px 16px; border:1px solid rgba(200,191,176,0.12); }
+  .mg-hero-stat+.mg-hero-stat { border-left:1px solid rgba(200,191,176,0.12); }
+  .mg-hero-ctas { flex-direction:column; gap:12px; }
+  .mg-btn-brass, .mg-btn-outline { width:100%; justify-content:center; }
+  .mg-manifesto { padding:50px 0; }
+  .mg-manifesto-left { padding:24px 16px; }
+  .mg-gap { padding:40px 0; }
+  .mg-pillars { padding:50px 0; }
+  .mg-pillar-card { min-height:350px; }
+  .mg-pillar-content { padding:28px 20px; }
+  .mg-sectors { padding:50px 0; }
+  .mg-sector-content { padding:20px; }
+  .mg-capabilities { padding:50px 0; }
+  .mg-tab-panel { padding:32px 16px; }
+  .mg-serve { padding:50px 0; }
+  .mg-serve-card { padding:28px 20px; }
+  .mg-approach { padding:50px 0; }
+  .mg-approach-photo { height:250px; }
+  .mg-approach-step { padding:20px 0; }
+  .mg-approach-step-t { font-size:1.1rem; }
+  .mg-resolve-depth { padding:50px 0; }
+  .mg-resolve-photo { height:200px; }
+  .mg-intelligence { padding:50px 0; }
+  .mg-contact { padding:50px 0; }
+  .mg-contact-left { height:200px; }
+  .mg-contact-left-h { font-size:1.8rem; }
+  .mg-contact-left-d { font-size:0.88rem; }
+  .mg-footer { padding:50px 0 0; }
+  .mg-footer-grid { gap:32px; }
+  .mg-marquee { padding:16px 0; }
+`;
 
 // Main website component
 function MainWebsite() {
