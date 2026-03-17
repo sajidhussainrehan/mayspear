@@ -1,13 +1,13 @@
 import { ScrollReveal } from "../common/ScrollReveal";
 
 const SECTORS = [
-  { name:"Energy and Power", sub:"Gas, thermal, storage, grid", img:"https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&q=75&fit=crop" },
-  { name:"Transport and Logistics", sub:"Ports, rail, roads, airports", img:"https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=600&q=75&fit=crop" },
-  { name:"Water and Utilities", sub:"Treatment, distribution, waste", img:"https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&q=75&fit=crop" },
-  { name:"Social Infrastructure", sub:"Healthcare, education, housing", img:"https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&q=75&fit=crop" },
-  { name:"Digital Infrastructure", sub:"Data centres, fibre, towers", img:"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=75&fit=crop" },
-  { name:"Renewable Energy and Transition", sub:"Solar, wind, hydrogen, storage", img:"https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=75&fit=crop" },
-  { name:"Special Situations", sub:"All sectors, 100m to 100bn enterprise value", img:"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=75&fit=crop" },
+  { name:"Energy and Power", sub:"Gas, thermal, storage, grid", img:"/4.jpeg" },
+  { name:"Transport and Logistics", sub:"Ports, rail, roads, airports", img:"/5.jpeg" },
+  { name:"Water and Utilities", sub:"Treatment, distribution, waste", img:"/6.jpeg" },
+  { name:"Social Infrastructure", sub:"Healthcare, education, housing", img:"7.jpeg" },
+  { name:"Digital Infrastructure", sub:"Data centres, fibre, towers", img:"3.jpeg" },
+  { name:"Renewable Energy and Transition", sub:"Solar, wind, hydrogen, storage", img:"1.png" },
+  { name:"Special Situations", sub:"All sectors, 100m to 100bn enterprise value", img:"2.png" },
 ];
 
 export default function Sectors() {
