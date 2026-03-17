@@ -565,8 +565,10 @@ button,input,select,textarea { font:inherit; outline:none; }
   .mg-contact-right { padding:32px 20px; }
   .mg-f-row { grid-template-columns:1fr; }
   .mg-footer { padding:60px 0 0; }
-  .mg-footer-grid { grid-template-columns:1fr; gap:40px; padding-bottom:40px; }
-  .mg-footer-bottom { padding:20px 0; }
+  .mg-footer-grid { grid-template-columns:1fr; gap:40px; padding-bottom:40px; text-align:center; }
+  .mg-footer-bottom { padding:20px 0; flex-direction:column; align-items:center; text-align:center; }
+  .mg-footer-legal { text-align:center; }
+  .mg-footer-copy { text-align:center; }
   .mg-sec-h { font-size:clamp(2.2rem,6vw,3rem); }
 }
 
