@@ -124,9 +124,9 @@ export default function BlogsSection({ isFull = false }) {
                   WebkitLineClamp: 3,
                   WebkitBoxOrient: "vertical",
                   overflow: "hidden"
-                }}>
-                  {blog.description}
-                </p>
+                }}
+                dangerouslySetInnerHTML={{ __html: blog.description }}
+                />
 
                 <div style={{ marginTop: "auto" }}>
                   <Link to={`/blogs/${blog._id}`} className="mg-btn-brass" style={{ padding: "8px 20px", fontSize: "0.58rem", textDecoration: 'none' }}>

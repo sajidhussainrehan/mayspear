@@ -91,11 +91,10 @@ export default function BlogDetailPage() {
                   fontFamily: "var(--body)",
                   fontSize: "1.1rem",
                   color: "var(--textD)",
-                  lineHeight: "1.9",
-                  whiteSpace: "pre-wrap"
-                }}>
-                  {blog.description}
-                </div>
+                  lineHeight: "1.9"
+                }}
+                dangerouslySetInnerHTML={{ __html: blog.description }}
+                />
               </div>
             </ScrollReveal>
           ) : (
