@@ -18,7 +18,7 @@ export default function Approach() {
         </ScrollReveal>
         <div className="mg-approach-grid">
           <ScrollReveal className="mg-approach-photo">
-            <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=900&q=80&fit=crop" alt="Transaction"/>
+            <img src="https://assets.kpmg.com/is/image/kpmgcloud/translucent-shadow-of-a-man:cq5dam-web-656-656?wid=328&amp;hei=328" alt="Transaction"/>
           </ScrollReveal>
           <ScrollReveal>
             <div className="mg-approach-steps">
