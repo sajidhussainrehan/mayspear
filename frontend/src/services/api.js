@@ -1,33 +1,5 @@
 const API_URL = 'https://mayspear-rfsr.vercel.app/api';
 
-// ============ SERVICES API ============
-export async function getServices() {
-  const res = await fetch(`${API_URL}/services`);
-  return res.json();
-}
-
-export async function createService(service) {
-  const res = await fetch(`${API_URL}/services`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(service)
-  });
-  return res.json();
-}
-
-export async function updateService(id, service) {
-  const res = await fetch(`${API_URL}/services/${id}`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(service)
-  });
-  return res.json();
-}
-
-export async function deleteService(id) {
-  await fetch(`${API_URL}/services/${id}`, { method: 'DELETE' });
-}
-
 // ============ TEAM API ============
 export async function getTeam() {
   const res = await fetch(`${API_URL}/team`);

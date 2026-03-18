@@ -7,7 +7,6 @@ export default function AdminLayout() {
   const navItems = [
     { path: "/admin", label: "Dashboard" },
     { path: "/admin/blogs", label: "Blogs" },
-    { path: "/admin/services", label: "Services" },
     { path: "/admin/enquiries", label: "Enquiries" },
   ];
 

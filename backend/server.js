@@ -7,7 +7,6 @@ const cloudinary = require('./config/cloudinary.js');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
 // Import models
-const Service = require('./models/Service.js');
 const Team = require('./models/Team.js');
 const Blog = require('./models/Blog.js');
 const Enquiry = require('./models/Enquiry.js');
@@ -69,32 +68,6 @@ app.get('/', withDB(async (req, res) => {
 app.get('/api', (req, res) => {
   res.json({ message: 'Mayspear API is running' });
 });
-
-// ============ SERVICES API ============
-app.get('/api/services', withDB(async (req, res) => {
-  const services = await Service.find().sort({ createdAt: 1 });
-  res.json(services);
-}));
-
-app.post('/api/services', withDB(async (req, res) => {
-  const { icon, title, description } = req.body;
-  const newService = await Service.create({ icon, title, description });
-  res.status(201).json(newService);
-}));
-
-app.put('/api/services/:id', withDB(async (req, res) => {
-  const { id } = req.params;
-  const updatedService = await Service.findByIdAndUpdate(id, req.body, { new: true });
-  if (!updatedService) return res.status(404).json({ error: 'Service not found' });
-  res.json(updatedService);
-}));
-
-app.delete('/api/services/:id', withDB(async (req, res) => {
-  const { id } = req.params;
-  const deleted = await Service.findByIdAndDelete(id);
-  if (!deleted) return res.status(404).json({ error: 'Service not found' });
-  res.json({ message: 'Service deleted' });
-}));
 
 // ============ TEAM API ============
 app.get('/api/team', withDB(async (req, res) => {

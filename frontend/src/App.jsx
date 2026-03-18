@@ -15,15 +15,12 @@ import Intelligence from "./components/sections/Intelligence";
 import Geography from "./components/sections/Geography";
 import Contact from "./components/sections/Contact";
 import Footer from "./components/sections/Footer";
-import ServicesSection from "./components/sections/ServicesSection";
 import BlogsSection from "./components/sections/BlogsSection";
 import BlogPage from "./pages/BlogPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
-import ServicesPage from "./pages/ServicesPage";
 import AdminLayout from "./components/admin/AdminLayout";
 import AdminDashboard from "./components/admin/AdminDashboard";
 import AdminBlogs from "./components/admin/AdminBlogs";
-import AdminServices from "./components/admin/AdminServices";
 import AdminEnquiries from "./components/admin/AdminEnquiries";
 import AdminLogin from "./components/admin/AdminLogin";
 import { useScrollReveal } from "./hooks/useUtils";
@@ -734,7 +731,6 @@ function MainWebsite() {
       />
 
       <Hero scrollTo={scrollTo} hoverProps={hoverProps} />
-      <ServicesSection />
       <Marquee />
       <Manifesto />
       <Gap />
@@ -767,13 +763,11 @@ export default function App() {
         <Route path="/" element={<MainWebsite />} />
         <Route path="/blogs" element={<BlogPage />} />
         <Route path="/blogs/:id" element={<BlogDetailPage />} />
-        <Route path="/services" element={<ServicesPage />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin" element={<ProtectedRoute />}>
           <Route element={<AdminLayout />}>
             <Route index element={<AdminDashboard />} />
             <Route path="blogs" element={<AdminBlogs />} />
-            <Route path="services" element={<AdminServices />} />
             <Route path="enquiries" element={<AdminEnquiries />} />
           </Route>
         </Route>
