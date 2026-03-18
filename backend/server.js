@@ -9,7 +9,6 @@ const { CloudinaryStorage } = require('multer-storage-cloudinary');
 // Import models
 const Service = require('./models/Service.js');
 const Team = require('./models/Team.js');
-const News = require('./models/News.js');
 const Blog = require('./models/Blog.js');
 const Enquiry = require('./models/Enquiry.js');
 
@@ -141,56 +140,6 @@ app.delete('/api/team/:id', withDB(async (req, res) => {
 }));
 
 // ============ NEWS API ============
-app.get('/api/news', withDB(async (req, res) => {
-  const news = await News.find().sort({ createdAt: -1 });
-  res.json(news);
-}));
-
-app.get('/api/news/:id', withDB(async (req, res) => {
-  const { id } = req.params;
-  const item = await News.findById(id);
-  if (!item) return res.status(404).json({ error: 'News not found' });
-  res.json(item);
-}));
-
-app.post('/api/news', upload.single('thumbnail'), withDB(async (req, res) => {
-  const { date, category, title, subtitle, author, issue, description } = req.body;
-  const newsDate = date || new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
-  const thumbnail = req.file ? req.file.path : null;
-  const newNews = await News.create({ date: newsDate, category, title, subtitle, author, issue, description, thumbnail });
-  res.status(201).json(newNews);
-}));
-
-app.put('/api/news/:id', upload.single('thumbnail'), withDB(async (req, res) => {
-  const { id } = req.params;
-  const updateData = { ...req.body };
-  if (req.file) {
-    const existing = await News.findById(id);
-    if (existing && existing.thumbnail) {
-      const publicId = existing.thumbnail.split('/').pop().split('.')[0];
-      await cloudinary.uploader.destroy(`sandspire/${publicId}`);
-    }
-    updateData.thumbnail = req.file.path;
-  }
-  const updated = await News.findByIdAndUpdate(id, updateData, { new: true });
-  if (!updated) return res.status(404).json({ error: 'News not found' });
-  res.json(updated);
-}));
-
-app.delete('/api/news/:id', withDB(async (req, res) => {
-  const { id } = req.params;
-  const newsItem = await News.findById(id);
-  if (!newsItem) return res.status(404).json({ error: 'News not found' });
-
-  if (newsItem.thumbnail) {
-    const publicId = newsItem.thumbnail.split('/').pop().split('.')[0];
-    await cloudinary.uploader.destroy(`sandspire/${publicId}`);
-  }
-
-  await News.findByIdAndDelete(id);
-  res.json({ message: 'News deleted' });
-}));
-
 // ============ BLOGS API ============
 app.get('/api/blogs', withDB(async (req, res) => {
   const blogs = await Blog.find().sort({ createdAt: -1 });

@@ -70,61 +70,6 @@ export async function deleteTeamMember(id) {
   await fetch(`${API_URL}/team/${id}`, { method: 'DELETE' });
 }
 
-// ============ NEWS API ============
-export async function getNews() {
-  const res = await fetch(`${API_URL}/news`);
-  return res.json();
-}
-
-export async function createNews(news) {
-  const formData = new FormData();
-  formData.append('date', news.date);
-  formData.append('category', news.category);
-  formData.append('title', news.title);
-  formData.append('subtitle', news.subtitle || '');
-  formData.append('author', news.author || '');
-  formData.append('issue', news.issue || '');
-  formData.append('description', news.description);
-  if (news.thumbnail) {
-    formData.append('thumbnail', news.thumbnail);
-  }
-
-  const res = await fetch(`${API_URL}/news`, {
-    method: 'POST',
-    body: formData
-  });
-  return res.json();
-}
-
-export async function updateNews(id, news) {
-  const formData = new FormData();
-  if (news.date) formData.append('date', news.date);
-  if (news.category) formData.append('category', news.category);
-  if (news.title) formData.append('title', news.title);
-  if (news.hasOwnProperty('subtitle')) formData.append('subtitle', news.subtitle || '');
-  if (news.hasOwnProperty('author')) formData.append('author', news.author || '');
-  if (news.hasOwnProperty('issue')) formData.append('issue', news.issue || '');
-  if (news.description) formData.append('description', news.description);
-  if (news.thumbnail) {
-    formData.append('thumbnail', news.thumbnail);
-  }
-
-  const res = await fetch(`${API_URL}/news/${id}`, {
-    method: 'PUT',
-    body: formData
-  });
-  return res.json();
-}
-
-export async function deleteNews(id) {
-  await fetch(`${API_URL}/news/${id}`, { method: 'DELETE' });
-}
-
-export async function getNewsById(id) {
-  const res = await fetch(`${API_URL}/news/${id}`);
-  return res.json();
-}
-
 // ============ BLOGS API ============
 export async function getBlogs() {
   const res = await fetch(`${API_URL}/blogs`);

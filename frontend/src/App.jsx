@@ -15,17 +15,13 @@ import Intelligence from "./components/sections/Intelligence";
 import Geography from "./components/sections/Geography";
 import Contact from "./components/sections/Contact";
 import Footer from "./components/sections/Footer";
-import NewsSection from "./components/sections/NewsSection";
 import ServicesSection from "./components/sections/ServicesSection";
 import BlogsSection from "./components/sections/BlogsSection";
-import NewsPage from "./pages/NewsPage";
-import NewsDetailPage from "./pages/NewsDetailPage";
 import BlogPage from "./pages/BlogPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
 import ServicesPage from "./pages/ServicesPage";
 import AdminLayout from "./components/admin/AdminLayout";
 import AdminDashboard from "./components/admin/AdminDashboard";
-import AdminNews from "./components/admin/AdminNews";
 import AdminBlogs from "./components/admin/AdminBlogs";
 import AdminServices from "./components/admin/AdminServices";
 import AdminEnquiries from "./components/admin/AdminEnquiries";
@@ -750,7 +746,6 @@ function MainWebsite() {
       <ResolveDepth />
       <Intelligence />
       <Geography />
-      <NewsSection />
       <BlogsSection />
       <Contact />
       <Footer scrollTo={scrollTo} hoverProps={hoverProps} />
@@ -770,8 +765,6 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainWebsite />} />
-        <Route path="/news" element={<NewsPage />} />
-        <Route path="/news/:id" element={<NewsDetailPage />} />
         <Route path="/blogs" element={<BlogPage />} />
         <Route path="/blogs/:id" element={<BlogDetailPage />} />
         <Route path="/services" element={<ServicesPage />} />
@@ -779,7 +772,6 @@ export default function App() {
         <Route path="/admin" element={<ProtectedRoute />}>
           <Route element={<AdminLayout />}>
             <Route index element={<AdminDashboard />} />
-            <Route path="news" element={<AdminNews />} />
             <Route path="blogs" element={<AdminBlogs />} />
             <Route path="services" element={<AdminServices />} />
             <Route path="enquiries" element={<AdminEnquiries />} />

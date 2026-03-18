@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 
 export default function AdminDashboard() {
   const cards = [
-    { title: "News", path: "/admin/news", count: "Manage articles", icon: "📰" },
     { title: "Blogs", path: "/admin/blogs", count: "Manage posts", icon: "📝" },
     { title: "Services", path: "/admin/services", count: "Manage offerings", icon: "⚙️" },
   ];
@@ -57,7 +56,6 @@ export default function AdminDashboard() {
       }}>
         <h3 style={{ margin: "0 0 12px", fontSize: "1rem", color: "#B8964A" }}>Quick Actions</h3>
         <ul style={{ margin: 0, paddingLeft: "20px", fontSize: "0.9rem", lineHeight: 1.8 }}>
-          <li>Add a new news article to the website</li>
           <li>Publish a blog post</li>
           <li>Update service offerings</li>
         </ul>
