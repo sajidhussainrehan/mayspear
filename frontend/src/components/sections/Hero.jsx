@@ -34,7 +34,7 @@ export default function Hero({ scrollTo, hoverProps }) {
           <button className="mg-btn-brass" onClick={() => scrollTo("#contact")} {...hoverProps}>
             <span>Request Mandate Discussion</span>
           </button>
-          <button className="mg-btn-outline" onClick={() => scrollTo("#pillars")} {...hoverProps}>
+          <button className="mg-btn-outline" style={{ backgroundColor: "#000", color: "#fff", borderColor: "#000" }} onClick={() => scrollTo("#pillars")} {...hoverProps}>
             Our Five Pillars
           </button>
         </div>
