@@ -69,29 +69,59 @@ export default function BlogDetailPage() {
               <div style={{ maxWidth: "900px" }}>
                 <div style={{ 
                   fontFamily: "var(--mono)", 
-                  fontSize: "0.7rem", 
-                  letterSpacing: "0.25em",
+                  fontSize: "0.65rem", 
+                  letterSpacing: "0.3em",
                   color: "var(--brass)",
                   textTransform: "uppercase",
-                  marginBottom: "20px"
+                  marginBottom: "16px"
                 }}>
-                  {blog.date} • {blog.category}
+                  {blog.issue || `${blog.category} | ${blog.date}`}
                 </div>
-                <h1 className="mg-sec-h" style={{ marginBottom: "40px", fontSize: "clamp(2.5rem, 5vw, 4rem)", fontStyle: "italic" }}>
+                
+                <h1 className="mg-sec-h" style={{ marginBottom: "20px", fontSize: "clamp(2.5rem, 6vw, 4.5rem)", lineHeight: "1.1" }}>
                   {blog.title}
                 </h1>
+
+                {blog.subtitle && (
+                  <h2 style={{ 
+                    fontFamily: "var(--serif)", 
+                    fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)", 
+                    fontWeight: 300,
+                    fontStyle: "italic",
+                    color: "rgba(200,191,176,0.7)",
+                    lineHeight: "1.4",
+                    marginBottom: "40px",
+                    maxWidth: "800px"
+                  }}>
+                    {blog.subtitle}
+                  </h2>
+                )}
+
+                <div style={{ 
+                  fontFamily: "var(--mono)", 
+                  fontSize: "0.7rem", 
+                  letterSpacing: "0.1em",
+                  color: "var(--textF)",
+                  marginBottom: "50px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px"
+                }}>
+                  <div style={{ width: "30px", height: "1px", background: "var(--brass2)" }}></div>
+                  BY {blog.author || "MAYSPEAR GLOBAL"}
+                </div>
                 
                 {blog.thumbnail && (
-                  <div style={{ width: "100%", height: "500px", overflow: "hidden", marginBottom: "60px", borderLeft: "4px solid var(--brass)" }}>
+                  <div style={{ width: "100%", height: "550px", overflow: "hidden", marginBottom: "60px", border: "1px solid rgba(184,150,74,0.15)" }}>
                     <img src={blog.thumbnail} alt={blog.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                   </div>
                 )}
                 
                 <div style={{ 
                   fontFamily: "var(--body)",
-                  fontSize: "1.1rem",
+                  fontSize: "1.15rem",
                   color: "var(--textD)",
-                  lineHeight: "1.9"
+                  lineHeight: "1.95"
                 }}
                 dangerouslySetInnerHTML={{ __html: blog.description }}
                 />
