@@ -1,10 +1,21 @@
 import { useState, useEffect } from "react";
 import { getNews, createNews, updateNews, deleteNews } from "../../services/api";
+import ReactQuill from 'react-quill-new';
+import 'react-quill-new/dist/quill.snow.css';
 
 export default function AdminNews() {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [formData, setFormData] = useState({ date: "", category: "", title: "", description: "", thumbnail: null });
+  const [formData, setFormData] = useState({ 
+    date: "", 
+    category: "", 
+    title: "", 
+    subtitle: "", 
+    author: "Mayspear Global", 
+    issue: "", 
+    description: "", 
+    thumbnail: null 
+  });
   const [editingId, setEditingId] = useState(null);
   const [showForm, setShowForm] = useState(false);
 
@@ -50,13 +61,31 @@ export default function AdminNews() {
   };
 
   const handleEdit = (item) => {
-    setFormData({ date: item.date, category: item.category, title: item.title, description: item.description, thumbnail: null });
+    setFormData({ 
+      date: item.date, 
+      category: item.category, 
+      title: item.title, 
+      subtitle: item.subtitle || "", 
+      author: item.author || "Mayspear Global", 
+      issue: item.issue || "", 
+      description: item.description, 
+      thumbnail: null 
+    });
     setEditingId(item._id);
     setShowForm(true);
   };
 
   const resetForm = () => {
-    setFormData({ date: "", category: "", title: "", description: "", thumbnail: null });
+    setFormData({ 
+      date: "", 
+      category: "", 
+      title: "", 
+      subtitle: "", 
+      author: "Mayspear Global", 
+      issue: "", 
+      description: "", 
+      thumbnail: null 
+    });
     setEditingId(null);
     setShowForm(false);
   };
@@ -81,6 +110,18 @@ export default function AdminNews() {
     cursor: "pointer",
     fontSize: "0.85rem",
     fontWeight: 500
+  };
+
+  const quillModules = {
+    toolbar: [
+      [{ 'header': [1, 2, 3, false] }],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+      [{ 'color': [] }, { 'background': [] }],
+      ['link', 'image', 'video'],
+      ['table'],
+      ['clean']
+    ],
   };
 
   if (loading) return <div style={{ padding: "40px", textAlign: "center", color: "#C8BFB0" }}>Loading...</div>;
@@ -131,13 +172,38 @@ export default function AdminNews() {
             style={inputStyle}
             required
           />
-          <textarea 
-            placeholder="Description" 
-            value={formData.description}
-            onChange={(e) => setFormData({...formData, description: e.target.value})}
-            style={{...inputStyle, minHeight: "100px", resize: "vertical"}}
-            required
+          <input 
+            type="text" 
+            placeholder="Subtitle" 
+            value={formData.subtitle}
+            onChange={(e) => setFormData({...formData, subtitle: e.target.value})}
+            style={inputStyle}
           />
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+            <input 
+              type="text" 
+              placeholder="Author" 
+              value={formData.author}
+              onChange={(e) => setFormData({...formData, author: e.target.value})}
+              style={inputStyle}
+            />
+            <input 
+              type="text" 
+              placeholder="Issue (e.g. Issue 01 | Q1 2026)" 
+              value={formData.issue}
+              onChange={(e) => setFormData({...formData, issue: e.target.value})}
+              style={inputStyle}
+            />
+          </div>
+          <div style={{ marginBottom: "20px", background: "white", borderRadius: "4px" }}>
+            <ReactQuill 
+              theme="snow"
+              value={formData.description}
+              onChange={(val) => setFormData({...formData, description: val})}
+              modules={quillModules}
+              style={{ height: "300px", marginBottom: "45px", color: "#000" }}
+            />
+          </div>
           <input 
             type="file" 
             accept="image/*"

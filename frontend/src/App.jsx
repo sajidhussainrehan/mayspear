@@ -609,6 +609,27 @@ button,input,select,textarea { font:inherit; outline:none; }
   .mg-footer { padding:50px 0 0; }
   .mg-footer-grid { gap:32px; }
   .mg-marquee { padding:16px 0; }
+
+  /* RICH TEXT STYLING */
+  .ql-editor table { border-collapse:collapse; width:100% !important; margin:20px 0; border:1px solid rgba(200,191,176,0.15); }
+  .ql-editor table td, .ql-editor table th { border:1px solid rgba(200,191,176,0.15); padding:12px 15px; font-size:0.95rem; }
+  .ql-editor table th { background:rgba(200,191,176,0.05); color:var(--brass2); font-weight:500; text-align:left; }
+  .ql-editor blockquote { border-left:3px solid var(--brass2); padding-left:20px; font-style:italic; color:var(--stone); margin:20px 0; }
+  .ql-editor img { max-width:100%; height:auto; border-radius:4px; margin:20px 0; }
+  .ql-editor p { margin-bottom:1.2em; }
+  .ql-editor a { color:var(--brass2); text-decoration:underline; }
+
+  /* DETAIL PAGE RICH TEXT */
+  main .mg-container table { border-collapse:collapse; width:100% !important; margin:30px 0; border:1px solid rgba(200,191,176,0.15); }
+  main .mg-container table td, main .mg-container table th { border:1px solid rgba(200,191,176,0.15); padding:14px 18px; font-size:1rem; color:var(--textD); }
+  main .mg-container table th { background:rgba(200,191,176,0.05); color:var(--brass2); font-family:var(--mono); font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; text-align:left; }
+  main .mg-container blockquote { border-left:4px solid var(--brass2); padding:10px 0 10px 30px; font-style:italic; color:var(--stone); margin:40px 0; font-family:var(--serif); font-size:1.4rem; }
+  main .mg-container p { margin-bottom:1.5em; }
+  main .mg-container a { color:var(--brass2); text-decoration:underline; }
+  main .mg-container h1, main .mg-container h2, main .mg-container h3 { color:var(--brass2); font-family:var(--serif); line-height:1.2; margin:40px 0 20px; }
+  main .mg-container h1 { font-size:2.4rem; }
+  main .mg-container h2 { font-size:2rem; }
+  main .mg-container h3 { font-size:1.6rem; }
 `;
 
 // Main website component

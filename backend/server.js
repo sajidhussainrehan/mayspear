@@ -154,10 +154,10 @@ app.get('/api/news/:id', withDB(async (req, res) => {
 }));
 
 app.post('/api/news', upload.single('thumbnail'), withDB(async (req, res) => {
-  const { date, category, title, description } = req.body;
+  const { date, category, title, subtitle, author, issue, description } = req.body;
   const newsDate = date || new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
   const thumbnail = req.file ? req.file.path : null;
-  const newNews = await News.create({ date: newsDate, category, title, description, thumbnail });
+  const newNews = await News.create({ date: newsDate, category, title, subtitle, author, issue, description, thumbnail });
   res.status(201).json(newNews);
 }));
 
@@ -205,10 +205,10 @@ app.get('/api/blogs/:id', withDB(async (req, res) => {
 }));
 
 app.post('/api/blogs', upload.single('thumbnail'), withDB(async (req, res) => {
-  const { date, category, title, description } = req.body;
+  const { date, category, title, subtitle, author, issue, description } = req.body;
   const blogDate = date || new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
   const thumbnail = req.file ? req.file.path : null;
-  const newBlog = await Blog.create({ date: blogDate, category, title, description, thumbnail });
+  const newBlog = await Blog.create({ date: blogDate, category, title, subtitle, author, issue, description, thumbnail });
   res.status(201).json(newBlog);
 }));
 
@@ -283,7 +283,11 @@ const PORT = process.env.PORT || 3000;
 
 // For local development
 if (process.env.NODE_ENV !== 'production') {
-  connectToDatabase();
+  connectToDatabase().then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
+  });
 }
 
 // Export for Vercel serverless

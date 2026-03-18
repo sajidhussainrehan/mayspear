@@ -81,6 +81,9 @@ export async function createNews(news) {
   formData.append('date', news.date);
   formData.append('category', news.category);
   formData.append('title', news.title);
+  formData.append('subtitle', news.subtitle || '');
+  formData.append('author', news.author || '');
+  formData.append('issue', news.issue || '');
   formData.append('description', news.description);
   if (news.thumbnail) {
     formData.append('thumbnail', news.thumbnail);
@@ -98,6 +101,9 @@ export async function updateNews(id, news) {
   if (news.date) formData.append('date', news.date);
   if (news.category) formData.append('category', news.category);
   if (news.title) formData.append('title', news.title);
+  if (news.hasOwnProperty('subtitle')) formData.append('subtitle', news.subtitle || '');
+  if (news.hasOwnProperty('author')) formData.append('author', news.author || '');
+  if (news.hasOwnProperty('issue')) formData.append('issue', news.issue || '');
   if (news.description) formData.append('description', news.description);
   if (news.thumbnail) {
     formData.append('thumbnail', news.thumbnail);
@@ -130,6 +136,9 @@ export async function createBlog(blog) {
   formData.append('date', blog.date);
   formData.append('category', blog.category);
   formData.append('title', blog.title);
+  formData.append('subtitle', blog.subtitle || '');
+  formData.append('author', blog.author || '');
+  formData.append('issue', blog.issue || '');
   formData.append('description', blog.description);
   if (blog.thumbnail) {
     formData.append('thumbnail', blog.thumbnail);
@@ -147,6 +156,9 @@ export async function updateBlog(id, blog) {
   if (blog.date) formData.append('date', blog.date);
   if (blog.category) formData.append('category', blog.category);
   if (blog.title) formData.append('title', blog.title);
+  if (blog.hasOwnProperty('subtitle')) formData.append('subtitle', blog.subtitle || '');
+  if (blog.hasOwnProperty('author')) formData.append('author', blog.author || '');
+  if (blog.hasOwnProperty('issue')) formData.append('issue', blog.issue || '');
   if (blog.description) formData.append('description', blog.description);
   if (blog.thumbnail) {
     formData.append('thumbnail', blog.thumbnail);
