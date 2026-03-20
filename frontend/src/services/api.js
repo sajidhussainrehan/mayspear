@@ -1,4 +1,4 @@
-const API_URL = 'https://mayspear-rfsr.vercel.app/api';
+const API_URL = 'http://localhost:3000/api';
 
 // ============ TEAM API ============
 export async function getTeam() {
