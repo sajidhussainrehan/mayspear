@@ -2,9 +2,56 @@ require('dotenv').config();
 const express = require('express');
 const multer = require('multer');
 const cors = require('cors');
+const nodemailer = require('nodemailer');
 const connectDB = require('./config/db.js');
 const cloudinary = require('./config/cloudinary.js');
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
+
+// Configure email transporter
+const transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: process.env.SMTP_PORT || 587,
+  secure: process.env.SMTP_SECURE === 'true',
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS
+  }
+});
+
+// Helper to send admin notification email
+const sendAdminNotification = async (enquiry) => {
+  const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_USER;
+
+  const emailContent = `
+<h2>New Mandate Enquiry Received</h2>
+<p><strong>Name:</strong> ${enquiry.name}</p>
+<p><strong>Firm:</strong> ${enquiry.firm || 'N/A'}</p>
+<p><strong>Role:</strong> ${enquiry.role || 'N/A'}</p>
+<p><strong>Email:</strong> ${enquiry.email}</p>
+<p><strong>Enquiry Type:</strong> ${enquiry.type || 'N/A'}</p>
+<p><strong>Transaction Size:</strong> ${enquiry.size || 'N/A'}</p>
+<p><strong>Sector:</strong> ${enquiry.sector || 'N/A'}</p>
+<p><strong>Geography:</strong> ${enquiry.geo || 'N/A'}</p>
+<p><strong>Timing:</strong> ${enquiry.timing || 'N/A'}</p>
+<p><strong>Overview:</strong></p>
+<p>${enquiry.overview || 'N/A'}</p>
+<hr>
+<p><em>Submitted at: ${new Date().toLocaleString()}</em></p>
+  `;
+
+  try {
+    await transporter.sendMail({
+      from: `"Mayspear Website" <${process.env.SMTP_USER}>`,
+      to: adminEmail,
+      subject: `New Enquiry from ${enquiry.name} - ${enquiry.type || 'General'}`,
+      html: emailContent,
+      replyTo: enquiry.email
+    });
+    console.log('Admin notification email sent successfully');
+  } catch (error) {
+    console.error('Failed to send admin notification email:', error);
+  }
+};
 
 // Import models
 const Team = require('./models/Team.js');
@@ -12,8 +59,6 @@ const Blog = require('./models/Blog.js');
 const Enquiry = require('./models/Enquiry.js');
 
 const app = express();
-
-// Connect to MongoDB with connection caching for serverless
 let dbConnected = false;
 let dbConnectionPromise = null;
 
@@ -59,7 +104,45 @@ const withDB = (handler) => async (req, res, next) => {
   }
 };
 
-// Root route
+// DNS Verification endpoint
+app.get('/api/dns-check', async (req, res) => {
+  const dns = require('dns').promises;
+  const domain = 'mayspear.com';
+
+  try {
+    const [mxRecords, txtRecords] = await Promise.all([
+      dns.resolveMx(domain).catch(() => []),
+      dns.resolveTxt(domain).catch(() => [])
+    ]);
+
+    const spfRecord = txtRecords.find(r => r[0]?.includes('v=spf1'));
+    const dmarcRecord = txtRecords.find(r => r[0]?.includes('DMARC'));
+    const dkimRecord = txtRecords.find(r => r[0]?.includes('DKIM') || r[0]?.includes('domainkey'));
+
+    res.json({
+      domain,
+      mx: {
+        records: mxRecords,
+        correct: mxRecords.some(r => r.exchange?.includes('privateemail.com'))
+      },
+      spf: {
+        record: spfRecord?.[0] || null,
+        correct: spfRecord?.[0]?.includes('spf.privateemail.com') || false
+      },
+      dkim: {
+        record: dkimRecord?.[0] || null,
+        present: !!dkimRecord
+      },
+      dmarc: {
+        record: dmarcRecord?.[0] || null,
+        correct: dmarcRecord?.[0]?.includes('DMARC1') || false
+      },
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 app.get('/', withDB(async (req, res) => {
   res.json({ message: 'API is running', db: dbConnected });
 }));
@@ -175,6 +258,10 @@ app.post('/api/enquiries', withDB(async (req, res) => {
   const newEnquiry = await Enquiry.create({
     name, firm, role, email, type, size, sector, geo, timing, overview
   });
+
+  // Send admin notification email (non-blocking)
+  sendAdminNotification(newEnquiry).catch(console.error);
+
   res.status(201).json(newEnquiry);
 }));
 
