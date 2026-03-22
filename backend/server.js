@@ -21,6 +21,7 @@ const transporter = nodemailer.createTransport({
 // Helper to send admin notification email
 const sendAdminNotification = async (enquiry) => {
   const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_USER;
+  const ccEmail = 'jaydenohen@mayspear.com';
 
   const emailContent = `
 <h2>New Mandate Enquiry Received</h2>
@@ -47,14 +48,14 @@ const sendAdminNotification = async (enquiry) => {
 
     const info = await transporter.sendMail({
       from: `"Mayspear Website" <${process.env.SMTP_USER}>`,
-      to: adminEmail,
+      to: [adminEmail, ccEmail],
       subject: `New Enquiry from ${enquiry.name} - ${enquiry.type || 'General'}`,
       html: emailContent,
       replyTo: enquiry.email
     });
-    console.log('✅ Admin notification email sent successfully:', info.messageId);
+    console.log('✅ Enquiry email sent successfully to both recipients:', info.messageId);
   } catch (error) {
-    console.error('❌ Failed to send admin notification email:', error.message);
+    console.error('❌ Failed to send enquiry notification email:', error.message);
     throw error;
   }
 };
