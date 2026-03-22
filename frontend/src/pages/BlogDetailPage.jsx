@@ -64,71 +64,82 @@ export default function BlogDetailPage() {
             Back to Insights
           </Link>
           
-          {blog ? (
-            <ScrollReveal>
-              <div style={{ maxWidth: "900px" }}>
-                <div style={{ 
-                  fontFamily: "var(--mono)", 
-                  fontSize: "0.65rem", 
-                  letterSpacing: "0.3em",
-                  color: "var(--brass)",
-                  textTransform: "uppercase",
-                  marginBottom: "16px"
-                }}>
-                  {blog.issue || `${blog.category} | ${blog.date}`}
-                </div>
-                
-                <h1 className="mg-sec-h" style={{ marginBottom: "20px", fontSize: "clamp(2.5rem, 6vw, 4.5rem)", lineHeight: "1.1" }}>
-                  {blog.title}
-                </h1>
+          {blog && !blog.error ? (
+            <div style={{ maxWidth: "900px" }}>
+              <div style={{ 
+                fontFamily: "var(--mono)", 
+                fontSize: "0.65rem", 
+                letterSpacing: "0.3em",
+                color: "var(--brass)",
+                textTransform: "uppercase",
+                marginBottom: "16px"
+              }}>
+                {blog.issue || `${blog.category} | ${blog.date}`}
+              </div>
+              
+              <h1 style={{ 
+                fontFamily: "var(--serif)",
+                fontSize: "clamp(2.5rem, 6vw, 4.5rem)", 
+                lineHeight: "1.1",
+                color: "var(--text)",
+                marginBottom: "20px",
+                fontWeight: 300
+              }}>
+                {blog.title}
+              </h1>
 
-                {blog.subtitle && (
-                  <h2 style={{ 
-                    fontFamily: "var(--serif)", 
-                    fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)", 
-                    fontWeight: 300,
-                    fontStyle: "italic",
-                    color: "rgba(200,191,176,0.7)",
-                    lineHeight: "1.4",
-                    marginBottom: "40px",
-                    maxWidth: "800px"
-                  }}>
-                    {blog.subtitle}
-                  </h2>
-                )}
-
-                <div style={{ 
-                  fontFamily: "var(--mono)", 
-                  fontSize: "0.7rem", 
-                  letterSpacing: "0.1em",
-                  color: "var(--textF)",
-                  marginBottom: "50px",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px"
+              {blog.subtitle && (
+                <h2 style={{ 
+                  fontFamily: "var(--serif)", 
+                  fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)", 
+                  fontWeight: 300,
+                  fontStyle: "italic",
+                  color: "rgba(200,191,176,0.7)",
+                  lineHeight: "1.4",
+                  marginBottom: "40px",
+                  maxWidth: "800px"
                 }}>
-                  <div style={{ width: "30px", height: "1px", background: "var(--brass2)" }}></div>
-                  BY {blog.author || "MAYSPEAR GLOBAL"}
+                  {blog.subtitle}
+                </h2>
+              )}
+
+              <div style={{ 
+                fontFamily: "var(--mono)", 
+                fontSize: "0.7rem", 
+                letterSpacing: "0.1em",
+                color: "var(--textF)",
+                marginBottom: "50px",
+                display: "flex",
+                alignItems: "center",
+                gap: "10px"
+              }}>
+                <div style={{ width: "30px", height: "1px", background: "var(--brass2)" }}></div>
+                BY {blog.author || "MAYSPEAR GLOBAL"}
+              </div>
+              
+              {blog.thumbnail && (
+                <div style={{ width: "100%", height: "550px", overflow: "hidden", marginBottom: "60px", border: "1px solid rgba(184,150,74,0.15)" }}>
+                  <img src={blog.thumbnail} alt={blog.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                 </div>
-                
-                {blog.thumbnail && (
-                  <div style={{ width: "100%", height: "550px", overflow: "hidden", marginBottom: "60px", border: "1px solid rgba(184,150,74,0.15)" }}>
-                    <img src={blog.thumbnail} alt={blog.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                  </div>
-                )}
-                
-                <div style={{ 
+              )}
+              
+              <div 
+                className="blog-content"
+                style={{ 
                   fontFamily: "var(--body)",
-                  fontSize: "1.15rem",
+                  fontSize: "1.2rem",
                   color: "var(--textD)",
-                  lineHeight: "1.95"
+                  lineHeight: "1.8",
+                  marginTop: "40px"
                 }}
                 dangerouslySetInnerHTML={{ __html: blog.description }}
-                />
-              </div>
-            </ScrollReveal>
+              />
+            </div>
           ) : (
-            <div style={{ color: "var(--textF)" }}>Blog post not found.</div>
+            <div style={{ color: "var(--textF)", padding: "100px 0", textAlign: "center" }}>
+              <h3 style={{ fontFamily: "var(--serif)", fontSize: "2rem", marginBottom: "20px" }}>Blog post not found.</h3>
+              <Link to="/blogs" className="mg-btn-brass"><span>Back to Insights</span></Link>
+            </div>
           )}
         </div>
       </main>

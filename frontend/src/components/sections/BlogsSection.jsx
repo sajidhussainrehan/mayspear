@@ -46,7 +46,7 @@ export default function BlogsSection({ isFull = false }) {
 
         <div style={{ 
           display: "grid", 
-          gridTemplateColumns: "repeat(3, 1fr)", 
+          gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", 
           gap: "32px", 
           marginTop: "60px" 
         }} className="mg-blogs-grid">
@@ -124,9 +124,14 @@ export default function BlogsSection({ isFull = false }) {
                   WebkitLineClamp: 3,
                   WebkitBoxOrient: "vertical",
                   overflow: "hidden"
-                }}
-                dangerouslySetInnerHTML={{ __html: blog.description }}
-                />
+                }}>
+                  {blog.description
+                    .replace(/<[^>]*>/g, ' ')
+                    .replace(/&nbsp;/g, ' ')
+                    .replace(/\s+/g, ' ')
+                    .trim()
+                    .substring(0, 180)}...
+                </p>
 
                 <div style={{ marginTop: "auto" }}>
                   <Link to={`/blogs/${blog._id}`} className="mg-btn-brass" style={{ padding: "8px 20px", fontSize: "0.58rem", textDecoration: 'none' }}>
