@@ -115,7 +115,7 @@ const blogsToAdd = [
     <span class="section-label">SECTION TWO</span>
     <h2>NAV Lending: The Leverage-on-Leverage Problem LPs Are Not Pricing</h2>
     <p>Among the structural innovations of the last cycle, few carry more systemic risk than the proliferation of NAV-based lending. NAV loans credit facilities extended to fund vehicles secured by the net asset value of the underlying portfolio have grown from a boutique tool used by the most sophisticated institutional managers into a mainstream liquidity mechanism used by a surprisingly broad range of GPs.</p>
-    <p>A manager with a $500 million fund showing $700 million in NAV borrows $70–$100 million at the fund level, typically at 10:1 LTV or lower, to fund distributions, cover management fees, or finance new investments without triggering capital calls. From the GP's perspective this is efficient capital management. From an LP's perspective particularly one not reading quarterly letters carefully — this is an undisclosed leverage overlay on top of the already-levered underlying portfolio.</p>
+    <p>A manager with a $500 million fund showing $700 million in NAV borrows $70–$100 million at the fund level, typically at 10:1 LTV or lower, to fund distributions, cover management fees, or finance new investments without triggering capital calls. From the GP's perspective this is efficient capital management. From an LP's perspective particularly one not reading quarterly letters carefully  this is an undisclosed leverage overlay on top of the already-levered underlying portfolio.</p>
     
     <h3>The Double-Count Problem</h3>
     <p>The fundamental problem with NAV lending at scale is the valuation circularity it creates. NAV loans are secured by a reported NAV that is itself subject to manager discretion. In a market where underlying portfolio company performance is deteriorating, managers face an obvious incentive to delay NAV write-downs that would trigger loan-to-value covenant breaches on their NAV facilities. The result is a daisy-chain of optimistic valuations, each depending on the one before it, all of which require a static or improving macro environment to remain coherent.</p>
@@ -141,14 +141,14 @@ const blogsToAdd = [
       <li><strong>GP transparency requirements:</strong> Demanding quarterly disclosure of NAV facility balances, PIK accrual as a percentage of total income, and interest coverage distribution across the portfolio.</li>
       <li><strong>Vintage diversification discipline:</strong> Actively reducing 2019–2021 vintage exposure through secondary sales even at discounts to redeploy into 2025–2027 vintage transactions at superior entry points.</li>
       <li><strong>Covenant quality scoring:</strong> Developing internal scoring frameworks to assess the covenant quality of new GP relationships before committing, with explicit minimum standards for financial maintenance protections.</li>
-      <li><strong>Secondary market opportunism:</strong> Treating the current environment as a rotation opportunity — selling challenged vintages and buying into distressed situations at material discounts to par.</li>
+      <li><strong>Secondary market opportunism:</strong> Treating the current environment as a rotation opportunity  selling challenged vintages and buying into distressed situations at material discounts to par.</li>
     </ul>
   </section>
 
   <section class="section-four">
     <span class="section-label">SECTION FOUR</span>
     <h2>Distressed-for-Control and the Generational Entry Point</h2>
-    <p>Every dislocation produces an opportunity set visible only to those who have been through the cycle before. The distress embedded in vintage 2019–2021 direct lending books is not uniformly distributed — it is concentrated in specific sectors, specific capital structures, and specific manager relationships. For disciplined capital with genuine operational capabilities, this concentration is not a risk. It is a roadmap.</p>
+    <p>Every dislocation produces an opportunity set visible only to those who have been through the cycle before. The distress embedded in vintage 2019–2021 direct lending books is not uniformly distributed  it is concentrated in specific sectors, specific capital structures, and specific manager relationships. For disciplined capital with genuine operational capabilities, this concentration is not a risk. It is a roadmap.</p>
     
     <blockquote>
       "We are in the early stages of a distressed-for-control cycle that will define the private equity and private credit returns of the next decade. The managers who move in 2026 with precision will collect the vintage. Those who wait for certainty will collect what is left."
@@ -193,7 +193,7 @@ const blogsToAdd = [
   <section class="conclusion">
     <span class="section-label">CONCLUSION</span>
     <h2>The Reckoning Is Not the End. It Is the Beginning.</h2>
-    <p>Private credit has earned its place in the institutional portfolio. The fundamental value proposition direct origination, relationship-based underwriting, spread premiums unavailable in public markets — remains intact. What is being tested in 2026 is not the asset class itself, but the execution quality of the managers, structures, and terms that proliferated during an anomalously forgiving decade.</p>
+    <p>Private credit has earned its place in the institutional portfolio. The fundamental value proposition direct origination, relationship-based underwriting, spread premiums unavailable in public markets  remains intact. What is being tested in 2026 is not the asset class itself, but the execution quality of the managers, structures, and terms that proliferated during an anomalously forgiving decade.</p>
     <p>The firms that will define the next decade of private credit are being sorted right now. They are the ones stress-testing their portfolios while competitors are still marking to hope. They are the ones rebuilding covenant discipline into their origination standards while peers are still competing on price. They are the ones identifying the distressed-for-control entry points that will generate the vintage-defining returns of 2025–2028.</p>
     <p>At Mayspear Global, we have built our practice around the conviction that moments of market stress are the moments that reward analytical clarity above everything else. We do not offer opinions on the market. We offer executable intelligence, transaction-tested frameworks, and advisory relationships built to perform under pressure because that is precisely when they matter.</p>
     
@@ -270,7 +270,7 @@ const blogsToAdd = [
     
     <div class="section-box">
       <p><strong>01 NATO Re-Armament:</strong> The 2024 NATO Vilnius Summit commitment to 2%+ GDP defence spending has triggered $380 billion in incremental annual procurement across 31 member states. The majority of this capital flows through private supply chains that require working capital, capex financing, and project debt not equity.</p>
-      <p><strong>02 Energy Independence Imperative:</strong> European dependence on Russian hydrocarbons — exposed catastrophically in 2022 has driven $620 billion in committed LNG infrastructure, renewable baseload, nuclear life-extension, and grid hardening investment across the EU and UK through 2030. Each project requires long-duration, non-recourse project finance.</p>
+      <p><strong>02 Energy Independence Imperative:</strong> European dependence on Russian hydrocarbons  exposed catastrophically in 2022 has driven $620 billion in committed LNG infrastructure, renewable baseload, nuclear life-extension, and grid hardening investment across the EU and UK through 2030. Each project requires long-duration, non-recourse project finance.</p>
       <p><strong>03 Supply Chain Re-Shoring:</strong> The semiconductor decoupling from China, pharmaceutical API re-shoring, and rare earth processing localisation programmes in the US, EU, and allied nations represent a $1.2 trillion capital formation event over ten years almost entirely financed through private debt and structured credit, not public capital markets.</p>
       <p><strong>04 Dual-Use Technology Financing:</strong> The intersection of defence technology and commercial application AI-enabled ISR, drone logistics, satellite communications, and cyber infrastructure is producing a generation of companies that carry government contract revenue but cannot access investment grade public markets. Private credit is their only institutional financing option.</p>
       <p><strong>05 Reconstruction Capital:</strong> Ukraine reconstruction alone is estimated at $486 billion by the World Bank. Beyond Ukraine, post-conflict reconstruction in the Middle East and broader Belt-and-Road re-alignment in Central Asia and Africa creates a reconstruction finance cycle with no modern precedent in scale.</p>
@@ -278,7 +278,7 @@ const blogsToAdd = [
 
     <blockquote>
       "Geopolitical fracture does not destroy the need for capital it concentrates it. Governments at war, or preparing for war, do not stop spending. They spend differently. And that difference is the mandate."
-      <footer style="font-size: 0.9rem; margin-top: 10px; opacity: 0.7;">— Jayden Ohen, Managing Partner, Mayspear Global</footer>
+      <footer style="font-size: 0.9rem; margin-top: 10px; opacity: 0.7;"> Jayden Ohen, Managing Partner, Mayspear Global</footer>
     </blockquote>
   </section>
 
