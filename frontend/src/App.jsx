@@ -18,6 +18,12 @@ import Footer from "./components/sections/Footer";
 import BlogsSection from "./components/sections/BlogsSection";
 import BlogPage from "./pages/BlogPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
+import PillarsPage from "./pages/PillarsPage";
+import SectorsPage from "./pages/SectorsPage";
+import ServePage from "./pages/ServePage";
+import ApproachPage from "./pages/ApproachPage";
+import IntelligencePage from "./pages/IntelligencePage";
+import ContactPage from "./pages/ContactPage";
 import AdminLayout from "./components/admin/AdminLayout";
 import AdminDashboard from "./components/admin/AdminDashboard";
 import AdminBlogs from "./components/admin/AdminBlogs";
@@ -761,6 +767,12 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainWebsite />} />
+        <Route path="/pillars" element={<PillarsPage />} />
+        <Route path="/sectors" element={<SectorsPage />} />
+        <Route path="/serve" element={<ServePage />} />
+        <Route path="/approach" element={<ApproachPage />} />
+        <Route path="/intelligence" element={<IntelligencePage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/blogs" element={<BlogPage />} />
         <Route path="/blogs/:id" element={<BlogDetailPage />} />
         <Route path="/admin/login" element={<AdminLogin />} />
