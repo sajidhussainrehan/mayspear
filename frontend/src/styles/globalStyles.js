@@ -1,6 +1,20 @@
 export const STYLES = `
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Fira+Mono:wght@400;500&display=swap');
 
+:root {
+  --ch:#0C0B09; --ch2:#141210; --ch3:#1C1A16; --ch4:#242018;
+  --stone:#C8BFB0; --stone2:#E2D9CC; --stone3:#F0EBE3; --parch:#FAF7F2;
+  --brass:#9A7B3C; --brass2:#B8964A; --brass3:#D4AE5A;
+  --brass-dim:#5C4920; --brass-faint:rgba(184,150,74,0.12);
+  --text:#EDE8E0; --textD:rgba(237,232,224,0.58); --textF:rgba(237,232,224,0.28);
+  --resolve:#0A0A08; --resolve2:#111110;
+  --resolve-acc:#C4503A; --resolve-acc2:#D96448;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --body:'EB Garamond',Georgia,serif;
+  --mono:'Fira Mono',monospace;
+  --ease:cubic-bezier(0.16,1,0.3,1);
+}
+
 *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
 html { scroll-behavior:smooth; font-size:16px; -webkit-font-smoothing:antialiased; margin-top:0; }
 body { background:var(--ch); color:var(--text); font-family:var(--body); overflow-x:hidden; cursor:none; margin-top:0; padding-top:0; }
