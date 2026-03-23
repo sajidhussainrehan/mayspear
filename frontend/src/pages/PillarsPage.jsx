@@ -1,6 +1,7 @@
 import Navigation from "../components/sections/Navigation";
 import Pillars from "../components/sections/Pillars";
 import Footer from "../components/sections/Footer";
+import { STYLES } from "../styles/globalStyles";
 import { useState, useEffect, useRef } from "react";
 
 export default function PillarsPage() {
@@ -11,6 +12,23 @@ export default function PillarsPage() {
   const ringRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0 });
   const ringPos = useRef({ x: 0, y: 0 });
+
+  // Inject styles on mount
+  useEffect(() => {
+    const id = "mg-styles";
+    if (!document.getElementById(id)) {
+      const s = document.createElement("style");
+      s.id = id;
+      s.textContent = STYLES;
+      document.head.appendChild(s);
+    }
+  }, []);
+
+  useEffect(() => {
+    const fn = () => setNavScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", fn);
+    return () => window.removeEventListener("scroll", fn);
+  }, []);
 
   useEffect(() => {
     const fn = () => setNavScrolled(window.scrollY > 60);
