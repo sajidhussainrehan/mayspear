@@ -15,7 +15,7 @@ const blogsToAdd = [
     <div class="report-box">
       <h3>IN THIS REPORT</h3>
       <ol>
-        <li>The structural fault lines in direct lending  covenant-lite exposure, PIK accumulation, maturity walls</li>
+        <li>The structural fault lines in direct lending covenant-lite exposure, PIK accumulation, maturity walls</li>
         <li>Why NAV lending has become the hidden leverage bomb inside LP portfolios</li>
         <li>The liquidity illusion: how semi-liquid credit vehicles are mis-sold and mis-understood</li>
         <li>Distressed-for-control: why 2026 creates a generational entry point for disciplined capital</li>
@@ -49,14 +49,14 @@ const blogsToAdd = [
     
     <h3>1. The Covenant-Lite Contagion</h3>
     <p>When banks dominated leveraged lending, financial maintenance covenants leverage ratios, interest coverage tests, liquidity minimums triggered early warning systems that gave lenders the ability to engage borrowers before situations deteriorated into insolvency. The 2015–2021 vintage of direct lending transactions quietly eroded this protection. Under competitive pressure from broadly syndicated markets and LP mandates to deploy capital efficiently, managers accepted covenant-lite or incurrence-only structures that provide materially less protection.</p>
-    <p>With base rates now meaningfully higher than the assumptions embedded in original underwriting models, interest coverage ratios across the lower-middle market have compressed to levels that — under a traditional covenant framework would have triggered technical defaults and lender engagement twelve to eighteen months ago. Instead, managers are largely flying blind into deteriorating credits.</p>
+    <p>With base rates now meaningfully higher than the assumptions embedded in original underwriting models, interest coverage ratios across the lower-middle market have compressed to levels that under a traditional covenant framework would have triggered technical defaults and lender engagement twelve to eighteen months ago. Instead, managers are largely flying blind into deteriorating credits.</p>
     
     <blockquote>
       "The interest coverage compression happening inside lower-middle-market portfolios today is not an anomaly. It is the structural bill coming due on a decade of covenant erosion. The only question is who has provisioned for it."
       <footer style="font-size: 0.9rem; margin-top: 10px; opacity: 0.7;"> Jayden Ohen, Managing Partner, Mayspear Global</footer>
     </blockquote>
 
-    <h3>2. PIK Accumulation — Deferred Pain, Concentrated Risk</h3>
+    <h3>2. PIK Accumulation Deferred Pain, Concentrated Risk</h3>
     <p>Payment-in-kind toggle mechanisms were originally designed as short-term flexibility tools for genuinely cyclical businesses with predictable recovery profiles. In the 2020–2023 deployment environment, PIK became a structural feature of transactions that would not have passed credit committee at any rigorous institution. The market now carries an estimated $180 billion in accrued PIK obligations across private credit portfolios, sitting quietly in NAV calculations that may or may not reflect the true probability of cash collection.</p>
     <p>PIK income accrues on the income statement and inflates NAV even as the underlying borrower's ability to service that debt in cash remains unverified. For LPs relying on reported performance metrics, this represents a material information asymmetry — one that Mayspear Global has consistently flagged in LP advisory mandates.</p>
 
@@ -66,7 +66,7 @@ const blogsToAdd = [
   </section>
 
   <section class="indicators">
-    <span class="section-label">PRIVATE CREDIT MARKET STRESS INDICATORS — 2026</span>
+    <span class="section-label">PRIVATE CREDIT MARKET STRESS INDICATORS 2026</span>
     <table>
       <thead>
         <tr>
@@ -130,7 +130,7 @@ const blogsToAdd = [
   <section class="section-three">
     <span class="section-label">SECTION THREE</span>
     <h2>The Liquidity Illusion: Semi-Liquid Vehicles and the Gap Between Promise and Reality</h2>
-    <p>The democratisation of private credit — the movement to make the asset class accessible to high-net-worth individuals and smaller institutions through semi-liquid, interval fund, or non-traded BDC structures has been one of the most commercially successful product innovations of the 2020s. It has also created a structural fragility that the market has not yet confronted at scale.</p>
+    <p>The democratisation of private credit the movement to make the asset class accessible to high-net-worth individuals and smaller institutions through semi-liquid, interval fund, or non-traded BDC structures has been one of the most commercially successful product innovations of the 2020s. It has also created a structural fragility that the market has not yet confronted at scale.</p>
     <p>Private credit is, by its nature, illiquid. Senior secured direct lending transactions to lower-middle-market companies cannot be marked to market in real time, cannot be sold on demand at par, and require patient capital with genuine illiquidity tolerance. The semi-liquid wrapper does not change any of these underlying realities it merely disguises them behind a quarterly redemption mechanism that functions only when redemption demand is modest.</p>
     <p>The Blackstone BREIT episode of late 2022 provided the template: redemption gates triggered, secondary market discounts emerged, and retail investors experienced precisely the illiquidity they had been assured did not exist. That episode was contained. The next one arriving against a backdrop of $400 billion in maturing credit, PIK accumulation, and broader LP fatigue with capital calls may not be.</p>
     
@@ -193,7 +193,7 @@ const blogsToAdd = [
   <section class="conclusion">
     <span class="section-label">CONCLUSION</span>
     <h2>The Reckoning Is Not the End. It Is the Beginning.</h2>
-    <p>Private credit has earned its place in the institutional portfolio. The fundamental value proposition — direct origination, relationship-based underwriting, spread premiums unavailable in public markets  remains intact. What is being tested in 2026 is not the asset class itself, but the execution quality of the managers, structures, and terms that proliferated during an anomalously forgiving decade.</p>
+    <p>Private credit has earned its place in the institutional portfolio. The fundamental value proposition direct origination, relationship-based underwriting, spread premiums unavailable in public markets  remains intact. What is being tested in 2026 is not the asset class itself, but the execution quality of the managers, structures, and terms that proliferated during an anomalously forgiving decade.</p>
     <p>The firms that will define the next decade of private credit are being sorted right now. They are the ones stress-testing their portfolios while competitors are still marking to hope. They are the ones rebuilding covenant discipline into their origination standards while peers are still competing on price. They are the ones identifying the distressed-for-control entry points that will generate the vintage-defining returns of 2025–2028.</p>
     <p>At Mayspear Global, we have built our practice around the conviction that moments of market stress are the moments that reward analytical clarity above everything else. We do not offer opinions on the market. We offer executable intelligence, transaction-tested frameworks, and advisory relationships built to perform under pressure  because that is precisely when they matter.</p>
     
@@ -237,7 +237,7 @@ const blogsToAdd = [
       <h3>IN THIS REPORT</h3>
       <ol>
         <li>Conflict economics: how geopolitical fracture reshapes capital flows</li>
-        <li>The infrastructure imperative — defence, energy security & supply chain re-shoring</li>
+        <li>The infrastructure imperative defence, energy security & supply chain re-shoring</li>
         <li>Private credit as the essential engine of conflict-era financing</li>
         <li>Risk-adjusted return framework: where to deploy, what to avoid</li>
         <li>Mayspear Global's mandate strategy for the new geopolitical order</li>
@@ -247,7 +247,7 @@ const blogsToAdd = [
 
   <section class="executive-summary">
     <h2>EXECUTIVE SUMMARY</h2>
-    <p>The world is more fractured than at any point since the Cold War. Active military conflicts spanning Eastern Europe, the Middle East, and the South China Sea periphery have not merely disrupted trade flows and energy markets — they have permanently restructured the assumptions underpinning how sovereign governments, corporations, and institutional investors think about capital allocation, supply chain resilience, and national security.</p>
+    <p>The world is more fractured than at any point since the Cold War. Active military conflicts spanning Eastern Europe, the Middle East, and the South China Sea periphery have not merely disrupted trade flows and energy markets they have permanently restructured the assumptions underpinning how sovereign governments, corporations, and institutional investors think about capital allocation, supply chain resilience, and national security.</p>
     <p>For most asset classes, this is an environment of elevated uncertainty and compressed returns. For private credit and infrastructure finance, it is something else entirely. It is a mandate. The re-armament of Europe, the re-shoring of critical manufacturing, the hardening of energy grids, the construction of dual-use logistics networks, and the financing of defence-adjacent technology — these are not cyclical themes. They are structural, government-backed, multi-decade capital programmes that require the kind of patient, flexible, covenant-protective financing that only private markets can provide at the required speed and scale.</p>
     
     <div class="themes-box">
@@ -270,9 +270,9 @@ const blogsToAdd = [
     
     <div class="section-box">
       <p><strong>01 NATO Re-Armament:</strong> The 2024 NATO Vilnius Summit commitment to 2%+ GDP defence spending has triggered $380 billion in incremental annual procurement across 31 member states. The majority of this capital flows through private supply chains that require working capital, capex financing, and project debt not equity.</p>
-      <p><strong>02 Energy Independence Imperative:</strong> European dependence on Russian hydrocarbons — exposed catastrophically in 2022  has driven $620 billion in committed LNG infrastructure, renewable baseload, nuclear life-extension, and grid hardening investment across the EU and UK through 2030. Each project requires long-duration, non-recourse project finance.</p>
-      <p><strong>03 Supply Chain Re-Shoring:</strong> The semiconductor decoupling from China, pharmaceutical API re-shoring, and rare earth processing localisation programmes in the US, EU, and allied nations represent a $1.2 trillion capital formation event over ten years — almost entirely financed through private debt and structured credit, not public capital markets.</p>
-      <p><strong>04 Dual-Use Technology Financing:</strong> The intersection of defence technology and commercial application  AI-enabled ISR, drone logistics, satellite communications, and cyber infrastructure — is producing a generation of companies that carry government contract revenue but cannot access investment grade public markets. Private credit is their only institutional financing option.</p>
+      <p><strong>02 Energy Independence Imperative:</strong> European dependence on Russian hydrocarbons exposed catastrophically in 2022  has driven $620 billion in committed LNG infrastructure, renewable baseload, nuclear life-extension, and grid hardening investment across the EU and UK through 2030. Each project requires long-duration, non-recourse project finance.</p>
+      <p><strong>03 Supply Chain Re-Shoring:</strong> The semiconductor decoupling from China, pharmaceutical API re-shoring, and rare earth processing localisation programmes in the US, EU, and allied nations represent a $1.2 trillion capital formation event over ten years almost entirely financed through private debt and structured credit, not public capital markets.</p>
+      <p><strong>04 Dual-Use Technology Financing:</strong> The intersection of defence technology and commercial application  AI-enabled ISR, drone logistics, satellite communications, and cyber infrastructure is producing a generation of companies that carry government contract revenue but cannot access investment grade public markets. Private credit is their only institutional financing option.</p>
       <p><strong>05 Reconstruction Capital:</strong> Ukraine reconstruction alone is estimated at $486 billion by the World Bank. Beyond Ukraine, post-conflict reconstruction in the Middle East and broader Belt-and-Road re-alignment in Central Asia and Africa creates a reconstruction finance cycle with no modern precedent in scale.</p>
     </div>
 
