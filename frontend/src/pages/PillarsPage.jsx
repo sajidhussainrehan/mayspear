@@ -3,11 +3,14 @@ import Pillars from "../components/sections/Pillars";
 import Footer from "../components/sections/Footer";
 import { STYLES } from "../styles/globalStyles";
 import { useState, useEffect, useRef } from "react";
+import { useScrollReveal } from "../hooks/useUtils";
 
 export default function PillarsPage() {
   const [navScrolled, setNavScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [hovering, setHovering] = useState(false);
+
+  useScrollReveal();
   const dotRef = useRef(null);
   const ringRef = useRef(null);
   const mouseRef = useRef({ x: 0, y: 0 });
