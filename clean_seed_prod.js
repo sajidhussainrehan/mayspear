@@ -53,7 +53,7 @@ const blogsToAdd = [
     
     <blockquote>
       "The interest coverage compression happening inside lower-middle-market portfolios today is not an anomaly. It is the structural bill coming due on a decade of covenant erosion. The only question is who has provisioned for it."
-      <footer style="font-size: 0.9rem; margin-top: 10px; opacity: 0.7;">— Jayden Ohen, Managing Partner, Mayspear Global</footer>
+      <footer style="font-size: 0.9rem; margin-top: 10px; opacity: 0.7;">Jayden Ohen, Managing Partner, Mayspear Global</footer>
     </blockquote>
 
     <h3>2. PIK Accumulation — Deferred Pain, Concentrated Risk</h3>
@@ -152,7 +152,7 @@ const blogsToAdd = [
     
     <blockquote>
       "We are in the early stages of a distressed-for-control cycle that will define the private equity and private credit returns of the next decade. The managers who move in 2026 with precision will collect the vintage. Those who wait for certainty will collect what is left."
-      <footer style="font-size: 0.9rem; margin-top: 10px; opacity: 0.7;">— Jayden Ohen, Managing Partner, Mayspear Global</footer>
+      <footer style="font-size: 0.9rem; margin-top: 10px; opacity: 0.7;">Jayden Ohen, Managing Partner, Mayspear Global</footer>
     </blockquote>
 
     <h3>Highest-Conviction Opportunity Sectors — 2026</h3>
@@ -199,7 +199,7 @@ const blogsToAdd = [
     
     <blockquote>
       "The managers who built their platforms for the market of 2015 are fighting the last war. The managers building for the market of 2026 will own the next decade. The question is simply which category you intend to be in."
-      <footer style="font-size: 0.9rem; margin-top: 10px; opacity: 0.7;">— Jayden Ohen, Managing Partner, Mayspear Global</footer>
+      <footer style="font-size: 0.9rem; margin-top: 10px; opacity: 0.7;">Jayden Ohen, Managing Partner, Mayspear Global</footer>
     </blockquote>
   </section>
 </div>
@@ -278,7 +278,7 @@ const blogsToAdd = [
 
     <blockquote>
       "Geopolitical fracture does not destroy the need for capital — it concentrates it. Governments at war, or preparing for war, do not stop spending. They spend differently. And that difference is the mandate."
-      <footer style="font-size: 0.9rem; margin-top: 10px; opacity: 0.7;">— Jayden Ohen, Managing Partner, Mayspear Global</footer>
+      <footer style="font-size: 0.9rem; margin-top: 10px; opacity: 0.7;">Jayden Ohen, Managing Partner, Mayspear Global</footer>
     </blockquote>
   </section>
 
@@ -357,7 +357,7 @@ const blogsToAdd = [
     
     <blockquote>
       "The world is not going to stop being geopolitically complex. The supply chains are not going to re-concentrate in Asia. The energy grids are not going back to Russian gas. The defence budgets are not going back to 1.5% of GDP. This is the permanent landscape. And it is a magnificent landscape for patient, intelligent private capital."
-      <footer style="font-size: 0.9rem; margin-top: 10px; opacity: 0.7;">— Jayden Ohen, Managing Partner, Mayspear Global</footer>
+      <footer style="font-size: 0.9rem; margin-top: 10px; opacity: 0.7;">Jayden Ohen, Managing Partner, Mayspear Global</footer>
     </blockquote>
   </section>
 </div>
