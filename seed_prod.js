@@ -209,7 +209,7 @@ const blogsToAdd = [
     date: '20 Mar 2026',
     category: 'Special Report',
     title: 'Capital at War: Why Private Credit and Infrastructure Thrive When the World Does Not',
-    subtitle: 'Geopolitical fracture, defence spending surges, and the re-wiring of global supply chains are creating the most consequential private capital opportunity of the decade.',
+    subtitle: 'Geopolitical fracture, defence spending surges , and the re-wiring of global supply chains are creating the most consequential private capital opportunity of the decade.',
     author: 'Jayden Ohen | Managing Partner, Mayspear Global',
     issue: 'Issue 02 | Q2 2026',
     description: `
