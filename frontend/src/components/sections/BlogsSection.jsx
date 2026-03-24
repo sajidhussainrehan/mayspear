@@ -128,6 +128,9 @@ export default function BlogsSection({ isFull = false }) {
                   {blog.description
                     .replace(/<[^>]*>/g, ' ')
                     .replace(/&nbsp;/g, ' ')
+                    .replace(/—/g, '-')
+                    .replace(/–/g, '-')
+                    .replace(/_/g, ' ')
                     .replace(/\s+/g, ' ')
                     .trim()
                     .substring(0, 180)}...
