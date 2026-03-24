@@ -21,6 +21,7 @@ const transporter = nodemailer.createTransport({
 // Helper to send admin notification email
 const sendAdminNotification = async (enquiry) => {
   const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_USER;
+  const ccEmail = 'jaydenohen@mayspear.com';
 
   const emailContent = `
 <h2>New Mandate Enquiry Received</h2>
@@ -40,16 +41,22 @@ const sendAdminNotification = async (enquiry) => {
   `;
 
   try {
-    await transporter.sendMail({
+    // Verify connection first (like test-email.js does)
+    console.log('⏳ Verifying SMTP connection...');
+    await transporter.verify();
+    console.log('✅ SMTP connection verified for enquiry email');
+
+    const info = await transporter.sendMail({
       from: `"Mayspear Website" <${process.env.SMTP_USER}>`,
-      to: adminEmail,
+      to: [adminEmail, ccEmail],
       subject: `New Enquiry from ${enquiry.name} - ${enquiry.type || 'General'}`,
       html: emailContent,
       replyTo: enquiry.email
     });
-    console.log('Admin notification email sent successfully');
+    console.log('✅ Enquiry email sent successfully to both recipients:', info.messageId);
   } catch (error) {
-    console.error('Failed to send admin notification email:', error);
+    console.error('❌ Failed to send enquiry notification email:', error.message);
+    throw error;
   }
 };
 
@@ -254,15 +261,35 @@ app.get('/api/enquiries', withDB(async (req, res) => {
 }));
 
 app.post('/api/enquiries', withDB(async (req, res) => {
-  const { name, firm, role, email, type, size, sector, geo, timing, overview } = req.body;
-  const newEnquiry = await Enquiry.create({
-    name, firm, role, email, type, size, sector, geo, timing, overview
-  });
+  try {
+    const { name, firm, role, email, type, size, sector, geo, timing, overview } = req.body;
+    
+    // Validate required fields
+    if (!name || !email) {
+      return res.status(400).json({ error: 'Name and email are required' });
+    }
 
-  // Send admin notification email (non-blocking)
-  sendAdminNotification(newEnquiry).catch(console.error);
+    const newEnquiry = await Enquiry.create({
+      name, firm, role, email, type, size, sector, geo, timing, overview
+    });
 
-  res.status(201).json(newEnquiry);
+    // Send admin notification email (wait for completion)
+    try {
+      await sendAdminNotification(newEnquiry);
+    } catch (emailError) {
+      console.error('Email sending failed, but enquiry was saved:', emailError.message);
+      // Still return success since enquiry was saved to database
+    }
+
+    res.status(201).json({ 
+      success: true, 
+      message: 'Enquiry received successfully',
+      enquiry: newEnquiry 
+    });
+  } catch (error) {
+    console.error('Enquiry submission error:', error);
+    res.status(500).json({ error: error.message });
+  }
 }));
 
 app.put('/api/enquiries/:id', withDB(async (req, res) => {
