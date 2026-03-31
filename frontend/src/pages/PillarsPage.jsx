@@ -4,6 +4,7 @@ import Footer from "../components/sections/Footer";
 import { STYLES } from "../styles/globalStyles";
 import { useState, useEffect, useRef } from "react";
 import { useScrollReveal } from "../hooks/useUtils";
+import SEO from "../components/common/SEO";
 
 export default function PillarsPage() {
   const [navScrolled, setNavScrolled] = useState(false);
@@ -78,6 +79,10 @@ export default function PillarsPage() {
       <div className="mg-cur-dot" ref={dotRef} />
       <div className="mg-cur-ring" ref={ringRef} />
 
+       <SEO 
+        title="Three Pillars | Mayspear Advisory" 
+        description="Mayspear's three pillars: Institutional Advisory, Strategic Partnerships, and Direct Capital Engagement."
+      />
       <Navigation
         navScrolled={navScrolled}
         mobileOpen={mobileOpen}

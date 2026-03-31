@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import Navigation from "../components/sections/Navigation";
 import Footer from "../components/sections/Footer";
 import BlogsSection from "../components/sections/BlogsSection";
+import SEO from "../components/common/SEO";
 import { useScrollReveal } from "../hooks/useUtils";
 
 export default function BlogPage() {
@@ -31,6 +32,10 @@ export default function BlogPage() {
 
   return (
     <div className={`mg-noise ${hovering ? "mg-hovering" : ""}`} style={{ position: "relative", minHeight: "100vh", background: "var(--ch)" }}>
+       <SEO 
+        title="Insights | Mayspear Advisory" 
+        description="Explore the latest insights, reports and thought leadership from Mayspear's infrastructure and capital structuring experts."
+      />
       <Navigation 
         navScrolled={navScrolled} 
         mobileOpen={mobileOpen} 

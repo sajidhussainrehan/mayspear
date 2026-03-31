@@ -4,6 +4,7 @@ import Footer from "../components/sections/Footer";
 import { STYLES } from "../styles/globalStyles";
 import { useState, useEffect, useRef } from "react";
 import { useScrollReveal } from "../hooks/useUtils";
+import SEO from "../components/common/SEO";
 
 export default function ApproachPage() {
   const [navScrolled, setNavScrolled] = useState(false);
@@ -72,6 +73,10 @@ export default function ApproachPage() {
       <div className="mg-cur-dot" ref={dotRef} />
       <div className="mg-cur-ring" ref={ringRef} />
 
+       <SEO 
+        title="Our Approach | Mayspear Advisory" 
+        description="Learn about Mayspear's data-driven, strategic approach to infrastructure advisory and capital structuring."
+      />
       <Navigation
         navScrolled={navScrolled}
         mobileOpen={mobileOpen}

@@ -4,6 +4,7 @@ import Footer from "../components/sections/Footer";
 import { STYLES } from "../styles/globalStyles";
 import { useState, useEffect, useRef } from "react";
 import { useScrollReveal } from "../hooks/useUtils";
+import SEO from "../components/common/SEO";
 
 export default function ServePage() {
   const [navScrolled, setNavScrolled] = useState(false);
@@ -72,6 +73,10 @@ export default function ServePage() {
       <div className="mg-cur-dot" ref={dotRef} />
       <div className="mg-cur-ring" ref={ringRef} />
 
+       <SEO 
+        title="Who We Serve | Mayspear Advisory" 
+        description="Mayspear serves governments, institutional investors, and global infrastructure developers."
+      />
       <Navigation
         navScrolled={navScrolled}
         mobileOpen={mobileOpen}

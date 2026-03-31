@@ -4,6 +4,7 @@ import Footer from "../components/sections/Footer";
 import { STYLES } from "../styles/globalStyles";
 import { useState, useEffect, useRef } from "react";
 import { useScrollReveal } from "../hooks/useUtils";
+import SEO from "../components/common/SEO";
 
 export default function SectorsPage() {
   const [navScrolled, setNavScrolled] = useState(false);
@@ -72,6 +73,10 @@ export default function SectorsPage() {
       <div className="mg-cur-dot" ref={dotRef} />
       <div className="mg-cur-ring" ref={ringRef} />
 
+       <SEO 
+        title="Sectors | Mayspear Advisory" 
+        description="Mayspear specializes in energy, logistics, infrastructure, and heavy industrial sectors across global markets."
+      />
       <Navigation
         navScrolled={navScrolled}
         mobileOpen={mobileOpen}

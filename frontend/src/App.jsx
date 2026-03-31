@@ -29,6 +29,7 @@ import AdminDashboard from "./components/admin/AdminDashboard";
 import AdminBlogs from "./components/admin/AdminBlogs";
 import AdminEnquiries from "./components/admin/AdminEnquiries";
 import AdminLogin from "./components/admin/AdminLogin";
+import SEO from "./components/common/SEO";
 import { useScrollReveal } from "./hooks/useUtils";
 import { STYLES } from "./styles/globalStyles";
 import "./App.css";
@@ -133,6 +134,10 @@ function MainWebsite() {
         </div>
       </div>
 
+       <SEO 
+        title="Mayspear | Infrastructure Advisory & Capital Structuring" 
+        description="Mayspear provides strategic advisory, infrastructure financing, and capital structuring for complex global developments. We specialize in special situations and high-impact energy & infrastructure projects."
+      />
       <Navigation
         navScrolled={navScrolled}
         mobileOpen={mobileOpen}

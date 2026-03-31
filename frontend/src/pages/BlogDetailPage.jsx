@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import Navigation from "../components/sections/Navigation";
 import Footer from "../components/sections/Footer";
 import { getBlogById } from "../services/api";
+import SEO from "../components/common/SEO";
 import { ScrollReveal } from "../components/common/ScrollReveal";
 import { useScrollReveal } from "../hooks/useUtils";
 
@@ -50,6 +51,13 @@ export default function BlogDetailPage() {
 
   return (
     <div className={`mg-noise ${hovering ? "mg-hovering" : ""}`} style={{ position: "relative", minHeight: "100vh", background: "var(--ch)" }}>
+       {blog && (
+        <SEO 
+          title={`${blog.title} | Mayspear Insights`} 
+          description={blog.subtitle || blog.description?.substring(0, 160).replace(/<[^>]*>?/gm, '')}
+          canonical={`https://mayspear.com/blogs/${id}`}
+        />
+      )}
       <Navigation 
         navScrolled={navScrolled} 
         mobileOpen={mobileOpen} 
