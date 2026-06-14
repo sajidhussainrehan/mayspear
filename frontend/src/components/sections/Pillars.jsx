@@ -13,6 +13,9 @@ const PILLARS = [
   { num:"04 / Four Pillars", tag:"Market Intelligence", name:"Intelligence", img:"https://images.unsplash.com/photo-1532408840957-031d8034aeef?w=800&q=75&fit=crop", resolve:false,
     desc:"Infrastructure market intelligence, pipeline origination support and deal flow advisory. Sector coverage across GCC, Sub-Saharan Africa, North America and UK.",
     deliverables:["Pipeline identification and origination","Market intelligence subscriptions","Sector and geography coverage reports","Sponsor and developer deal flow advisory","Public sector bankability advisory","Lender appetite and market conditions analysis"] },
+  { num:"05 / Special Situations", tag:"Principal Advisory", name:"Resolve", img:"https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=75&fit=crop", resolve:true,
+    desc:"Resolve is Mayspear\u2019s special situations pillar. It exists because the advice available to mid\u2011market companies under financial pressure is inadequate. Accountants tell companies what their position is. Lawyers tell companies what their obligations are. Nobody tells a company\u2019s board what its capital structure options actually are \u2013 including the provision of principal capital and co\u2011investment \u2013 and what each of those options means for the shareholders, the management, and the lenders. Resolve does that. It does not soften the analysis.",
+    deliverables:["Capital structure option analysis","Principal capital and co-investment provision","Stakeholder impact assessment","Shareholder, management and lender advisory","Distressed and special situations advisory","Independent board-level counsel"] },
 ];
 
 export default function Pillars() {
