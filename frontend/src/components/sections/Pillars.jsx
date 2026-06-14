@@ -24,7 +24,7 @@ export default function Pillars() {
             <div className="mg-sec-label">Four Pillars</div>
             <h2 className="mg-sec-h">The Architecture<br/>of <em>Every</em> Mandate</h2>
           </ScrollReveal>
-          <ScrollReveal className="mg-pillars-intro-r">Mayspear's advisory capability is organised across four service pillars. Each pillar addresses the structural, origination, capital, and intelligence requirements of infrastructure transactions. All four operate under the same discipline: no retainer until a transaction closes.</ScrollReveal>
+          <ScrollReveal className="mg-pillars-intro-r">Mayspear's principal capability is organised across four service pillars. Each pillar addresses the structural, origination, capital, and intelligence requirements of infrastructure transactions. All four operate under the same discipline: we co‑invest alongside our capital partners.</ScrollReveal>
         </div>
       </div>
       <div className="mg-container">
