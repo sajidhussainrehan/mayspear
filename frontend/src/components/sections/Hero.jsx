@@ -18,7 +18,7 @@ export default function Hero({ scrollTo, hoverProps }) {
         </h1>
 
         <p className="mg-hero-body">
-          Mayspear Global advises on the architecture and execution of complex capital transactions across infrastructure and special situations.
+          Mayspear Global structures and co‑invests in complex capital transactions across infrastructure and special situations.
         </p>
 
         <div className="mg-hero-stats">
