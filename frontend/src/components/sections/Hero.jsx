@@ -9,7 +9,7 @@ export default function Hero({ scrollTo, hoverProps }) {
       <ParticleCanvas />
       
       <div className="mg-hero-content">
-        <div className="mg-hero-eyebrow">Infrastructure Advisory, Capital Structuring and Special Situations</div>
+        <div className="mg-hero-eyebrow">INFRASTRUCTURE PRINCIPAL INVESTING, CAPITAL STRUCTURING AND SPECIAL SITUATIONS</div>
         
         <h1 className="mg-hero-h1">
           <span className="mg-h-line">Capital</span>
