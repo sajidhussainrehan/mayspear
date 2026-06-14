@@ -10,8 +10,11 @@ export default function Manifesto() {
             <div className="mg-sec-label">Our Position</div>
             <blockquote className="mg-manifesto-quote">"Infrastructure transactions fail at the capital markets interface. Companies reach the point of no return before anyone with structuring capability is in the room. Mayspear exists to change both outcomes."</blockquote>
             <div className="mg-manifesto-cols">
-              <p className="mg-manifesto-col-text">Mayspear Global is a specialist infrastructure advisory, capital structuring and special situations firm. We operate at the point where capital decisions determine whether transactions complete and whether companies survive. We do not manage funds. We do not hold regulated permissions. We advise on structure, originate capital, and execute outcomes.</p>
-              <p className="mg-manifesto-col-text">Our work spans two distinct but related disciplines: the architecture and placement of institutional debt for infrastructure transactions, and the advisory and execution of capital restructuring and corporate transactions for mid-market companies under financial pressure. In both disciplines, the same principle applies: the quality of the structural thinking is the difference between a transaction that closes and one that does not.</p>
+              <p className="mg-manifesto-col-text">Mayspear Global is a principal focused capital group specializing in infrastructure deployment and special situations restructuring. We originate capital, structure transactions, and execute outcomes as co-investors alongside institutional partners. 
+
+We deploy capital across verticals globally, not as advisors, but as equity and credit participants in the transactions we build.</p>
+              <p className="mg-manifesto-col-text">Two-Discipline Structure:
+Our work spans institutional debt placement and capital execution for infrastructure assets, and principal restructuring and capital solutions for mid-market companies under financial pressure. In both disciplines, the same principle drives outcomes: capital deployment quality. The  difference between a transaction that closes and capital that compounds.</p>
             </div>
           </div>
         </ScrollReveal>
