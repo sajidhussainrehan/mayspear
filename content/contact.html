@@ -1,0 +1,125 @@
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#0C0B09;color:#F1ECE2;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip;line-height:1.5}
+::selection{background:rgba(184,155,106,.32);color:#fff}
+a{color:inherit;text-decoration:none}
+input,textarea,select,button{font-family:inherit;color:inherit}
+select option{background:#100E0B;color:#F1ECE2}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#0C0B09}::-webkit-scrollbar-thumb{background:#2a2720;border:2px solid #0C0B09;border-radius:10px}
+@keyframes msReveal{from{}to{opacity:1;transform:none}}
+@media(max-width:920px){[data-navpad] [data-desk]{display:none!important}[data-navpad] [data-mob]{display:inline-flex!important}[data-grid2]{grid-template-columns:1fr!important}[data-form]{grid-template-columns:1fr!important}[data-offices]{grid-template-columns:1fr 1fr!important}}
+@media(max-width:600px){[data-pad]{padding-left:22px!important;padding-right:22px!important}[data-offices]{grid-template-columns:1fr!important}}
+</style>
+
+
+
+
+
+<header style="position:relative;overflow:hidden;background:#0C0B09;border-bottom:1px solid rgba(184,155,106,.14)">
+ <div style="position:absolute;inset:0;background:radial-gradient(120% 90% at 80% 0%,rgba(184,155,106,.10),transparent 52%);pointer-events:none"></div>
+ <div data-pad="" style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(22px,4vw,52px) clamp(48px,5vw,64px)">
+  <div data-reveal="" style="display:flex;align-items:center;gap:14px;margin-bottom:32px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:#A99E89">Engage</span></div>
+  <h1 data-reveal="" style="font-family:'Libre Caslon Display',serif;font-weight:400;font-size:clamp(40px,6vw,88px);line-height:1.02;letter-spacing:-.012em;max-width:16ch">Bring us the transaction.</h1>
+  <p data-reveal="" style="margin-top:32px;max-width:62ch;font-size:clamp(16px,1.3vw,18.5px);line-height:1.66;color:#C7BEAE">From $1M to $5BN, as principal or alongside larger funds, we respond to every requirement directly and without delay. Route your enquiry to the relevant desk below. Every submission is treated in strict confidence.</p>
+ </div>
+</header>
+
+<section style="background:#0C0B09">
+ <div data-pad="" style="max-width:1320px;margin:0 auto;padding:clamp(50px,6vw,84px) clamp(22px,4vw,52px) clamp(80px,10vw,130px)">
+  <div data-form="" style="display:grid;grid-template-columns:0.82fr 1.18fr;gap:clamp(40px,6vw,90px);align-items:start">
+   <div data-reveal="" >
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#8B8273;margin-bottom:26px">Direct lines</div>
+    <div style="display:flex;flex-direction:column;gap:26px">
+     <div style="border-top:1px solid rgba(184,155,106,.16);padding-top:18px"><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#8B8273;margin-bottom:9px">Transaction enquiries</div><a href="mailto:transactions@mayspear.com" style="font-family:'Libre Caslon Text',serif;font-size:20px;color:#F1ECE2;transition:color .25s">transactions@mayspear.com</a></div>
+     <div style="border-top:1px solid rgba(184,155,106,.16);padding-top:18px"><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#8B8273;margin-bottom:9px">Capital partners</div><a href="mailto:capital@mayspear.com" style="font-family:'Libre Caslon Text',serif;font-size:20px;color:#F1ECE2;transition:color .25s">capital@mayspear.com</a></div>
+     <div style="border-top:1px solid rgba(184,155,106,.16);padding-top:18px"><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#8B8273;margin-bottom:9px">General</div><a href="mailto:enquiries@mayspear.com" style="font-family:'Libre Caslon Text',serif;font-size:20px;color:#F1ECE2;transition:color .25s">enquiries@mayspear.com</a></div>
+     <div style="border-top:1px solid rgba(184,155,106,.16);padding-top:18px"><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#8B8273;margin-bottom:9px">Headquarters</div><div style="font-family:'Libre Caslon Text',serif;font-size:16px;color:#C7BEAE;line-height:1.55">30 N Gould Street, Ste R<br>Sheridan, Wyoming 82801<br>United States</div></div>
+    </div>
+   </div>
+   <div data-reveal="" >
+    
+     <form style="display:grid;grid-template-columns:1fr 1fr;gap:26px 22px">
+      <div style="grid-column:1 / -1;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent,#B89B6A);padding-bottom:6px;border-bottom:1px solid rgba(184,155,106,.2)">Route to a desk</div>
+      <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8B8273">Requirement</span>
+       <select required="" style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#C7BEAE;outline:none;transition:border-color .25s">
+        <option value="">Select.</option><option>Private credit and direct lending</option><option>Acquisition finance</option><option>Refinancing and recapitalisation</option><option>Special situations and distressed</option><option>Infrastructure and project finance</option><option>Energy and power finance</option><option>Working capital and trade finance</option><option>Succession and ownership transition</option><option>NPL and portfolio acquisition</option><option>Co-investment and capital partnership</option><option>Other</option>
+       </select>
+      </label>
+      <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8B8273">Sector desk</span>
+       <select required="" style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#C7BEAE;outline:none;transition:border-color .25s">
+        <option value="">Select.</option><option>Energy and power systems</option><option>Infrastructure and utilities</option><option>Data centres and digital infrastructure</option><option>Critical minerals and mining</option><option>Industrial and manufacturing</option><option>Logistics and supply chain</option><option>Defence industrial</option><option>Real estate credit</option><option>Healthcare</option><option>Financial institutions</option><option>Commodities and trade</option><option>Other</option>
+       </select>
+      </label>
+      <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8B8273">Geography desk</span>
+       <select required="" style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#C7BEAE;outline:none;transition:border-color .25s">
+        <option value="">Select.</option><option>North America</option><option>Latin America</option><option>Africa</option><option>Middle East and GCC</option><option>Europe</option><option>Asia Pacific</option>
+       </select>
+      </label>
+      <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8B8273">Transaction size</span>
+       <select required="" style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#C7BEAE;outline:none;transition:border-color .25s">
+        <option value="">Select.</option><option>$1M to $50M</option><option>$50M to $250M</option><option>$250M to $1BN</option><option>$1BN to $5BN</option><option>$5BN and above</option>
+       </select>
+      </label>
+      <div style="grid-column:1 / -1;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent,#B89B6A);padding-bottom:6px;border-bottom:1px solid rgba(184,155,106,.2);margin-top:14px">Your details</div>
+      <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8B8273">Name</span><input required="" style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#F1ECE2;outline:none;transition:border-color .25s"></label>
+      <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8B8273">Organisation</span><input required="" style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#F1ECE2;outline:none;transition:border-color .25s"></label>
+      <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8B8273">Email</span><input type="email" required="" style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#F1ECE2;outline:none;transition:border-color .25s"></label>
+      <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8B8273">Role or side</span><input placeholder="Owner, sponsor, lender, adviser" style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#F1ECE2;outline:none;transition:border-color .25s"></label>
+      <label style="display:flex;flex-direction:column;gap:9px;grid-column:1 / -1"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8B8273">The situation, counterparties and timeline</span><textarea rows="4" required="" style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#F1ECE2;outline:none;resize:vertical;transition:border-color .25s"></textarea></label>
+      <button type="submit" style="grid-column:1 / -1;justify-self:start;display:inline-flex;align-items:center;gap:12px;background:var(--accent,#B89B6A);color:#0C0B09;border:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:17px 32px;margin-top:8px;transition:background .25s,transform .25s">Submit to the desk<span style="font-size:14px">→</span></button>
+      <p style="grid-column:1 / -1;font-size:12px;line-height:1.6;color:#8B8273;margin-top:4px">All submissions are confidential. Routing to a desk does not constitute an offer, a commitment to provide capital, or financial advice.</p>
+     </form>
+    
+    
+   </div>
+  </div>
+ </div>
+</section>
+
+<section style="background:#0A0907;border-top:1px solid rgba(184,155,106,.14)">
+ <div data-pad="" style="max-width:1320px;margin:0 auto;padding:clamp(60px,7vw,96px) clamp(22px,4vw,52px)">
+  <div data-reveal="" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:#8B8273;margin-bottom:28px">Offices</div>
+  <div data-offices="" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(184,155,106,.14);border:1px solid rgba(184,155,106,.14)">
+   
+    <div data-reveal="" style="background:#0A0907;padding:28px 26px 32px">
+     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent,#B89B6A);letter-spacing:.14em">WY · USA</span><span style="font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.16em;color:#0C0B09;background:var(--accent,#B89B6A);padding:3px 8px">HQ</span></div>
+     <h3 style="font-family:'Libre Caslon Display',serif;font-size:24px;color:#F1ECE2;margin-bottom:8px">Sheridan</h3>
+     <p style="font-size:13px;line-height:1.55;color:#8B8273">Headquarters and group balance sheet</p>
+    </div>
+   
+    <div data-reveal="" style="background:#0A0907;padding:28px 26px 32px">
+     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent,#B89B6A);letter-spacing:.14em">NY · USA</span></div>
+     <h3 style="font-family:'Libre Caslon Display',serif;font-size:24px;color:#F1ECE2;margin-bottom:8px">New York</h3>
+     <p style="font-size:13px;line-height:1.55;color:#8B8273">North America</p>
+    </div>
+   
+    <div data-reveal="" style="background:#0A0907;padding:28px 26px 32px">
+     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent,#B89B6A);letter-spacing:.14em">NG · AFRICA</span></div>
+     <h3 style="font-family:'Libre Caslon Display',serif;font-size:24px;color:#F1ECE2;margin-bottom:8px">Lagos</h3>
+     <p style="font-size:13px;line-height:1.55;color:#8B8273">Africa</p>
+    </div>
+   
+    <div data-reveal="" style="background:#0A0907;padding:28px 26px 32px">
+     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent,#B89B6A);letter-spacing:.14em">AE · GCC</span></div>
+     <h3 style="font-family:'Libre Caslon Display',serif;font-size:24px;color:#F1ECE2;margin-bottom:8px">Dubai</h3>
+     <p style="font-size:13px;line-height:1.55;color:#8B8273">Middle East</p>
+    </div>
+   
+    <div data-reveal="" style="background:#0A0907;padding:28px 26px 32px">
+     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent,#B89B6A);letter-spacing:.14em">SG · APAC</span></div>
+     <h3 style="font-family:'Libre Caslon Display',serif;font-size:24px;color:#F1ECE2;margin-bottom:8px">Singapore</h3>
+     <p style="font-size:13px;line-height:1.55;color:#8B8273">Asia Pacific</p>
+    </div>
+   
+    <div data-reveal="" style="background:#0A0907;padding:28px 26px 32px">
+     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent,#B89B6A);letter-spacing:.14em">BR · LATAM</span></div>
+     <h3 style="font-family:'Libre Caslon Display',serif;font-size:24px;color:#F1ECE2;margin-bottom:8px">São Paulo</h3>
+     <p style="font-size:13px;line-height:1.55;color:#8B8273">Latin America</p>
+    </div>
+   
+  </div>
+ </div>
+</section>
+
+

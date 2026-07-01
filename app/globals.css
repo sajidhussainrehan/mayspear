@@ -1,0 +1,42 @@
+/* Global resets, fonts, keyframes and responsive rules extracted from the
+   original Mayspear Design Components so every captured page renders identically. */
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:#0C0B09;color:#F1ECE2;font-family:'Archivo',-apple-system,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip;line-height:1.5}
+::selection{background:rgba(184,155,106,.32);color:#fff}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#0C0B09}
+::-webkit-scrollbar-thumb{background:#2a2720;border:2px solid #0C0B09;border-radius:10px}
+
+@keyframes ms-marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes msReveal{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes msUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* Link hovers (the originals used inline style-hover on Nav/Footer). */
+.ms-navlink:hover{color:#F1ECE2!important}
+.ms-navcta:hover{background:#cdb07e!important}
+.ms-footlink:hover{color:#F1ECE2!important}
+.ms-field::placeholder{color:#8B8273}
+.ms-field:focus{border-color:var(--accent,#B89B6A)!important}
+
+@media(max-width:920px){
+ [data-navpad] [data-desk]{display:none!important}
+ [data-navpad] [data-mob]{display:inline-flex!important}
+ [data-grid2]{grid-template-columns:1fr!important}
+ [data-hero-h1]{font-size:clamp(40px,11vw,68px)!important}
+ [data-stat]{grid-template-columns:1fr 1fr!important}
+ [data-three]{grid-template-columns:1fr!important}
+ [data-team]{grid-template-columns:1fr 1fr!important}
+ [data-offices]{grid-template-columns:1fr 1fr!important}
+ [data-regions]{grid-template-columns:1fr!important}
+ [data-grid]{grid-template-columns:1fr!important}
+}
+@media(max-width:600px){
+ [data-pad]{padding-left:22px!important;padding-right:22px!important}
+ [data-capgrid]{grid-template-columns:1fr!important}
+ [data-team]{grid-template-columns:1fr!important}
+ [data-offices]{grid-template-columns:1fr!important}
+}
