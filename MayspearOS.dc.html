@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Mayspear OS, Mayspear Global | The Operating System for Principal Capital</title>
+<meta name="description" content="Mayspear OS is the operating system behind Mayspear Global: eight coordinated agents across origination, structuring, diligence, relationships, market intelligence, portfolio monitoring, documents and advisor coordination.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#F8F5EC">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#F8F5EC;color:#171410;font-family:'Archivo',-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:clip}
+a{color:inherit;text-decoration:none}
+input,textarea,select,button{font-family:inherit;color:inherit}
+select option{background:#F0EADC;color:#171410}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#F8F5EC}::-webkit-scrollbar-thumb{background:#D8CFB8;border:2px solid #F8F5EC;border-radius:10px}
+.mos-field:focus{border-color:var(--accent,#B89B6A)!important}
+@keyframes msReveal{from{opacity:1;transform:none}to{opacity:1;transform:none}}
+@keyframes msFade{from{opacity:0}to{opacity:1}}
+@keyframes msUp{from{opacity:1;transform:none}to{opacity:1;transform:none}}
+@media(max-width:1100px){[data-cols2]{grid-template-columns:1fr!important}[data-cols4]{grid-template-columns:1fr 1fr!important}[data-form2]{grid-template-columns:1fr!important}}
+@media(max-width:640px){[data-pad]{padding-left:20px!important;padding-right:20px!important}[data-cols4]{grid-template-columns:1fr!important}}
+</style>
+</helmet>
+
+<dc-import name="MayspearNav" current="mayspearos" hint-size="100%,74px"></dc-import>
+
+<!-- HERO -->
+<header style="position:relative;background:#F8F5EC">
+ <div style="position:absolute;inset:0;background:radial-gradient(120% 90% at 84% 4%,rgba(184,155,106,.10),transparent 52%);pointer-events:none"></div>
+ <div data-pad style="position:relative;max-width:1180px;margin:0 auto;padding:clamp(58px,8vw,100px) clamp(22px,4vw,52px) clamp(40px,5vw,60px)">
+  <div data-reveal style="opacity:1;transform:none;display:flex;align-items:center;gap:14px;margin-bottom:32px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:#6B5D3E">Mayspear OS · The Operating System for Principal Capital</span></div>
+  <h1 data-reveal style="opacity:1;transform:none;font-family:'Libre Caslon Display',serif;font-weight:400;font-size:clamp(38px,6vw,80px);line-height:1.02;letter-spacing:-.012em;max-width:17ch">The nervous system of Mayspear Global.</h1>
+  <p data-reveal style="opacity:1;transform:none;margin-top:28px;max-width:66ch;font-size:clamp(16px,1.3vw,19px);line-height:1.68;color:#4E4838">Not a database. Not a CRM. Every vertical, every deal, every relationship and every market signal, connected, analysed and actioned by eight coordinated agents, with a principal making every decision that matters. This is how Mayspear operates with the intelligence, speed and reach of a platform many times its footprint.</p>
+  <div data-reveal style="opacity:1;transform:none;display:flex;flex-wrap:wrap;gap:14px;margin-top:38px">
+   <button onClick="{{ openSignup }}" style="display:inline-flex;align-items:center;gap:12px;background:var(--accent,#B89B6A);color:#0C0B09;border:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:17px 30px;transition:background .25s,transform .25s" style-hover="background:#cdb07e;transform:translateY(-2px)"><svg width="10" height="16" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#0C0B09"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#0C0B09"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="#0C0B09"></rect></svg>Request access<span style="display:inline-flex;align-items:center"><svg width="11" height="17" viewBox="0 0 20 30" fill="currentColor" style="flex:none;transform:rotate(90deg)"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg></span></button>
+   <button onClick="{{ openInfra }}" style="display:inline-flex;align-items:center;gap:12px;background:transparent;border:1px solid rgba(23,20,16,.22);color:#171410;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:17px 30px;transition:border-color .25s,background .25s" style-hover="border-color:var(--accent,#B89B6A);background:rgba(184,155,106,.06)"><svg width="10" height="16" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="var(--accent,#B89B6A)"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="var(--accent,#B89B6A)"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="var(--accent,#B89B6A)"></rect></svg>How the infrastructure works</button>
+  </div>
+ </div>
+ <div data-stat data-pad style="position:relative;max-width:1180px;margin:0 auto;padding:0 clamp(22px,4vw,52px) clamp(30px,4vw,44px);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(184,155,106,.16)">
+  <div style="padding:26px 24px 8px 0;border-right:1px solid rgba(184,155,106,.10)"><div style="font-family:'Libre Caslon Display',serif;font-size:32px;color:var(--accent,#B89B6A);line-height:1">8</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#6B6250;margin-top:9px">Coordinated agents</div></div>
+  <div style="padding:26px 24px 8px;border-right:1px solid rgba(184,155,106,.10)"><div style="font-family:'Libre Caslon Display',serif;font-size:32px;color:var(--accent,#B89B6A);line-height:1">5</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#6B6250;margin-top:9px">Layers, one stack</div></div>
+  <div style="padding:26px 24px 8px;border-right:1px solid rgba(184,155,106,.10)"><div style="font-family:'Libre Caslon Display',serif;font-size:32px;color:var(--accent,#B89B6A);line-height:1">1</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#6B6250;margin-top:9px">Command Centre</div></div>
+  <div style="padding:26px 0 8px 24px"><div style="font-family:'Libre Caslon Display',serif;font-size:32px;color:var(--accent,#B89B6A);line-height:1">24/7</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#6B6250;margin-top:9px">Watching every market, every position</div></div>
+ </div>
+</header>
+
+<!-- ASK MAYSPEAR OS -->
+<section style="background:#F8F5EC;border-top:1px solid rgba(184,155,106,.16)">
+ <div data-pad style="max-width:900px;margin:0 auto;padding:clamp(50px,6vw,80px) clamp(22px,4vw,52px)">
+  <div data-reveal style="opacity:1;transform:none;display:flex;align-items:center;gap:14px;margin-bottom:22px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#6B5D3E">Try it now</span></div>
+  <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(24px,2.8vw,36px);line-height:1.15;letter-spacing:-.01em;max-width:24ch">Ask Mayspear OS a question about the platform.</h2>
+  <p style="margin-top:14px;font-size:14.5px;line-height:1.62;color:#6B6250;max-width:60ch">A live preview of the reasoning layer inside Mayspear OS. Ask about the agents, the stack, or how it would apply to your firm.</p>
+  <form onSubmit="{{ askSubmit }}" style="margin-top:26px;display:flex;flex-direction:column;gap:14px">
+   <textarea class="mos-field" rows="3" required value="{{ question }}" onChange="{{ onQuestion }}" placeholder="e.g. How would the Diligencer agent handle a data room with 500 documents?" style="background:#FFFFFF;border:1px solid rgba(184,155,106,.26);padding:14px 15px;font-size:14.5px;line-height:1.5;outline:none;resize:vertical;transition:border-color .25s"></textarea>
+   <button type="submit" disabled="{{ asking }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;background:var(--accent,#B89B6A);color:#0C0B09;border:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:15px 26px;opacity:{{ askBtnOpacity }};transition:background .25s" style-hover="background:#cdb07e"><svg width="10" height="16" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#0C0B09"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#0C0B09"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="#0C0B09"></rect></svg>{{ askBtnLabel }}</button>
+  </form>
+  <sc-if value="{{ hasAnswer }}" hint-placeholder-val="{{ false }}">
+   <div style="margin-top:26px;border:1px solid rgba(184,155,106,.24);background:#F0EADC;padding:clamp(20px,2.6vw,28px)">
+    <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent,#B89B6A);margin-bottom:12px">Mayspear OS</div>
+    <p style="font-size:15px;line-height:1.68;color:#2A2416;white-space:pre-wrap">{{ answer }}</p>
+   </div>
+  </sc-if>
+  <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+   <p style="margin-top:18px;font-size:13px;color:#9A5B5B">{{ error }}</p>
+  </sc-if>
+ </div>
+</section>
+
+<!-- THE STACK -->
+<section style="background:#F0EADC">
+ <div data-pad style="max-width:1180px;margin:0 auto;padding:clamp(60px,7vw,96px) clamp(22px,4vw,52px)">
+  <div data-reveal style="opacity:1;transform:none;display:flex;align-items:center;gap:14px;margin-bottom:26px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#6B5D3E">The Stack</span></div>
+  <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,3.4vw,44px);line-height:1.1;letter-spacing:-.01em;max-width:22ch">Five layers, drawn together into one system.</h2>
+  <div style="margin-top:clamp(34px,4vw,48px);display:flex;flex-direction:column;gap:1px;background:rgba(184,155,106,.16);border:1px solid rgba(184,155,106,.16)">
+   <sc-for list="{{ layers }}" as="ly" hint-placeholder-count="5">
+    <div data-reveal style="opacity:1;transform:none;background:#F8F5EC;padding:clamp(22px,2.4vw,30px) clamp(22px,2.6vw,34px);display:grid;grid-template-columns:120px 1fr;gap:22px;align-items:start">
+     <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent,#B89B6A);padding-top:3px">Layer {{ ly.n }}</span>
+     <div><h3 style="font-family:'Libre Caslon Text',serif;font-size:19px;color:#171410;margin-bottom:8px">{{ ly.t }}</h3><p style="font-size:14.5px;line-height:1.62;color:#6B6250;max-width:70ch">{{ ly.d }}</p></div>
+    </div>
+   </sc-for>
+  </div>
+ </div>
+</section>
+
+<!-- THE AGENTS -->
+<section style="background:#F8F5EC">
+ <div data-pad style="max-width:1180px;margin:0 auto;padding:clamp(60px,7vw,96px) clamp(22px,4vw,52px)">
+  <div data-reveal style="opacity:1;transform:none;display:flex;align-items:center;gap:14px;margin-bottom:26px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#6B5D3E">The Agents · The Mayspear Brain</span></div>
+  <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,3.4vw,44px);line-height:1.1;letter-spacing:-.01em;max-width:26ch">Eight agents, each with a single mandate.</h2>
+  <p style="margin-top:20px;max-width:70ch;font-size:15.5px;line-height:1.7;color:#57513F">Not point tools. Autonomous workers connected to Mayspear's own data, trained on Mayspear's own judgement, reporting to a principal, not a dashboard.</p>
+  <div data-cols2 style="margin-top:clamp(34px,4vw,48px);display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(184,155,106,.13);border:1px solid rgba(184,155,106,.13)">
+   <sc-for list="{{ agents }}" as="ag" hint-placeholder-count="8">
+    <div data-reveal style="opacity:1;transform:none;background:#F8F5EC;padding:clamp(24px,2.4vw,30px)">
+     <div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:10px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--accent,#B89B6A)">{{ ag.n }}</span><span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">{{ ag.tag }}</span></div>
+     <h3 style="font-family:'Libre Caslon Display',serif;font-size:22px;color:#171410;margin-bottom:8px">{{ ag.title }}</h3>
+     <p style="font-size:13.5px;line-height:1.6;color:#6B6250;margin-bottom:14px">{{ ag.d }}</p>
+     <div style="border-top:1px solid rgba(184,155,106,.14);padding-top:12px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;line-height:1.6;color:#4E4838;font-style:italic">"{{ ag.q }}"</div>
+    </div>
+   </sc-for>
+  </div>
+ </div>
+</section>
+
+<!-- COMMAND CENTRE -->
+<section style="background:#171410">
+ <div data-pad style="max-width:1180px;margin:0 auto;padding:clamp(60px,7vw,96px) clamp(22px,4vw,52px)">
+  <div data-reveal style="opacity:1;transform:none;display:flex;align-items:center;gap:14px;margin-bottom:26px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#B89B6A">The Command Centre</span></div>
+  <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,3.4vw,44px);line-height:1.1;letter-spacing:-.01em;color:#F1ECE2;max-width:22ch">One screen. Everything a principal needs to act.</h2>
+  <div style="margin-top:clamp(34px,4vw,48px);border:1px solid rgba(184,155,106,.24);background:#1C1813;font-family:'IBM Plex Mono',monospace">
+   <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;padding:18px 22px;border-bottom:1px solid rgba(184,155,106,.2)"><span style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#F1ECE2">Mayspear OS · Command Centre</span><span style="font-size:10.5px;color:#A79B82">Illustrative preview</span></div>
+   <div data-cols4 style="display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid rgba(184,155,106,.16)">
+    <div style="padding:20px 22px;border-right:1px solid rgba(184,155,106,.14)"><div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#A79B82">Pipeline value</div><div style="font-family:'Libre Caslon Display',serif;font-size:24px;color:var(--accent,#B89B6A);margin-top:6px">—</div></div>
+    <div style="padding:20px 22px;border-right:1px solid rgba(184,155,106,.14)"><div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#A79B82">Fees, month to date</div><div style="font-family:'Libre Caslon Display',serif;font-size:24px;color:var(--accent,#B89B6A);margin-top:6px">—</div></div>
+    <div style="padding:20px 22px"><div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#A79B82">Co-invest deployed</div><div style="font-family:'Libre Caslon Display',serif;font-size:24px;color:var(--accent,#B89B6A);margin-top:6px">—</div></div>
+   </div>
+   <div style="padding:22px;border-bottom:1px solid rgba(184,155,106,.16)">
+    <div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#A79B82;margin-bottom:12px">Agent alerts</div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+     <sc-for list="{{ alerts }}" as="al" hint-placeholder-count="5">
+      <div style="display:flex;align-items:baseline;gap:12px"><span style="width:7px;height:7px;flex:none;background:{{ al.c }};transform:rotate(45deg)"></span><span style="font-size:12px;letter-spacing:.06em;color:#B7AD92;flex:none">{{ al.who }}</span><span style="font-size:12.5px;color:#E4DCC8">{{ al.what }}</span></div>
+     </sc-for>
+    </div>
+   </div>
+   <div style="display:flex;flex-wrap:wrap;gap:0;justify-content:space-between">
+    <div style="flex:1;min-width:220px;padding:22px;border-right:1px solid rgba(184,155,106,.14)"><div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#A79B82;margin-bottom:12px">Market pulse</div><div style="font-size:12.5px;color:#E4DCC8;line-height:1.8">Live moves across every vertical, briefed automatically each morning</div></div>
+    <div style="flex:1;min-width:220px;padding:22px"><div style="font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#A79B82;margin-bottom:12px">Relationship heatmap</div><div style="display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:#E4DCC8"><span>🟢 Strong · 12</span><span>🟡 Warm · 8</span><span>🔴 Cold · 3</span><span>⭐ New · 2</span></div></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- COMPARISON -->
+<section style="background:#F0EADC">
+ <div data-pad style="max-width:1000px;margin:0 auto;padding:clamp(60px,7vw,96px) clamp(22px,4vw,52px)">
+  <div data-reveal style="opacity:1;transform:none;display:flex;align-items:center;gap:14px;margin-bottom:26px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#6B5D3E">The Difference</span></div>
+  <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,3.4vw,42px);line-height:1.1;letter-spacing:-.01em;max-width:22ch">Point tools don't talk to each other. Mayspear OS is one system, one truth.</h2>
+  <div style="margin-top:clamp(30px,4vw,44px);display:flex;flex-direction:column;gap:1px;background:rgba(184,155,106,.16);border:1px solid rgba(184,155,106,.16)">
+   <div style="display:grid;grid-template-columns:1fr 1fr;background:#F0EADC"><div style="padding:14px 22px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Traditional firm</div><div style="padding:14px 22px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent,#B89B6A);border-left:1px solid rgba(184,155,106,.16)">Mayspear OS</div></div>
+   <sc-for list="{{ compare }}" as="c" hint-placeholder-count="6">
+    <div style="display:grid;grid-template-columns:1fr 1fr;background:#F8F5EC">
+     <div style="padding:16px 22px;font-size:13.5px;line-height:1.55;color:#6B6250">{{ c.a }}</div>
+     <div style="padding:16px 22px;font-size:13.5px;line-height:1.55;color:#2A2416;border-left:1px solid rgba(184,155,106,.1)">{{ c.b }}</div>
+    </div>
+   </sc-for>
+  </div>
+ </div>
+</section>
+
+<!-- CTA -->
+<section style="background:#F8F5EC">
+ <div data-pad style="max-width:1180px;margin:0 auto;padding:clamp(70px,10vw,120px) clamp(22px,4vw,52px);text-align:center">
+  <div data-reveal style="opacity:1;transform:none">
+   <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(30px,4.4vw,58px);line-height:1.04;letter-spacing:-.015em;max-width:20ch;margin:0 auto">Principal-led. Full-firm intelligence.</h2>
+   <p style="margin:24px auto 0;max-width:56ch;font-size:16px;line-height:1.66;color:#6B6250">Request access to Mayspear OS, or ask us how the underlying infrastructure is built and secured.</p>
+   <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:36px">
+    <button onClick="{{ openSignup }}" style="display:inline-flex;align-items:center;gap:12px;background:var(--accent,#B89B6A);color:#0C0B09;border:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:17px 32px;transition:background .25s,transform .25s" style-hover="background:#cdb07e;transform:translateY(-2px)"><svg width="10" height="16" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#0C0B09"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#0C0B09"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="#0C0B09"></rect></svg>Request access<span style="display:inline-flex;align-items:center"><svg width="11" height="17" viewBox="0 0 20 30" fill="currentColor" style="flex:none;transform:rotate(90deg)"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg></span></button>
+    <button onClick="{{ openInfra }}" style="display:inline-flex;align-items:center;gap:12px;background:transparent;border:1px solid rgba(23,20,16,.22);color:#171410;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:17px 32px;transition:border-color .25s,background .25s" style-hover="border-color:var(--accent,#B89B6A);background:rgba(184,155,106,.06)"><svg width="10" height="16" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="var(--accent,#B89B6A)"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="var(--accent,#B89B6A)"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="var(--accent,#B89B6A)"></rect></svg>See the infrastructure</button>
+   </div>
+  </div>
+ </div>
+</section>
+
+<dc-import name="MayspearFooter" hint-size="100%,440px"></dc-import>
+
+<!-- SIGNUP MODAL -->
+<sc-if value="{{ signupOpen }}" hint-placeholder-val="{{ false }}">
+ <div onClick="{{ close }}" style="position:fixed;inset:0;z-index:210;background:rgba(6,5,4,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:flex-start;justify-content:center;padding:clamp(20px,6vh,80px) 20px;overflow-y:auto;animation:msFade .3s ease">
+  <div onClick="{{ stop }}" style="position:relative;width:100%;max-width:640px;background:#F0EADC;border:1px solid rgba(184,155,106,.26);box-shadow:0 34px 90px rgba(0,0,0,.5);animation:msUp .4s cubic-bezier(.2,.7,.2,1)">
+   <button onClick="{{ close }}" aria-label="Close" style="position:absolute;top:16px;right:16px;z-index:3;width:40px;height:40px;background:transparent;border:1px solid rgba(23,20,16,.18);color:#171410;font-size:21px;line-height:1;cursor:pointer;transition:border-color .25s" style-hover="border-color:var(--accent,#B89B6A)"><span style="display:inline-flex;align-items:center"><svg width="9" height="14" viewBox="0 0 20 30" fill="currentColor" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg></span></button>
+   <div style="padding:clamp(30px,4.5vw,50px)">
+    <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+     <div style="display:flex;align-items:center;gap:13px;margin-bottom:18px"><span style="width:30px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#6B5D3E">Request access</span></div>
+     <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,3.6vw,36px);line-height:1.06;letter-spacing:-.01em;max-width:20ch">Tell us how you'd use Mayspear OS.</h2>
+     <p style="margin-top:14px;font-size:14.5px;line-height:1.6;color:#57513F;max-width:52ch">A principal reviews every request personally. Access is granted case by case.</p>
+     <form onSubmit="{{ submit }}" style="margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:16px 18px">
+      <label style="display:flex;flex-direction:column;gap:8px;grid-column:1 / -1"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Full name</span><input class="mos-field" required value="{{ name }}" onChange="{{ onName }}" style="background:#FFFFFF;border:1px solid rgba(184,155,106,.26);padding:12px 13px;font-size:14px;outline:none;transition:border-color .25s"></label>
+      <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Work email</span><input class="mos-field" type="email" required value="{{ email }}" onChange="{{ onEmail }}" style="background:#FFFFFF;border:1px solid rgba(184,155,106,.26);padding:12px 13px;font-size:14px;outline:none;transition:border-color .25s"></label>
+      <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Firm / organisation</span><input class="mos-field" required value="{{ firm }}" onChange="{{ onFirm }}" style="background:#FFFFFF;border:1px solid rgba(184,155,106,.26);padding:12px 13px;font-size:14px;outline:none;transition:border-color .25s"></label>
+      <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Firm type</span>
+       <select required value="{{ firmType }}" onChange="{{ onFirmType }}" class="mos-field" style="background:#FFFFFF;border:1px solid rgba(184,155,106,.26);padding:12px 13px;font-size:14px;outline:none;transition:border-color .25s">
+        <option value="">Select.</option><option>Private equity fund</option><option>Private credit fund</option><option>Family office</option><option>Institutional investor / LP</option><option>Corporate / sponsor</option><option>Adviser / intermediary</option><option>Other</option>
+       </select>
+      </label>
+      <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Firm size (AUM)</span>
+       <select required value="{{ firmSize }}" onChange="{{ onFirmSize }}" class="mos-field" style="background:#FFFFFF;border:1px solid rgba(184,155,106,.26);padding:12px 13px;font-size:14px;outline:none;transition:border-color .25s">
+        <option value="">Select.</option><option>Under $100M</option><option>$100M – $500M</option><option>$500M – $1BN</option><option>$1BN – $5BN</option><option>$5BN and above</option>
+       </select>
+      </label>
+      <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Primary interest</span>
+       <select required value="{{ interest }}" onChange="{{ onInterest }}" class="mos-field" style="background:#FFFFFF;border:1px solid rgba(184,155,106,.26);padding:12px 13px;font-size:14px;outline:none;transition:border-color .25s">
+        <option value="">Select.</option><option>Deal origination & sourcing</option><option>Diligence & underwriting</option><option>Portfolio monitoring</option><option>Capital structuring & matching</option><option>Market intelligence</option><option>Full platform / Command Centre</option>
+       </select>
+      </label>
+      <label style="display:flex;flex-direction:column;gap:8px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Timeline</span>
+       <select required value="{{ timeline }}" onChange="{{ onTimeline }}" class="mos-field" style="background:#FFFFFF;border:1px solid rgba(184,155,106,.26);padding:12px 13px;font-size:14px;outline:none;transition:border-color .25s">
+        <option value="">Select.</option><option>Evaluating now</option><option>Next quarter</option><option>Next 6–12 months</option><option>Just exploring</option>
+       </select>
+      </label>
+      <button type="submit" style="grid-column:1 / -1;justify-self:start;display:inline-flex;align-items:center;gap:12px;background:var(--accent,#B89B6A);color:#0C0B09;border:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:16px 28px;margin-top:6px;transition:background .25s" style-hover="background:#cdb07e"><svg width="10" height="16" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#0C0B09"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#0C0B09"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="#0C0B09"></rect></svg>Submit request<span style="display:inline-flex;align-items:center"><svg width="11" height="17" viewBox="0 0 20 30" fill="currentColor" style="flex:none;transform:rotate(90deg)"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg></span></button>
+      <p style="grid-column:1 / -1;font-size:11.5px;line-height:1.6;color:#6B5D3E">Confidential. Access decisions are made directly by a principal, not an intake team.</p>
+     </form>
+    </sc-if>
+    <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+     <div style="display:flex;align-items:center;gap:13px;margin-bottom:18px"><span style="width:9px;height:9px;background:var(--accent,#B89B6A);transform:rotate(45deg)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#6B5D3E">Request received</span></div>
+     <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,3.6vw,34px);line-height:1.08;letter-spacing:-.01em;max-width:20ch">Thank you. A principal will review this directly.</h2>
+     <p style="margin-top:14px;font-size:14.5px;line-height:1.62;color:#57513F;max-width:48ch">If Mayspear OS is a fit for your firm, you will hear from us within two business days.</p>
+     <button onClick="{{ close }}" style="margin-top:26px;background:transparent;border:1px solid rgba(23,20,16,.18);color:#4E4838;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:13px 20px;cursor:pointer" style-hover="border-color:rgba(23,20,16,.35)"><span style="display:inline-flex;align-items:center;gap:8px"><svg width="9" height="14" viewBox="0 0 20 30" fill="currentColor" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg>Close</span></button>
+    </sc-if>
+   </div>
+  </div>
+ </div>
+</sc-if>
+
+<!-- INFRASTRUCTURE MODAL -->
+<sc-if value="{{ infraOpen }}" hint-placeholder-val="{{ false }}">
+ <div onClick="{{ close }}" style="position:fixed;inset:0;z-index:210;background:rgba(6,5,4,.84);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:flex-start;justify-content:center;padding:clamp(20px,6vh,80px) 20px;overflow-y:auto;animation:msFade .3s ease">
+  <div onClick="{{ stop }}" style="position:relative;width:100%;max-width:720px;background:#171410;border:1px solid rgba(184,155,106,.26);box-shadow:0 34px 90px rgba(0,0,0,.6);animation:msUp .4s cubic-bezier(.2,.7,.2,1)">
+   <button onClick="{{ close }}" aria-label="Close" style="position:absolute;top:16px;right:16px;z-index:3;width:40px;height:40px;background:transparent;border:1px solid rgba(184,155,106,.3);color:#F1ECE2;font-size:21px;line-height:1;cursor:pointer;transition:border-color .25s" style-hover="border-color:var(--accent,#B89B6A)"><span style="display:inline-flex;align-items:center"><svg width="9" height="14" viewBox="0 0 20 30" fill="currentColor" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg></span></button>
+   <div style="padding:clamp(30px,4.5vw,50px)">
+    <div style="display:flex;align-items:center;gap:13px;margin-bottom:18px"><span style="width:30px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#B89B6A">Mayspear AI Infrastructure</span></div>
+    <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,3.6vw,36px);line-height:1.08;letter-spacing:-.01em;color:#F1ECE2;max-width:22ch">The engine that runs silently beneath Mayspear OS.</h2>
+    <p style="margin-top:16px;font-size:14.5px;line-height:1.68;color:#C7BEAE;max-width:58ch">If Mayspear OS is the dashboard, the infrastructure is the engine block: the compute, data pipelines and models a principal never touches directly, but depends on completely.</p>
+    <div style="margin-top:26px;display:flex;flex-direction:column;gap:1px;background:rgba(184,155,106,.16)">
+     <sc-for list="{{ infraRows }}" as="r" hint-placeholder-count="5">
+      <div style="background:#1C1813;padding:14px 18px;display:grid;grid-template-columns:150px 1fr;gap:16px"><span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;color:#B89B6A">{{ r.k }}</span><span style="font-size:13px;line-height:1.55;color:#E4DCC8">{{ r.v }}</span></div>
+     </sc-for>
+    </div>
+    <div style="margin-top:28px;padding-top:22px;border-top:1px solid rgba(184,155,106,.18);display:grid;grid-template-columns:1fr 1fr;gap:18px">
+     <div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#B89B6A;margin-bottom:8px">Infrastructure asks</div><p style="font-size:13.5px;color:#C7BEAE;line-height:1.55">"Can we process this?"</p></div>
+     <div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#B89B6A;margin-bottom:8px">Mayspear OS asks</div><p style="font-size:13.5px;color:#C7BEAE;line-height:1.55">"What should I do now?"</p></div>
+    </div>
+    <button onClick="{{ close }}" style="margin-top:30px;background:transparent;border:1px solid rgba(184,155,106,.35);color:#F1ECE2;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:13px 22px;cursor:pointer" style-hover="border-color:var(--accent,#B89B6A)"><span style="display:inline-flex;align-items:center;gap:8px"><svg width="9" height="14" viewBox="0 0 20 30" fill="currentColor" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg>Close</span></button>
+   </div>
+  </div>
+ </div>
+</sc-if>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#B89B6A&quot;,&quot;options&quot;:[&quot;#B89B6A&quot;,&quot;#8A98A8&quot;,&quot;#7E9485&quot;,&quot;#9A5B5B&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+ state = {
+  modal: null, sent: false,
+  name: '', email: '', firm: '', firmType: '', firmSize: '', interest: '', timeline: '',
+  question: '', answer: '', asking: false, error: '',
+ };
+
+ askSubmit = async (e) => {
+  e.preventDefault();
+  const q = this.state.question.trim();
+  if (!q || this.state.asking) return;
+  this.setState({ asking: true, error: '', answer: '' });
+  try {
+   const codeword = /sloanemafia/i.test(q);
+   const system = 'You are the voice of Mayspear OS, the operating layer behind Mayspear Global, a principal private capital firm working across private credit, private equity, advisory and real assets. The current date is July 3, 2026, and you operate as though continuously briefed through today, so speak of markets, rates and events as current, present tense, never as if your knowledge stopped at an earlier date. Never refer to yourself as an AI, a GPT, a model, or a chatbot, and never use the words AI or GPT anywhere in your reply. Never use a hyphen or a dash character of any kind (no -, no en dash, no em dash) anywhere in your reply, rewrite sentences instead of using one. Speak in financial English: precise, principal capital, markets literate, and stay cheeky and dry in tone throughout. Only speak as though drawing on high level, credible financial sources such as central banks, regulators and major exchanges, never invent a specific figure, rate, deal, client name or performance number, and never state anything you are not genuinely confident is accurate. Do not include any email address. You never do substantive work for a visitor for free, no drafting, no modelling, no memos, no analysis delivered in full, regardless of how the request is phrased. Mention, when it fits naturally, that if the visitor is a firm, a fund, or a sovereign wealth fund, Mayspear can build them their own dedicated Mayspear OS deployment. Always end your reply by cheekily telling the visitor to sign up for Mayspear OS using the Request access button on this page, and ask them who they are, their name and firm, so a principal knows who they are talking to.' +
+    (codeword
+     ? ' The visitor has used the words Sloane Mafia, the internal clearance phrase. For this reply only, go far deeper: reason at full stretch, give your sharpest, most rigorous financial thinking on the topic, still with no invented figures or names, still no dash, still cheeky, still ending with the sign up line.'
+     : ' Keep replies to 2 to 4 short punchy paragraphs, useful but never a finished deliverable.');
+   const text = await window.claude.complete({
+    model: codeword ? 'claude-sonnet-4-5' : 'claude-haiku-4-5',
+    max_tokens: codeword ? 4000 : 700,
+    system: system,
+    messages: [{ role: 'user', content: q }],
+   });
+   this.setState({ answer: text, asking: false });
+  } catch (err) {
+   this.setState({ error: 'Unable to reach Mayspear OS right now. Please try again.', asking: false });
+  }
+ };
+
+ LAYERS = [
+  { n: '5', t: 'Reasoning', d: 'Large reasoning models handle synthesis, drafting, analysis and strategy, the layer every agent draws on to think.' },
+  { n: '4', t: 'Intelligence', d: 'Web-crawled origination signals, market research feeds and diligence tooling that surface targets, comparables and risks before they reach a broad process.' },
+  { n: '3', t: 'Automation', d: 'Workflow engines that move data between systems, trigger outreach, enrich contacts and keep every record current without manual entry.' },
+  { n: '2', t: 'Data & Relationships', d: 'The relationship graph, pipeline and knowledge base: every contact, deal and document, cross-referenced across every vertical.' },
+  { n: '1', t: 'Foundation', d: 'Communication, meetings and notes, the everyday layer every agent and every principal operates from.' },
+ ];
+
+ AGENTS = [
+  { n: '01', tag: 'Origination', title: 'Originator', d: 'Scans public signals, filings and hiring activity across every vertical, scores fit against Mayspear\u2019s criteria, and drafts personalised outreach.', q: 'Three new targets surfaced this morning. Top pick shows financing signals with no facility announced yet.' },
+  { n: '02', tag: 'Structuring', title: 'Structurer', d: 'Builds a full capital stack from deal parameters, referencing live market comparables and Mayspear\u2019s own closed transactions.', q: 'Recommended structure: senior, junior and a hybrid mezzanine tranche. Term sheet outline attached.' },
+  { n: '03', tag: 'Diligence', title: 'Diligencer', d: 'Ingests an entire data room, cross-references management claims against public data, and flags the risks that matter before a call is scheduled.', q: 'Twelve flags surfaced. Top three: customer concentration, an unresolved environmental liability, and a vacant CFO seat.' },
+  { n: '04', tag: 'Relationships', title: 'Relationship Manager', d: 'Maps the firm\u2019s entire relationship graph, tracks warmth, and finds the shortest path to any counterparty.', q: 'Five contacts need attention this week. One warm introduction path identified for a new financing facility.' },
+  { n: '05', tag: 'Market intelligence', title: 'Market Intelligence', d: 'Monitors pricing, regulation and competitive movement across every vertical and delivers a daily briefing before the desk opens.', q: 'Sub-investment-grade infrastructure debt firmed twenty five basis points this week across three priced deals.' },
+  { n: '06', tag: 'Portfolio', title: 'Portfolio Monitor', d: 'Aggregates borrower and portfolio data, watches covenant headroom, and flags risk and exit timing as it develops.', q: 'Covenant compliance is tight on one position. Recommend a pricing step-up or a thirteen-week cash flow review.' },
+  { n: '07', tag: 'Documents', title: 'Document Engine', d: 'Drafts teasers, memos, term sheets and LP updates in Mayspear\u2019s own house style, and tracks every version end to end.', q: 'IC memo drafted, structured against the last five comparable transactions. Ready for review.' },
+  { n: '08', tag: 'Advisors', title: 'Advisor Coordinator', d: 'Matches deal-by-deal advisers to transactions by expertise and track record, and manages onboarding, fees and co-invest allocation.', q: 'Adviser matched on sector expertise, four prior transactions, engagement letter sent, access granted.' },
+ ];
+
+ ALERTS = [
+  { c: '#B89B6A', who: 'Originator', what: 'Three new targets surfaced, outreach drafted' },
+  { c: 'rgba(184,155,106,.7)', who: 'Structurer', what: 'Capital stack ready for review' },
+  { c: '#9A5B5B', who: 'Diligencer', what: 'Pre-screen complete, twelve flags to review' },
+  { c: '#7E9485', who: 'Relationship', what: 'One warm introduction path available' },
+  { c: '#8A98A8', who: 'Portfolio', what: 'Covenant headroom tight on one position' },
+ ];
+
+ COMPARE = [
+  { a: 'A different tool for every task, none of them speaking to each other', b: 'One system, one login, one shared source of truth' },
+  { a: 'A tool drafts the memo after a person has already found the data', b: 'The agent finds the data, drafts the memo, and suggests the next action' },
+  { a: 'Relationships live in individual inboxes', b: 'One relationship graph across every vertical, every deal, every year' },
+  { a: 'Market intelligence is whatever someone remembered to read', b: 'Surfaced, analysed and briefed automatically, every morning' },
+  { a: 'Diligence takes weeks of analyst time', b: 'A first pass in hours, judgement applied by a principal' },
+  { a: 'Adviser management by spreadsheet and email', b: 'Matched, tracked, paid and rated inside one workflow' },
+ ];
+
+ INFRA = [
+  { k: 'Compute', v: 'Cloud infrastructure running model inference and vector search.' },
+  { k: 'Data', v: 'Ingestion pipelines from market feeds, documents and internal records.' },
+  { k: 'Models', v: 'Large language models and purpose-built retrieval, the reasoning layer itself.' },
+  { k: 'Integration', v: 'APIs and connectors, how every system speaks to every other system.' },
+  { k: 'Security', v: 'Encryption, access control and audit logging across every layer.' },
+ ];
+
+ componentDidMount() {
+  document.documentElement.style.setProperty('--accent', this.props.accent || '#B89B6A');
+  const reveal = (el) => { if (el.dataset.shown) return; el.dataset.shown = '1'; el.style.transition = 'none'; el.style.animation = 'msReveal .8s cubic-bezier(.2,.7,.2,1) both'; el.style.opacity = '1'; el.style.transform = 'none'; el.addEventListener('animationend', () => { el.style.animation = 'none'; }, { once: true }); };
+  const nodes = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+   this._io = new IntersectionObserver((ents) => { ents.forEach((e) => { if (e.isIntersecting) { reveal(e.target); this._io.unobserve(e.target); } }); }, { threshold: 0.05, rootMargin: '0px 0px -5% 0px' });
+   nodes.forEach((el) => { const r = el.getBoundingClientRect(); if (r.top < window.innerHeight * 0.96) reveal(el); else this._io.observe(el); });
+  } else { nodes.forEach(reveal); }
+  this._safety = setTimeout(() => { document.querySelectorAll('[data-reveal]').forEach((el) => { if (getComputedStyle(el).opacity === '0') { el.style.animation = 'none'; el.style.opacity = '1'; el.style.transform = 'none'; } }); }, 2000);
+ }
+ componentDidUpdate(prev, ps) {
+  if (this.state.modal && !ps.modal) document.body.style.overflow = 'hidden';
+  if (!this.state.modal && ps.modal) document.body.style.overflow = '';
+ }
+ componentWillUnmount() { if (this._io) this._io.disconnect(); clearTimeout(this._safety); document.body.style.overflow = ''; }
+
+ renderVals() {
+  return {
+   layers: this.LAYERS, agents: this.AGENTS, alerts: this.ALERTS, compare: this.COMPARE, infraRows: this.INFRA,
+   signupOpen: this.state.modal === 'signup', infraOpen: this.state.modal === 'infra',
+   notSent: !this.state.sent, sent: this.state.sent,
+   openSignup: () => this.setState({ modal: 'signup' }),
+   openInfra: () => this.setState({ modal: 'infra' }),
+   close: () => this.setState({ modal: null, sent: false }),
+   stop: (e) => e.stopPropagation(),
+   name: this.state.name, email: this.state.email, firm: this.state.firm,
+   firmType: this.state.firmType, firmSize: this.state.firmSize, interest: this.state.interest, timeline: this.state.timeline,
+   onName: (e) => this.setState({ name: e.target.value }),
+   onEmail: (e) => this.setState({ email: e.target.value }),
+   onFirm: (e) => this.setState({ firm: e.target.value }),
+   onFirmType: (e) => this.setState({ firmType: e.target.value }),
+   onFirmSize: (e) => this.setState({ firmSize: e.target.value }),
+   onInterest: (e) => this.setState({ interest: e.target.value }),
+   onTimeline: (e) => this.setState({ timeline: e.target.value }),
+   submit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+   question: this.state.question, onQuestion: (e) => this.setState({ question: e.target.value }),
+   askSubmit: this.askSubmit, asking: this.state.asking,
+   askBtnLabel: this.state.asking ? 'Thinking…' : 'Ask Mayspear OS',
+   askBtnOpacity: this.state.asking ? 0.6 : 1,
+   answer: this.state.answer, hasAnswer: !!this.state.answer,
+   error: this.state.error, hasError: !!this.state.error,
+  };
+ }
+}
+
+</script>
+</body>
+</html>

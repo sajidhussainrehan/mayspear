@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+@keyframes msFade{from{opacity:0}to{opacity:1}}
+@keyframes msPop{from{opacity:1;transform:none scale(.975)}to{opacity:1;transform:none}}
+@keyframes msPill{from{opacity:1;transform:none}to{opacity:1;transform:none}}
+.ms-field::placeholder{color:#6B5D3E}
+.ms-field:focus{border-color:var(--accent,#B89B6A)!important}
+</style>
+</helmet>
+<div data-navwrap style="position:sticky;top:14px;z-index:50;max-width:1280px;margin:0 auto;padding:0 clamp(14px,3vw,28px)">
+ <div style="background:rgba(23,20,16,0.82);backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);border:1px solid rgba(184,155,106,0.22);border-radius:999px;box-shadow:0 18px 50px rgba(20,16,8,.22),0 2px 8px rgba(20,16,8,.1)">
+  <div data-navpad style="max-width:1320px;margin:0 auto;padding:0 clamp(10px,2.4vw,22px) 0 clamp(18px,3vw,26px);height:62px;display:flex;align-items:center;justify-content:space-between">
+  <a href="Mayspear%20Global.dc.html" style="display:flex;align-items:center;gap:13px">
+   <svg width="20" height="30" viewBox="0 0 20 30" fill="none" style="flex:none;display:block">
+    <path d="M10 0 L16 9 L10 14 L4 9 Z" fill="var(--accent,#B89B6A)"></path>
+    <path d="M10 14 L11.1 9.5 L10 0 L8.9 9.5 Z" fill="#0A0907" opacity="0.28"></path>
+    <rect x="9.25" y="12.5" width="1.5" height="17.5" fill="var(--accent,#B89B6A)"></rect>
+    <rect x="5.5" y="16" width="9" height="1.4" fill="var(--accent,#B89B6A)"></rect>
+   </svg>
+   <span style="display:flex;flex-direction:column;line-height:1">
+    <span style="font-family:'Libre Caslon Text',serif;font-size:18px;letter-spacing:.18em;color:#F1ECE2">MAYSPEAR</span>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:.24em;color:#B7AD92;margin-top:3px;white-space:nowrap">GLOBAL · PRINCIPAL CAPITAL</span>
+   </span>
+  </a>
+  <div data-desk style="display:flex;align-items:center;gap:20px">
+   <sc-for list="{{ topLinks }}" as="l" hint-placeholder-count="6">
+    <a href="{{ l.href }}" style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:{{ l.col }};border-bottom:2px solid {{ l.ul }};padding-bottom:3px;transition:color .25s" style-hover="color:#F1ECE2">{{ l.label }}</a>
+   </sc-for>
+   <button onClick="{{ openPalette }}" aria-label="Ask Mayspear anything" style="display:flex;align-items:center;justify-content:center;width:42px;height:42px;background:transparent;border:1px solid rgba(184,155,106,.3);cursor:pointer;transition:border-color .25s" style-hover="border-color:var(--accent,#B89B6A)"><svg width="12" height="18" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="var(--accent,#B89B6A)"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="var(--accent,#B89B6A)"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="var(--accent,#B89B6A)"></rect></svg></button>
+   <a href="Opportunities.dc.html" style="display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap;color:#0C0B09;background:var(--accent,#B89B6A);padding:11px 18px;transition:background .25s" style-hover="background:#cdb07e"><svg width="10" height="15" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#0C0B09"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#0C0B09"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="#0C0B09"></rect></svg>Submit a Deal</a>
+  </div>
+  <button data-mob onClick="{{ toggle }}" style="display:none;align-items:center;justify-content:center;width:42px;height:42px;background:transparent;border:1px solid rgba(241,236,226,.24);cursor:pointer;flex-direction:column;gap:5px">
+   <span style="width:18px;height:1px;background:#F1ECE2;display:block"></span>
+   <span style="width:18px;height:1px;background:#F1ECE2;display:block"></span>
+   <span style="width:18px;height:1px;background:#F1ECE2;display:block"></span>
+  </button>
+  </div>
+ </div>
+</div>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+ <div style="position:fixed;inset:0;z-index:80;background:#F0EADC;display:flex;flex-direction:column;padding:26px clamp(22px,6vw,52px)">
+  <div style="display:flex;align-items:center;justify-content:space-between;height:46px">
+   <span style="font-family:'Libre Caslon Text',serif;font-size:18px;letter-spacing:.18em;color:#171410">MAYSPEAR</span>
+   <button onClick="{{ toggle }}" style="background:transparent;border:1px solid rgba(23,20,16,.2);width:42px;height:42px;cursor:pointer;font-size:22px;color:#171410;line-height:1"><span style="display:inline-flex;align-items:center"><svg width="9" height="14" viewBox="0 0 20 30" fill="currentColor" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg></span></button>
+  </div>
+  <div style="display:flex;flex-direction:column;margin-top:34px;overflow-y:auto">
+   <sc-for list="{{ allLinks }}" as="l" hint-placeholder-count="8">
+    <a href="{{ l.href }}" style="font-family:'Libre Caslon Display',serif;font-size:clamp(24px,5vw,30px);color:{{ l.mcol }};padding:13px 0;border-bottom:1px solid rgba(184,155,106,.14)">{{ l.label }}</a>
+   </sc-for>
+   <a href="Opportunities.dc.html" style="font-family:'Libre Caslon Display',serif;font-size:clamp(24px,5vw,30px);color:var(--accent,#B89B6A);padding:13px 0">Submit a Deal</a>
+  </div>
+ </div>
+</sc-if>
+
+<sc-if value="{{ showLauncher }}" hint-placeholder-val="{{ true }}">
+ <div onMouseEnter="{{ pausePills }}" onMouseLeave="{{ resumePills }}" style="position:fixed;bottom:26px;right:26px;z-index:120">
+  <sc-if value="{{ pill0 }}" hint-placeholder-val="{{ true }}">
+   <button onClick="{{ openSalon }}" aria-label="Request a seat at the Mayspear Salon" style="display:flex;align-items:center;gap:11px;background:#F0EADC;border:1px solid rgba(184,155,106,.32);color:#171410;padding:13px 17px;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 16px 44px rgba(0,0,0,.28);animation:msPill .5s ease both;transition:border-color .25s" style-hover="border-color:var(--accent,#B89B6A)">
+    <svg width="9" height="14" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="var(--accent,#B89B6A)"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="var(--accent,#B89B6A)"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="var(--accent,#B89B6A)"></rect></svg>
+    The Salon · By Invitation
+   </button>
+  </sc-if>
+  <sc-if value="{{ pill1 }}" hint-placeholder-val="{{ false }}">
+   <button onClick="{{ openDeal }}" aria-label="Discuss a capital need" style="display:flex;align-items:center;gap:11px;background:#F0EADC;border:1px solid rgba(126,148,133,.4);color:#171410;padding:13px 17px;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 16px 44px rgba(0,0,0,.28);animation:msPill .5s ease both;transition:border-color .25s" style-hover="border-color:#7E9485">
+    <svg width="9" height="14" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#7E9485"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#7E9485"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="#7E9485"></rect></svg>
+    Have Capital Needs? · Talk to a Principal
+   </button>
+  </sc-if>
+  <sc-if value="{{ pill2 }}" hint-placeholder-val="{{ false }}">
+   <button onClick="{{ openOriginator }}" aria-label="Refer a transaction" style="display:flex;align-items:center;gap:11px;background:#F0EADC;border:1px solid rgba(138,152,168,.42);color:#171410;padding:13px 17px;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 16px 44px rgba(0,0,0,.28);animation:msPill .5s ease both;transition:border-color .25s" style-hover="border-color:#8A98A8">
+    <svg width="9" height="14" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#8A98A8"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#8A98A8"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="#8A98A8"></rect></svg>
+    Refer a Transaction · For Advisers &amp; Counsel
+   </button>
+  </sc-if>
+ </div>
+</sc-if>
+
+<sc-if value="{{ dealOpen }}" hint-placeholder-val="{{ false }}">
+ <div onClick="{{ closeModal }}" style="position:fixed;inset:0;z-index:200;background:rgba(7,6,4,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:22px;animation:msFade .3s ease both">
+  <div onClick="{{ stop }}" style="position:relative;width:100%;max-width:548px;background:#F0EADC;border:1px solid rgba(184,155,106,.26);box-shadow:0 34px 90px rgba(0,0,0,.62);animation:msPop .5s cubic-bezier(.2,.8,.2,1) both;overflow:hidden">
+   <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(184,155,106,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(184,155,106,.05) 1px,transparent 1px);background-size:38px 38px;pointer-events:none"></div>
+   <button onClick="{{ closeModal }}" aria-label="Close" style="position:absolute;top:14px;right:14px;z-index:3;width:38px;height:38px;background:transparent;border:1px solid rgba(23,20,16,.16);color:#4E4838;font-size:20px;line-height:1;cursor:pointer;transition:border-color .25s" style-hover="border-color:rgba(23,20,16,.35)"><span style="display:inline-flex;align-items:center"><svg width="9" height="14" viewBox="0 0 20 30" fill="currentColor" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg></span></button>
+   <div style="position:relative;z-index:2;padding:clamp(30px,5vw,46px)">
+    <sc-if value="{{ dealForm }}" hint-placeholder-val="{{ true }}">
+     <div style="display:flex;align-items:center;gap:13px;margin-bottom:22px"><span style="width:30px;height:1px;background:#7E9485"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#7E9485">For Corporates &amp; Sponsors</span></div>
+     <h2 style="font-family:'Libre Caslon Display',serif;font-weight:400;font-size:clamp(27px,4.4vw,38px);line-height:1.05;letter-spacing:-.012em;color:#171410;max-width:16ch">Have a capital need the market can't solve?</h2>
+     <p style="margin-top:16px;font-size:14.5px;line-height:1.66;color:#57513F;max-width:47ch">We commit our own capital where banks and mega-funds cannot move, across secured credit, special situations, asset-based lending and securitisation. Tell us where to send a confidential review.</p>
+     <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E;border:1px solid rgba(184,155,106,.3);padding:5px 9px">ABL</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E;border:1px solid rgba(184,155,106,.3);padding:5px 9px">ABS</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E;border:1px solid rgba(184,155,106,.3);padding:5px 9px">Private Credit</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E;border:1px solid rgba(184,155,106,.3);padding:5px 9px">Special Situations</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E;border:1px solid rgba(184,155,106,.3);padding:5px 9px">DIP & Rescue</span>
+     </div>
+     <form onSubmit="{{ submitDeal }}" style="margin-top:26px;display:flex;flex-direction:column;gap:11px">
+      <input class="ms-field" type="email" required value="{{ dealEmail }}" onChange="{{ onDealInput }}" placeholder="Work email" style="width:100%;background:#FFFFFF;border:1px solid rgba(184,155,106,.26);color:#171410;font-family:'IBM Plex Mono',monospace;font-size:13px;padding:14px 15px;outline:none;box-sizing:border-box;transition:border-color .25s">
+      <button type="submit" style="width:100%;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--accent,#B89B6A);color:#0C0B09;border:none;font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:15px;cursor:pointer;transition:background .25s" style-hover="background:#cdb07e"><svg width="10" height="15" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#0C0B09"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#0C0B09"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="#0C0B09"></rect></svg>Request a confidential review</button>
+     </form>
+     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:18px;padding-top:18px;border-top:1px solid rgba(184,155,106,.14)">
+      <a href="Opportunities.dc.html" style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent,#B89B6A)" style-hover="color:#cdb07e">Submit full deal details →</a>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.05em;color:#6B5D3E">Strict confidence</span>
+     </div>
+     <div style="margin-top:14px;text-align:center"><a href="Partners.dc.html" style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.05em;color:#6B5D3E" style-hover="color:#171410">Looking to provide capital instead? Partner with us →</a></div>
+    </sc-if>
+    <sc-if value="{{ dealSent }}" hint-placeholder-val="{{ false }}">
+     <div style="display:flex;align-items:center;gap:13px;margin-bottom:20px"><span style="width:9px;height:9px;background:var(--accent,#B89B6A);transform:rotate(45deg)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#6B5D3E">Request received</span></div>
+     <h2 style="font-family:'Libre Caslon Display',serif;font-weight:400;font-size:clamp(26px,4vw,36px);line-height:1.07;letter-spacing:-.012em;color:#171410;max-width:16ch">Thank you. A principal will be in touch.</h2>
+     <p style="margin-top:16px;font-size:14.5px;line-height:1.66;color:#57513F;max-width:46ch">Expect a direct, confidential response within two business days. For a faster review, submit full deal details through our transactions desk.</p>
+     <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:26px">
+      <a href="Opportunities.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:var(--accent,#B89B6A);color:#0C0B09;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:13px 18px" style-hover="background:#cdb07e"><svg width="10" height="15" viewBox="0 0 20 30" fill="currentColor" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg>Submit full details<svg width="11" height="17" viewBox="0 0 20 30" fill="currentColor" style="flex:none;transform:rotate(90deg)"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg></a>
+      <button onClick="{{ closeModal }}" style="background:transparent;border:1px solid rgba(23,20,16,.18);color:#4E4838;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:13px 18px;cursor:pointer" style-hover="border-color:rgba(23,20,16,.35)"><span style="display:inline-flex;align-items:center;gap:8px"><svg width="9" height="14" viewBox="0 0 20 30" fill="currentColor" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg>Close</span></button>
+     </div>
+    </sc-if>
+   </div>
+  </div>
+ </div>
+</sc-if>
+
+<sc-if value="{{ originatorOpen }}" hint-placeholder-val="{{ false }}">
+ <div onClick="{{ closeModal }}" style="position:fixed;inset:0;z-index:200;background:rgba(7,6,4,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:22px;animation:msFade .3s ease both">
+  <div onClick="{{ stop }}" style="position:relative;width:100%;max-width:548px;background:#F0EADC;border:1px solid rgba(138,152,168,.4);box-shadow:0 34px 90px rgba(0,0,0,.62);animation:msPop .5s cubic-bezier(.2,.8,.2,1) both;overflow:hidden">
+   <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(184,155,106,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(184,155,106,.05) 1px,transparent 1px);background-size:38px 38px;pointer-events:none"></div>
+   <button onClick="{{ closeModal }}" aria-label="Close" style="position:absolute;top:14px;right:14px;z-index:3;width:38px;height:38px;background:transparent;border:1px solid rgba(23,20,16,.16);color:#4E4838;font-size:20px;line-height:1;cursor:pointer;transition:border-color .25s" style-hover="border-color:rgba(23,20,16,.35)"><span style="display:inline-flex;align-items:center"><svg width="9" height="14" viewBox="0 0 20 30" fill="currentColor" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg></span></button>
+   <div style="position:relative;z-index:2;padding:clamp(30px,5vw,46px)">
+    <sc-if value="{{ originatorForm }}" hint-placeholder-val="{{ true }}">
+     <div style="display:flex;align-items:center;gap:13px;margin-bottom:22px"><span style="width:30px;height:1px;background:#8A98A8"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#8A98A8">For Advisers, Counsel &amp; Intermediaries</span></div>
+     <h2 style="font-family:'Libre Caslon Display',serif;font-weight:400;font-size:clamp(27px,4.4vw,38px);line-height:1.05;letter-spacing:-.012em;color:#171410;max-width:16ch">Send us the transaction. We'll take it from here.</h2>
+     <p style="margin-top:16px;font-size:14.5px;line-height:1.66;color:#57513F;max-width:47ch">If you represent a client with a financing need, a restructuring, or a sale, bring it to us directly. We work confidentially alongside counsel and advisers, and move at the speed your client's situation demands.</p>
+     <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:20px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E;border:1px solid rgba(138,152,168,.4);padding:5px 9px">M&amp;A</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E;border:1px solid rgba(138,152,168,.4);padding:5px 9px">Restructuring</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E;border:1px solid rgba(138,152,168,.4);padding:5px 9px">Private Credit</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E;border:1px solid rgba(138,152,168,.4);padding:5px 9px">Special Situations</span>
+     </div>
+     <form onSubmit="{{ submitOriginator }}" style="margin-top:26px;display:flex;flex-direction:column;gap:11px">
+      <input class="ms-field" type="text" required value="{{ originatorFirm }}" onChange="{{ onOriginatorFirmInput }}" placeholder="Your firm" style="width:100%;background:#FFFFFF;border:1px solid rgba(184,155,106,.26);color:#171410;font-family:'IBM Plex Mono',monospace;font-size:13px;padding:14px 15px;outline:none;box-sizing:border-box;transition:border-color .25s">
+      <input class="ms-field" type="email" required value="{{ originatorEmail }}" onChange="{{ onOriginatorInput }}" placeholder="Work email" style="width:100%;background:#FFFFFF;border:1px solid rgba(184,155,106,.26);color:#171410;font-family:'IBM Plex Mono',monospace;font-size:13px;padding:14px 15px;outline:none;box-sizing:border-box;transition:border-color .25s">
+      <button type="submit" style="width:100%;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#8A98A8;color:#171410;border:none;font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:15px;cursor:pointer;transition:background .25s" style-hover="background:#9CA9B8"><svg width="10" height="15" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#171410"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#171410"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="#171410"></rect></svg>Refer a transaction</button>
+     </form>
+     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:18px;padding-top:18px;border-top:1px solid rgba(184,155,106,.14)">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.05em;color:#6B5D3E">We work alongside you, not around you</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.05em;color:#6B5D3E">Strict confidence</span>
+     </div>
+    </sc-if>
+    <sc-if value="{{ originatorSent }}" hint-placeholder-val="{{ false }}">
+     <div style="display:flex;align-items:center;gap:13px;margin-bottom:20px"><span style="width:9px;height:9px;background:#8A98A8;transform:rotate(45deg)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#6B5D3E">Received</span></div>
+     <h2 style="font-family:'Libre Caslon Display',serif;font-weight:400;font-size:clamp(26px,4vw,36px);line-height:1.07;letter-spacing:-.012em;color:#171410;max-width:16ch">Thank you. Our origination team will be in touch.</h2>
+     <p style="margin-top:16px;font-size:14.5px;line-height:1.66;color:#57513F;max-width:46ch">Expect a direct, confidential response within two business days, from a principal, not an intake team.</p>
+     <button onClick="{{ closeModal }}" style="margin-top:26px;background:transparent;border:1px solid rgba(23,20,16,.16);color:#4E4838;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:13px 20px;cursor:pointer" style-hover="border-color:rgba(23,20,16,.35)"><span style="display:inline-flex;align-items:center;gap:8px"><svg width="9" height="14" viewBox="0 0 20 30" fill="currentColor" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg>Close</span></button>
+    </sc-if>
+   </div>
+  </div>
+ </div>
+</sc-if>
+
+<sc-if value="{{ paletteOpen }}" hint-placeholder-val="{{ false }}">
+ <div onClick="{{ closePalette }}" style="position:fixed;inset:0;z-index:230;background:rgba(6,5,4,.86);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:flex-start;justify-content:center;padding:clamp(20px,10vh,120px) 20px;overflow-y:auto;animation:msFade .2s ease">
+  <div onClick="{{ stop }}" style="position:relative;width:100%;max-width:620px;background:#171410;border:1px solid rgba(184,155,106,.3);box-shadow:0 40px 100px rgba(0,0,0,.6);animation:msPop .35s cubic-bezier(.2,.8,.2,1) both">
+   <div style="display:flex;align-items:center;gap:14px;padding:18px 20px;border-bottom:1px solid rgba(184,155,106,.2)">
+    <svg width="12" height="18" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="var(--accent,#B89B6A)"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="var(--accent,#B89B6A)"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="var(--accent,#B89B6A)"></rect></svg>
+    <input autoFocus value="{{ paletteQ }}" onChange="{{ onPaletteQ }}" onKeyDown="{{ onPaletteKey }}" placeholder="Go anywhere, or ask Mayspear anything…" style="flex:1;background:transparent;border:none;outline:none;color:#F1ECE2;font-family:'IBM Plex Mono',monospace;font-size:14px">
+    <button onClick="{{ closePalette }}" aria-label="Close" style="background:transparent;border:1px solid rgba(184,155,106,.3);color:#B7AD92;width:30px;height:30px;cursor:pointer;font-size:16px;line-height:1" style-hover="border-color:var(--accent,#B89B6A)"><span style="display:inline-flex;align-items:center"><svg width="9" height="14" viewBox="0 0 20 30" fill="currentColor" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg></span></button>
+   </div>
+   <div style="max-height:60vh;overflow-y:auto">
+    <button onClick="{{ askPalette }}" disabled="{{ paletteAsking }}" style="width:100%;text-align:left;background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.14);cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px" style-hover="background:rgba(184,155,106,.08)">
+     <svg width="10" height="15" viewBox="0 0 20 30" fill="none" style="flex:none;transform:rotate(90deg)"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#B89B6A"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#B89B6A"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="#B89B6A"></rect></svg>
+     <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:#F1ECE2">{{ paletteAskLabel }}</span>
+    </button>
+    <sc-if value="{{ paletteHasAnswer }}" hint-placeholder-val="{{ false }}">
+     <p style="padding:18px 20px;font-size:14px;line-height:1.66;color:#E4DCC8;white-space:pre-wrap;border-bottom:1px solid rgba(184,155,106,.14)">{{ paletteAnswer }}</p>
+    </sc-if>
+    <sc-if value="{{ paletteHasError }}" hint-placeholder-val="{{ false }}">
+     <p style="padding:14px 20px;font-size:12.5px;color:#C88;border-bottom:1px solid rgba(184,155,106,.14)">{{ paletteError }}</p>
+    </sc-if>
+    <sc-for list="{{ paletteResults }}" as="pr" hint-placeholder-count="6">
+     <a href="{{ pr.href }}" style="display:flex;align-items:center;gap:12px;padding:14px 20px;border-bottom:1px solid rgba(184,155,106,.1)" style-hover="background:rgba(184,155,106,.08)">
+      <svg width="8" height="12" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#6B5D3E"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#6B5D3E"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="#6B5D3E"></rect></svg>
+      <span style="font-family:'Libre Caslon Text',serif;font-size:15px;color:#E4DCC8">{{ pr.label }}</span>
+     </a>
+    </sc-for>
+   </div>
+  </div>
+ </div>
+</sc-if>
+
+<sc-if value="{{ salonOpen }}" hint-placeholder-val="{{ false }}">
+ <div onClick="{{ closeModal }}" style="position:fixed;inset:0;z-index:200;background:rgba(6,5,4,.84);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:22px;animation:msFade .3s ease both">
+  <div onClick="{{ stop }}" style="position:relative;width:100%;max-width:520px;background:#F0EADC;border:1px solid rgba(184,155,106,.3);box-shadow:0 34px 90px rgba(0,0,0,.66);animation:msPop .5s cubic-bezier(.2,.8,.2,1) both;overflow:hidden">
+   <div style="height:3px;background:linear-gradient(90deg,transparent,var(--accent,#B89B6A),transparent)"></div>
+   <button onClick="{{ closeModal }}" aria-label="Close" style="position:absolute;top:16px;right:14px;z-index:3;width:38px;height:38px;background:transparent;border:1px solid rgba(23,20,16,.16);color:#4E4838;font-size:20px;line-height:1;cursor:pointer;transition:border-color .25s" style-hover="border-color:rgba(23,20,16,.35)"><span style="display:inline-flex;align-items:center"><svg width="9" height="14" viewBox="0 0 20 30" fill="currentColor" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg></span></button>
+   <div style="position:relative;z-index:2;padding:clamp(32px,5vw,48px)">
+    <sc-if value="{{ salonForm }}" hint-placeholder-val="{{ true }}">
+     <div style="font-family:'Libre Caslon Display',serif;font-style:italic;font-size:30px;color:var(--accent,#B89B6A);line-height:1;margin-bottom:20px">The Mayspear Salon</div>
+     <div style="display:flex;align-items:center;gap:13px;margin-bottom:20px"><span style="width:30px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#6B5D3E">By Invitation · Four Cities · Once a Year</span></div>
+     <h2 style="font-family:'Libre Caslon Display',serif;font-weight:400;font-size:clamp(26px,4.2vw,38px);line-height:1.05;letter-spacing:-.012em;color:#171410;max-width:15ch">A seat at our private table.</h2>
+     <p style="margin-top:16px;font-size:14.5px;line-height:1.68;color:#57513F;max-width:46ch">One closed evening in each Mayspear city, for the principals, allocators and owners behind the firm. One table, one night. No panels, no pitch, no audience. Request to be considered.</p>
+     <form onSubmit="{{ submitSalon }}" style="margin-top:26px;display:flex;flex-direction:column;gap:11px">
+      <input class="ms-field" type="email" required value="{{ salonEmail }}" onChange="{{ onSalonInput }}" placeholder="Email for your invitation" style="width:100%;background:#FFFFFF;border:1px solid rgba(184,155,106,.26);color:#171410;font-family:'IBM Plex Mono',monospace;font-size:13px;padding:14px 15px;outline:none;box-sizing:border-box;transition:border-color .25s">
+      <button type="submit" style="width:100%;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--accent,#B89B6A);color:#0C0B09;border:none;font-family:'IBM Plex Mono',monospace;font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:15px;cursor:pointer;transition:background .25s" style-hover="background:#cdb07e"><svg width="10" height="15" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#0C0B09"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#0C0B09"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="#0C0B09"></rect></svg>Request a seat</button>
+     </form>
+     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:18px;padding-top:18px;border-top:1px solid rgba(184,155,106,.14)">
+      <a href="Salon.dc.html" style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent,#B89B6A)" style-hover="color:#cdb07e">Inside the Salon →</a>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.05em;color:#6B5D3E">LPs & family offices</span>
+     </div>
+    </sc-if>
+    <sc-if value="{{ salonSent }}" hint-placeholder-val="{{ false }}">
+     <div style="display:flex;align-items:center;gap:13px;margin-bottom:20px"><span style="width:9px;height:9px;background:var(--accent,#B89B6A);transform:rotate(45deg)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#6B5D3E">Request received</span></div>
+     <h2 style="font-family:'Libre Caslon Display',serif;font-weight:400;font-size:clamp(25px,4vw,35px);line-height:1.07;letter-spacing:-.012em;color:#171410;max-width:17ch">Your name is with our partners.</h2>
+     <p style="margin-top:16px;font-size:14.5px;line-height:1.68;color:#57513F;max-width:46ch">Every request is reviewed personally. If a seat is available in your city, you will receive a private invitation ahead of the evening.</p>
+     <button onClick="{{ closeModal }}" style="margin-top:26px;background:transparent;border:1px solid rgba(23,20,16,.18);color:#4E4838;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:13px 20px;cursor:pointer" style-hover="border-color:rgba(23,20,16,.35)"><span style="display:inline-flex;align-items:center;gap:8px"><svg width="9" height="14" viewBox="0 0 20 30" fill="currentColor" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg>Close</span></button>
+    </sc-if>
+   </div>
+  </div>
+ </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1320,&quot;height&quot;:74},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;firm&quot;,&quot;platform&quot;,&quot;coverage&quot;,&quot;edge&quot;,&quot;markets&quot;,&quot;leadership&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+ state = { menuOpen: false, modal: null, dealEmail: '', salonEmail: '', originatorEmail: '', originatorFirm: '', dealSent: false, salonSent: false, originatorSent: false, pillIndex: 0, pillPaused: false, paletteOpen: false, paletteQ: '', paletteAnswer: '', paletteAsking: false, paletteError: '' };
+
+ BASE_LINKS = [
+  { label: 'The Firm', href: 'Firm.dc.html', key: 'firm' },
+  { label: 'Mayspear OS', href: 'MayspearOS.dc.html', key: 'mayspearos' },
+  { label: 'Coverage', href: 'Coverage.dc.html', key: 'coverage' },
+  { label: 'The Edge', href: 'Edge.dc.html', key: 'edge' },
+  { label: 'Markets', href: 'Markets.dc.html', key: 'markets' },
+  { label: 'Insights', href: 'Insights.dc.html', key: 'insights' },
+  { label: 'Leadership', href: 'Leadership.dc.html', key: 'leadership' },
+  { label: 'Partners', href: 'Partners.dc.html', key: 'partners' },
+  { label: 'Mandate', href: 'Mandate.dc.html', key: 'mandate' },
+  { label: 'Desks', href: 'Desks.dc.html', key: 'desks' },
+  { label: 'Network', href: 'Network.dc.html', key: 'network' },
+  { label: 'Salon', href: 'Salon.dc.html', key: 'salon' },
+  { label: 'Careers', href: 'Careers.dc.html', key: 'careers' },
+  { label: 'Contact', href: 'Contact.dc.html', key: 'contact' },
+  { label: 'Submit a Deal', href: 'Opportunities.dc.html', key: 'opportunities' },
+ ];
+
+ askPalette = async () => {
+  const q = this.state.paletteQ.trim();
+  if (!q || this.state.paletteAsking) return;
+  this.setState({ paletteAsking: true, paletteError: '', paletteAnswer: '' });
+  try {
+   const text = await window.claude.complete({
+    system: 'You are the Mayspear Global site assistant. Mayspear Global is a principal private capital firm working across private credit, private equity, advisory and real assets, with Mayspear OS as its AI native operating system. Answer the visitor\u2019s question in a measured, precise, principal-capital tone, in 2 to 3 short paragraphs. If the question has nothing to do with Mayspear, answer it briefly then relate it back to Mayspear. Never invent specific financial figures, deal names, client names or performance numbers. Do not include any email address. If relevant, tell the visitor which page to visit next.',
+    messages: [{ role: 'user', content: q }],
+   });
+   this.setState({ paletteAnswer: text, paletteAsking: false });
+  } catch (err) {
+   this.setState({ paletteError: 'Unable to reach Mayspear right now. Please try again.', paletteAsking: false });
+  }
+ };
+
+ componentDidMount() {
+  document.documentElement.style.setProperty('--accent', this.props.accent || '#B89B6A');
+  this._pillT = setInterval(() => {
+   if (this.state.pillPaused || this.state.modal) return;
+   this.setState((s) => ({ pillIndex: (s.pillIndex + 1) % 3 }));
+  }, 3000);
+  this._paletteKey = (e) => {
+   if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); this.setState((s) => ({ paletteOpen: !s.paletteOpen })); }
+  };
+  document.addEventListener('keydown', this._paletteKey);
+  try {
+   const cur = this.props.current || '';
+   const skip = ['salon', 'contact', 'opportunities', 'careers'];
+   if (!localStorage.getItem('ms_deal_promo') && skip.indexOf(cur) === -1) {
+    const fire = () => {
+     try { if (localStorage.getItem('ms_deal_promo')) return; } catch (e) {}
+     if (this._exit) { document.removeEventListener('mouseout', this._exit); this._exit = null; }
+     this.setState((s) => (s.modal ? null : { modal: 'deal' }));
+    };
+    this._exit = (e) => { if (e.clientY <= 0 && !e.relatedTarget) fire(); };
+    document.addEventListener('mouseout', this._exit);
+    this._promoT = setTimeout(fire, 45000);
+   }
+  } catch (e) {}
+ }
+ componentWillUnmount() { if (this._promoT) clearTimeout(this._promoT); if (this._pillT) clearInterval(this._pillT); if (this._exit) document.removeEventListener('mouseout', this._exit); if (this._paletteKey) document.removeEventListener('keydown', this._paletteKey); }
+ renderVals() {
+  const cur = this.props.current || '';
+  const topKeys = ['firm', 'mayspearos', 'coverage', 'mandate', 'insights', 'contact'];
+  const base = this.BASE_LINKS.filter((l) => l.key !== 'opportunities').map((l) => ({ ...l, top: topKeys.indexOf(l.key) !== -1 }));
+  const deco = (l) => ({ ...l, col: l.key === cur ? '#F1ECE2' : '#A79B82', ul: l.key === cur ? 'var(--accent,#B89B6A)' : 'transparent', mcol: l.key === cur ? 'var(--accent,#B89B6A)' : '#171410' });
+  const pq = this.state.paletteQ.trim().toLowerCase();
+  const paletteResults = this.BASE_LINKS.filter((l) => !pq || l.label.toLowerCase().indexOf(pq) !== -1);
+  return {
+   topLinks: base.filter((l) => l.top).map(deco),
+   allLinks: base.map(deco),
+   menuOpen: this.state.menuOpen,
+   toggle: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+   showLauncher: cur !== 'salon',
+   pill0: this.state.pillIndex === 0,
+   pill1: this.state.pillIndex === 1,
+   pill2: this.state.pillIndex === 2,
+   pausePills: () => this.setState({ pillPaused: true }),
+   resumePills: () => this.setState({ pillPaused: false }),
+   dealOpen: this.state.modal === 'deal',
+   salonOpen: this.state.modal === 'salon',
+   originatorOpen: this.state.modal === 'originator',
+   dealForm: !this.state.dealSent,
+   dealSent: this.state.dealSent,
+   salonForm: !this.state.salonSent,
+   salonSent: this.state.salonSent,
+   originatorForm: !this.state.originatorSent,
+   originatorSent: this.state.originatorSent,
+   dealEmail: this.state.dealEmail,
+   salonEmail: this.state.salonEmail,
+   originatorEmail: this.state.originatorEmail,
+   originatorFirm: this.state.originatorFirm,
+   openSalon: () => this.setState({ modal: 'salon' }),
+   openDeal: () => this.setState({ modal: 'deal' }),
+   openOriginator: () => this.setState({ modal: 'originator' }),
+   closeModal: () => { try { localStorage.setItem('ms_deal_promo', '1'); } catch (e) {} this.setState({ modal: null }); },
+   stop: (e) => e.stopPropagation(),
+   onDealInput: (e) => this.setState({ dealEmail: e.target.value }),
+   onSalonInput: (e) => this.setState({ salonEmail: e.target.value }),
+   onOriginatorInput: (e) => this.setState({ originatorEmail: e.target.value }),
+   onOriginatorFirmInput: (e) => this.setState({ originatorFirm: e.target.value }),
+   submitDeal: (e) => { e.preventDefault(); try { localStorage.setItem('ms_deal_promo', '1'); } catch (_) {} this.setState({ dealSent: true }); },
+   submitSalon: (e) => { e.preventDefault(); this.setState({ salonSent: true }); },
+   submitOriginator: (e) => { e.preventDefault(); this.setState({ originatorSent: true }); },
+   paletteOpen: this.state.paletteOpen,
+   openPalette: () => this.setState({ paletteOpen: true }),
+   closePalette: () => this.setState({ paletteOpen: false, paletteQ: '', paletteAnswer: '', paletteError: '' }),
+   paletteQ: this.state.paletteQ,
+   onPaletteQ: (e) => this.setState({ paletteQ: e.target.value, paletteAnswer: '', paletteError: '' }),
+   onPaletteKey: (e) => { if (e.key === 'Enter') this.askPalette(); if (e.key === 'Escape') this.setState({ paletteOpen: false }); },
+   askPalette: this.askPalette,
+   paletteAsking: this.state.paletteAsking,
+   paletteAskLabel: this.state.paletteAsking ? 'Thinking…' : (pq ? 'Ask Mayspear: "' + this.state.paletteQ.trim() + '"' : 'Ask Mayspear anything about the firm'),
+   paletteAnswer: this.state.paletteAnswer,
+   paletteHasAnswer: !!this.state.paletteAnswer,
+   paletteError: this.state.paletteError,
+   paletteHasError: !!this.state.paletteError,
+   paletteResults,
+  };
+ }
+}
+</script>
+</body>
+</html>
