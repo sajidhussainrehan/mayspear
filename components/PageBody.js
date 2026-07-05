@@ -26,6 +26,9 @@ export default function PageBody({ html }) {
           entries.forEach((e) => {
             if (e.isIntersecting) {
               e.target.classList.add('ms-in');
+              // Override inline styles
+              e.target.style.opacity = '1';
+              e.target.style.transform = 'none';
               io.unobserve(e.target);
             }
           });
@@ -34,10 +37,20 @@ export default function PageBody({ html }) {
       );
       targets.forEach((t) => io.observe(t));
     } else {
-      targets.forEach((t) => t.classList.add('ms-in'));
+      targets.forEach((t) => {
+        t.classList.add('ms-in');
+        t.style.opacity = '1';
+        t.style.transform = 'none';
+      });
     }
     // Safety: reveal anything still hidden shortly after load.
-    const safety = setTimeout(() => targets.forEach((t) => t.classList.add('ms-in')), 1400);
+    const safety = setTimeout(() => {
+      targets.forEach((t) => {
+        t.classList.add('ms-in');
+        t.style.opacity = '1';
+        t.style.transform = 'none';
+      });
+    }, 1400);
 
     // 2. Client-side internal navigation
     const onClick = (ev) => {

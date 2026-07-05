@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { notFound } from 'next/navigation';
 import { ROUTES } from '@/lib/routes';
 import PageBody from '@/components/PageBody';
@@ -15,7 +16,10 @@ const NAV_KEY = {
   'insight-energy': 'insights', 'insight-succession': 'insights',
 };
 
-const CONTENT_DIR = path.join(process.cwd(), 'content');
+// Use __dirname equivalent in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const CONTENT_DIR = path.join(__dirname, '..', '..', 'content');
 
 function findRoute(slug) {
   const s = slug || [];
