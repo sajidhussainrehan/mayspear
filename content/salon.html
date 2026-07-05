@@ -7,7 +7,7 @@ a{color:inherit;text-decoration:none}
 input,select,button{font-family:inherit;color:inherit}
 select option{background:#100E0B;color:#F1ECE2}
 ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#0C0B09}::-webkit-scrollbar-thumb{background:#2a2720;border:2px solid #0C0B09;border-radius:10px}
-@keyframes msReveal{from{}to{opacity:1;transform:none}}
+@keyframes msReveal{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 @media(max-width:920px){[data-navpad] [data-desk]{display:none!important}[data-navpad] [data-mob]{display:inline-flex!important}[data-grid2]{grid-template-columns:1fr!important}[data-cities]{grid-template-columns:1fr 1fr!important}[data-ben]{grid-template-columns:1fr!important}[data-fr]{grid-template-columns:1fr!important}}
 @media(max-width:600px){[data-pad]{padding-left:22px!important;padding-right:22px!important}[data-cities]{grid-template-columns:1fr!important}}
 </style>
@@ -19,9 +19,9 @@ select option{background:#100E0B;color:#F1ECE2}
 <header style="position:relative;overflow:hidden;background:#0C0B09;border-bottom:1px solid rgba(184,155,106,.14)">
   <div style="position:absolute;inset:0;background:radial-gradient(120% 95% at 50% 0%,rgba(184,155,106,.12),transparent 54%);pointer-events:none"></div>
   <div data-pad="" style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(22px,4vw,52px) clamp(54px,6vw,78px)">
-    <div data-reveal="" style="display:flex;align-items:center;gap:14px;margin-bottom:32px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:#A99E89">The Mayspear Salon · Annual · By Invitation</span></div>
-    <h1 data-reveal="" style="font-family:'Libre Caslon Display',serif;font-weight:400;font-size:clamp(42px,6.4vw,96px);line-height:1.0;letter-spacing:-.012em;max-width:15ch">A private table, four times a year.</h1>
-    <p data-reveal="" style="margin-top:32px;max-width:62ch;font-size:clamp(16px,1.3vw,18.5px);line-height:1.66;color:#C7BEAE">Once each year, in every Mayspear city, we host a single closed evening for the capital partners who stand behind the firm. One table, one night, dinner served, and you are our guest. A curated room of principals, allocators and owners. No panels, no pitch, no audience. Reserved for our limited partners, family offices and institutional investors.</p>
+    <div data-reveal="" style="opacity:0;transform:translateY(22px);display:flex;align-items:center;gap:14px;margin-bottom:32px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:#A99E89">The Mayspear Salon · Annual · By Invitation</span></div>
+    <h1 data-reveal="" style="opacity:0;transform:translateY(26px);font-family:'Libre Caslon Display',serif;font-weight:400;font-size:clamp(42px,6.4vw,96px);line-height:1.0;letter-spacing:-.012em;max-width:15ch">A private table, four times a year.</h1>
+    <p data-reveal="" style="opacity:0;transform:translateY(24px);margin-top:32px;max-width:62ch;font-size:clamp(16px,1.3vw,18.5px);line-height:1.66;color:#C7BEAE">Once each year, in every Mayspear city, we host a single closed evening for the capital partners who stand behind the firm. One table, one night, dinner served, and you are our guest. A curated room of principals, allocators and owners. No panels, no pitch, no audience. Reserved for our limited partners, family offices and institutional investors.</p>
   </div>
 </header>
 
@@ -30,25 +30,25 @@ select option{background:#100E0B;color:#F1ECE2}
   <div data-pad="" style="max-width:1320px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(22px,4vw,52px)">
     <div data-ben="" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(184,155,106,.14);border:1px solid rgba(184,155,106,.14)">
       
-        <div data-reveal="" style="background:#0A0907;padding:32px 26px 38px">
+        <div data-reveal="" style="opacity:0;transform:translateY(16px);background:#0A0907;padding:32px 26px 38px">
           <span style="color:var(--accent,#B89B6A);font-size:13px">◆</span>
           <h3 style="font-family:'Libre Caslon Display',serif;font-size:21px;line-height:1.12;margin:16px 0 10px">The right table</h3>
           <p style="font-size:13.5px;line-height:1.6;color:#9A9081">A curated room of principals, allocators and owners, convened with intent.</p>
         </div>
       
-        <div data-reveal="" style="background:#0A0907;padding:32px 26px 38px">
+        <div data-reveal="" style="opacity:0;transform:translateY(16px);background:#0A0907;padding:32px 26px 38px">
           <span style="color:var(--accent,#B89B6A);font-size:13px">◆</span>
           <h3 style="font-family:'Libre Caslon Display',serif;font-size:21px;line-height:1.12;margin:16px 0 10px">Candid by design</h3>
           <p style="font-size:13.5px;line-height:1.6;color:#9A9081">Held under Chatham House terms. No panels, no pitch, no audience.</p>
         </div>
       
-        <div data-reveal="" style="background:#0A0907;padding:32px 26px 38px">
+        <div data-reveal="" style="opacity:0;transform:translateY(16px);background:#0A0907;padding:32px 26px 38px">
           <span style="color:var(--accent,#B89B6A);font-size:13px">◆</span>
           <h3 style="font-family:'Libre Caslon Display',serif;font-size:21px;line-height:1.12;margin:16px 0 10px">First sight</h3>
           <p style="font-size:13.5px;line-height:1.6;color:#9A9081">Early visibility of co-investment and transactions before they travel.</p>
         </div>
       
-        <div data-reveal="" style="background:#0A0907;padding:32px 26px 38px">
+        <div data-reveal="" style="opacity:0;transform:translateY(16px);background:#0A0907;padding:32px 26px 38px">
           <span style="color:var(--accent,#B89B6A);font-size:13px">◆</span>
           <h3 style="font-family:'Libre Caslon Display',serif;font-size:21px;line-height:1.12;margin:16px 0 10px">Relationships that compound</h3>
           <p style="font-size:13.5px;line-height:1.6;color:#9A9081">The conversations that endure across cycles, renewed once a year.</p>
@@ -61,34 +61,34 @@ select option{background:#100E0B;color:#F1ECE2}
 
 <section style="background:#0C0B09">
   <div data-pad="" style="max-width:1320px;margin:0 auto;padding:clamp(60px,7vw,100px) clamp(22px,4vw,52px) clamp(80px,10vw,130px)">
-    <div data-reveal="" style="margin-bottom:40px"><div style="display:flex;align-items:center;gap:14px;margin-bottom:22px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:#A99E89">Choose your city</span></div><h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,3.2vw,44px);line-height:1.08;letter-spacing:-.01em">Select a city to register your interest.</h2></div>
+    <div data-reveal="" style="opacity:0;transform:translateY(22px);margin-bottom:40px"><div style="display:flex;align-items:center;gap:14px;margin-bottom:22px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:#A99E89">Choose your city</span></div><h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,3.2vw,44px);line-height:1.08;letter-spacing:-.01em">Select a city to register your interest.</h2></div>
     <div data-cities="" style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:50px">
       
-        <button data-reveal="" style="cursor:pointer;text-align:left;background:#0C0B09;border:1px solid rgba(184,155,106,.16);padding:26px 22px 30px;display:flex;flex-direction:column;gap:8px;transition:border-color .25s,background .25s">
+        <button data-reveal="" style="opacity:0;transform:translateY(16px);cursor:pointer;text-align:left;background:#0C0B09;border:1px solid rgba(184,155,106,.16);padding:26px 22px 30px;display:flex;flex-direction:column;gap:8px;transition:border-color .25s,background .25s">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8B8273">GCC</span>
           <span style="font-family:'Libre Caslon Display',serif;font-size:clamp(22px,2vw,28px);color:#F1ECE2">Dubai</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#8B8273">Once a year</span>
         </button>
       
-        <button data-reveal="" style="cursor:pointer;text-align:left;background:#0C0B09;border:1px solid rgba(184,155,106,.16);padding:26px 22px 30px;display:flex;flex-direction:column;gap:8px;transition:border-color .25s,background .25s">
+        <button data-reveal="" style="opacity:0;transform:translateY(16px);cursor:pointer;text-align:left;background:#0C0B09;border:1px solid rgba(184,155,106,.16);padding:26px 22px 30px;display:flex;flex-direction:column;gap:8px;transition:border-color .25s,background .25s">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8B8273">Americas</span>
           <span style="font-family:'Libre Caslon Display',serif;font-size:clamp(22px,2vw,28px);color:#F1ECE2">New York</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#8B8273">Once a year</span>
         </button>
       
-        <button data-reveal="" style="cursor:pointer;text-align:left;background:#0C0B09;border:1px solid rgba(184,155,106,.16);padding:26px 22px 30px;display:flex;flex-direction:column;gap:8px;transition:border-color .25s,background .25s">
+        <button data-reveal="" style="opacity:0;transform:translateY(16px);cursor:pointer;text-align:left;background:#0C0B09;border:1px solid rgba(184,155,106,.16);padding:26px 22px 30px;display:flex;flex-direction:column;gap:8px;transition:border-color .25s,background .25s">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8B8273">Europe</span>
           <span style="font-family:'Libre Caslon Display',serif;font-size:clamp(22px,2vw,28px);color:#F1ECE2">London</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#8B8273">Once a year</span>
         </button>
       
-        <button data-reveal="" style="cursor:pointer;text-align:left;background:#0C0B09;border:1px solid rgba(184,155,106,.16);padding:26px 22px 30px;display:flex;flex-direction:column;gap:8px;transition:border-color .25s,background .25s">
+        <button data-reveal="" style="opacity:0;transform:translateY(16px);cursor:pointer;text-align:left;background:#0C0B09;border:1px solid rgba(184,155,106,.16);padding:26px 22px 30px;display:flex;flex-direction:column;gap:8px;transition:border-color .25s,background .25s">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8B8273">Africa</span>
           <span style="font-family:'Libre Caslon Display',serif;font-size:clamp(22px,2vw,28px);color:#F1ECE2">Lagos</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#8B8273">Once a year</span>
         </button>
       
-        <button data-reveal="" style="cursor:pointer;text-align:left;background:#0C0B09;border:1px solid rgba(184,155,106,.16);padding:26px 22px 30px;display:flex;flex-direction:column;gap:8px;transition:border-color .25s,background .25s">
+        <button data-reveal="" style="opacity:0;transform:translateY(16px);cursor:pointer;text-align:left;background:#0C0B09;border:1px solid rgba(184,155,106,.16);padding:26px 22px 30px;display:flex;flex-direction:column;gap:8px;transition:border-color .25s,background .25s">
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;color:#8B8273">Asia</span>
           <span style="font-family:'Libre Caslon Display',serif;font-size:clamp(22px,2vw,28px);color:#F1ECE2">Singapore</span>
           <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;color:#8B8273">Once a year</span>
@@ -96,12 +96,12 @@ select option{background:#100E0B;color:#F1ECE2}
       
     </div>
     <div data-fr="" style="display:grid;grid-template-columns:0.7fr 1.3fr;gap:clamp(34px,5vw,72px);align-items:start;border-top:1px solid rgba(184,155,106,.16);padding-top:46px">
-      <div data-reveal="" >
+      <div data-reveal="" style="opacity:0;transform:translateY(22px)">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#8B8273;margin-bottom:10px">Selected city</div>
         <div style="font-family:'Libre Caslon Display',serif;font-size:clamp(28px,3vw,42px);color:var(--accent,#B89B6A)">None yet</div>
         <p style="margin-top:18px;font-size:14px;line-height:1.66;color:#9A9081;max-width:36ch">The Salon is held under Chatham House terms and limited to a single table. One evening a year in each city. We confirm each guest personally.</p>
       </div>
-      <div data-reveal="" >
+      <div data-reveal="" style="opacity:0;transform:translateY(22px)">
         
           <form style="display:grid;grid-template-columns:1fr 1fr;gap:26px 22px">
             <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8B8273">Full name</span><input required="" style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#F1ECE2;outline:none;transition:border-color .25s"></label>

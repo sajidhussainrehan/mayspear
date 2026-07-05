@@ -4,12 +4,10 @@ import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
 /**
- * Renders captured page HTML and re-implements the client behaviours the
+ * Renders captured page HTML and re-implements the two client behaviours the
  * original Design Components handled in JS:
- *   1. scroll-reveal for [data-reveal] (progressive — content is visible by
- *      default; below-the-fold items are hidden then animated in)
- *   2. internal <a> clicks -> client-side navigation
- *   3. Contact / Opportunities form submit -> on-brand confirmation
+ *   1. scroll-reveal for [data-reveal] elements (IntersectionObserver + safety reveal)
+ *   2. intercepting internal <a> clicks so navigation stays client-side (SPA)
  */
 export default function PageBody({ html }) {
   const ref = useRef(null);
@@ -20,31 +18,26 @@ export default function PageBody({ html }) {
     if (!root) return;
 
     // 1. Scroll reveal
-    const targets = [...root.querySelectorAll('[data-reveal]')];
-    targets.forEach((t) => {
-      t.style.transition =
-        'opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)';
-    });
-    const reveal = (t) => { t.style.opacity = '1'; t.style.transform = 'none'; };
-    const hide = (t) => { t.style.opacity = '0'; t.style.transform = 'translateY(22px)'; };
+    const targets = root.querySelectorAll('[data-reveal]');
     let io;
     if ('IntersectionObserver' in window) {
       io = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
-            if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); }
+            if (e.isIntersecting) {
+              e.target.classList.add('ms-in');
+              io.unobserve(e.target);
+            }
           });
         },
-        { threshold: 0.08, rootMargin: '0px 0px -6% 0px' }
+        { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
       );
-      targets.forEach((t) => {
-        const r = t.getBoundingClientRect();
-        if (r.top < window.innerHeight * 0.92) reveal(t);
-        else { hide(t); io.observe(t); }
-      });
+      targets.forEach((t) => io.observe(t));
+    } else {
+      targets.forEach((t) => t.classList.add('ms-in'));
     }
-    // Safety: nothing stays hidden.
-    const safety = setTimeout(() => targets.forEach(reveal), 1800);
+    // Safety: reveal anything still hidden shortly after load.
+    const safety = setTimeout(() => targets.forEach((t) => t.classList.add('ms-in')), 1400);
 
     // 2. Client-side internal navigation
     const onClick = (ev) => {
@@ -52,6 +45,7 @@ export default function PageBody({ html }) {
       if (!a) return;
       const href = a.getAttribute('href');
       if (!href) return;
+      // Internal absolute paths only; let external / hash / new-tab through.
       if (
         href.startsWith('/') &&
         !a.target &&
@@ -63,7 +57,7 @@ export default function PageBody({ html }) {
     };
     root.addEventListener('click', onClick);
 
-    // 3. Form submissions (Contact / Opportunities) -> confirmation
+    // 3. Form submissions (Contact / Opportunities) -> on-brand confirmation.
     const onSubmit = (ev) => {
       const form = ev.target.closest('form');
       if (!form || form.getAttribute('action')) return;

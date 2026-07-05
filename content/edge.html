@@ -5,7 +5,7 @@ body{background:#0C0B09;color:#F1ECE2;font-family:'Archivo',sans-serif;-webkit-f
 ::selection{background:rgba(184,155,106,.32);color:#fff}
 a{color:inherit;text-decoration:none}
 ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#0C0B09}::-webkit-scrollbar-thumb{background:#2a2720;border:2px solid #0C0B09;border-radius:10px}
-@keyframes msReveal{from{}to{opacity:1;transform:none}}
+@keyframes msReveal{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 @media(max-width:920px){[data-navpad] [data-desk]{display:none!important}[data-navpad] [data-mob]{display:inline-flex!important}[data-gaprow]{grid-template-columns:1fr!important;gap:18px!important}[data-grid2]{grid-template-columns:1fr!important}[data-stat]{grid-template-columns:1fr 1fr!important}}
 @media(max-width:600px){[data-pad]{padding-left:22px!important;padding-right:22px!important}}
 </style>
@@ -18,10 +18,10 @@ a{color:inherit;text-decoration:none}
  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(184,155,106,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,155,106,.04) 1px,transparent 1px);background-size:80px 80px;pointer-events:none"></div>
  <div style="position:absolute;inset:0;background:radial-gradient(120% 90% at 18% 0%,rgba(184,155,106,.11),transparent 52%);pointer-events:none"></div>
  <div data-pad="" style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(22px,4vw,52px) clamp(54px,6vw,82px)">
-  <div data-reveal="" style="display:flex;align-items:center;gap:14px;margin-bottom:32px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:#A99E89">The Edge · Where the market leaves money</span></div>
-  <h1 data-reveal="" style="font-family:'Libre Caslon Display',serif;font-weight:400;font-size:clamp(40px,6vw,90px);line-height:1.01;letter-spacing:-.012em;max-width:15ch">We were built for the band the giants can't reach.</h1>
-  <p data-reveal="" style="margin-top:32px;max-width:66ch;font-size:clamp(16px,1.3vw,18.5px);line-height:1.66;color:#C7BEAE">Every structural shift of the last decade, fund consolidation, bank retreat, the retirement of a founding generation, the under-banking of emerging markets, has opened a band of profitable, fundable transactions that the largest institutions physically cannot reach. These are not bad deals. They are good deals in the wrong size, the wrong place, or the wrong moment for a $20 billion fund. This is the band Mayspear owns.</p>
-  <div data-reveal="" style="margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;padding-top:22px;border-top:1px solid rgba(184,155,106,.14);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase"><span style="color:#A99E89">This page · The thesis</span><a href="/platform" style="color:#8B8273;transition:color .2s">What we deploy →</a><a href="/mandate" style="color:#8B8273;transition:color .2s">What qualifies →</a></div>
+  <div data-reveal="" style="opacity:0;transform:translateY(22px);display:flex;align-items:center;gap:14px;margin-bottom:32px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:#A99E89">The Edge · Where the market leaves money</span></div>
+  <h1 data-reveal="" style="opacity:0;transform:translateY(26px);font-family:'Libre Caslon Display',serif;font-weight:400;font-size:clamp(40px,6vw,90px);line-height:1.01;letter-spacing:-.012em;max-width:15ch">We were built for the band the giants can't reach.</h1>
+  <p data-reveal="" style="opacity:0;transform:translateY(24px);margin-top:32px;max-width:66ch;font-size:clamp(16px,1.3vw,18.5px);line-height:1.66;color:#C7BEAE">Every structural shift of the last decade, fund consolidation, bank retreat, the retirement of a founding generation, the under-banking of emerging markets, has opened a band of profitable, fundable transactions that the largest institutions physically cannot reach. These are not bad deals. They are good deals in the wrong size, the wrong place, or the wrong moment for a $20 billion fund. This is the band Mayspear owns.</p>
+  <div data-reveal="" style="opacity:0;transform:translateY(24px);margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;padding-top:22px;border-top:1px solid rgba(184,155,106,.14);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase"><span style="color:#A99E89">This page · The thesis</span><a href="/platform" style="color:#8B8273;transition:color .2s">What we deploy →</a><a href="/mandate" style="color:#8B8273;transition:color .2s">What qualifies →</a></div>
  </div>
  <div data-stat="" data-pad="" style="position:relative;max-width:1320px;margin:0 auto;padding:0 clamp(22px,4vw,52px);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(184,155,106,.16)">
   <div style="padding:26px 22px 30px 0;border-right:1px solid rgba(184,155,106,.10)"><div style="font-family:'Libre Caslon Display',serif;font-size:30px;color:var(--accent,#B89B6A)">$50M</div><div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#9A9081;margin-top:9px">Floor most megafunds won't cross</div></div>
@@ -35,7 +35,7 @@ a{color:inherit;text-decoration:none}
  <div data-pad="" style="max-width:1320px;margin:0 auto;padding:clamp(40px,5vw,70px) clamp(22px,4vw,52px) clamp(70px,8vw,110px)">
   <div style="border-top:1px solid rgba(184,155,106,.16)">
    
-    <article data-gaprow="" data-reveal="" style="display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
+    <article data-gaprow="" data-reveal="" style="opacity:0;transform:translateY(20px);display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
      <div>
       <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--accent,#B89B6A);margin-bottom:18px">GAP 01</div>
       <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,2.7vw,38px);line-height:1.06;letter-spacing:-.01em">The sub-$50M mid-market</h2>
@@ -53,7 +53,7 @@ a{color:inherit;text-decoration:none}
      </div>
     </article>
    
-    <article data-gaprow="" data-reveal="" style="display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
+    <article data-gaprow="" data-reveal="" style="opacity:0;transform:translateY(20px);display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
      <div>
       <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--accent,#B89B6A);margin-bottom:18px">GAP 02</div>
       <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,2.7vw,38px);line-height:1.06;letter-spacing:-.01em">Founder succession</h2>
@@ -71,7 +71,7 @@ a{color:inherit;text-decoration:none}
      </div>
     </article>
    
-    <article data-gaprow="" data-reveal="" style="display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
+    <article data-gaprow="" data-reveal="" style="opacity:0;transform:translateY(20px);display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
      <div>
       <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--accent,#B89B6A);margin-bottom:18px">GAP 03</div>
       <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,2.7vw,38px);line-height:1.06;letter-spacing:-.01em">Africa &amp; emerging markets</h2>
@@ -89,7 +89,7 @@ a{color:inherit;text-decoration:none}
      </div>
     </article>
    
-    <article data-gaprow="" data-reveal="" style="display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
+    <article data-gaprow="" data-reveal="" style="opacity:0;transform:translateY(20px);display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
      <div>
       <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--accent,#B89B6A);margin-bottom:18px">GAP 04</div>
       <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,2.7vw,38px);line-height:1.06;letter-spacing:-.01em">Mid-tier mining &amp; commodities</h2>
@@ -107,7 +107,7 @@ a{color:inherit;text-decoration:none}
      </div>
     </article>
    
-    <article data-gaprow="" data-reveal="" style="display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
+    <article data-gaprow="" data-reveal="" style="opacity:0;transform:translateY(20px);display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
      <div>
       <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--accent,#B89B6A);margin-bottom:18px">GAP 05</div>
       <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,2.7vw,38px);line-height:1.06;letter-spacing:-.01em">DIP &amp; rescue finance</h2>
@@ -125,7 +125,7 @@ a{color:inherit;text-decoration:none}
      </div>
     </article>
    
-    <article data-gaprow="" data-reveal="" style="display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
+    <article data-gaprow="" data-reveal="" style="opacity:0;transform:translateY(20px);display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
      <div>
       <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--accent,#B89B6A);margin-bottom:18px">GAP 06</div>
       <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,2.7vw,38px);line-height:1.06;letter-spacing:-.01em">Platform deal flow</h2>
@@ -143,7 +143,7 @@ a{color:inherit;text-decoration:none}
      </div>
     </article>
    
-    <article data-gaprow="" data-reveal="" style="display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
+    <article data-gaprow="" data-reveal="" style="opacity:0;transform:translateY(20px);display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
      <div>
       <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--accent,#B89B6A);margin-bottom:18px">GAP 07</div>
       <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,2.7vw,38px);line-height:1.06;letter-spacing:-.01em">Energy and the transition</h2>
@@ -161,7 +161,7 @@ a{color:inherit;text-decoration:none}
      </div>
     </article>
    
-    <article data-gaprow="" data-reveal="" style="display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
+    <article data-gaprow="" data-reveal="" style="opacity:0;transform:translateY(20px);display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
      <div>
       <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--accent,#B89B6A);margin-bottom:18px">GAP 08</div>
       <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,2.7vw,38px);line-height:1.06;letter-spacing:-.01em">Distressed and dislocation</h2>
@@ -179,7 +179,7 @@ a{color:inherit;text-decoration:none}
      </div>
     </article>
    
-    <article data-gaprow="" data-reveal="" style="display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
+    <article data-gaprow="" data-reveal="" style="opacity:0;transform:translateY(20px);display:grid;grid-template-columns:minmax(0,330px) 1fr;gap:clamp(24px,4vw,70px);padding:clamp(40px,5vw,60px) 0;border-bottom:1px solid rgba(184,155,106,.16)">
      <div>
       <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--accent,#B89B6A);margin-bottom:18px">GAP 09</div>
       <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,2.7vw,38px);line-height:1.06;letter-spacing:-.01em">Large deals, on the radar</h2>
@@ -205,11 +205,11 @@ a{color:inherit;text-decoration:none}
 <section style="background:#ECE7DC;color:#191712">
  <div data-pad="" style="max-width:1320px;margin:0 auto;padding:clamp(78px,10vw,140px) clamp(22px,4vw,52px)">
   <div data-grid2="" style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:clamp(34px,5vw,80px);align-items:center">
-   <div data-reveal="" >
+   <div data-reveal="" style="opacity:0;transform:translateY(22px)">
     <div style="display:flex;align-items:center;gap:14px;margin-bottom:28px"><span style="width:34px;height:1px;background:#8C6E3C"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:#8C6E3C">Why it works</span></div>
     <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(28px,3.6vw,48px);line-height:1.1;letter-spacing:-.01em;max-width:16ch">A gap is only an edge if you can move.</h2>
    </div>
-   <div data-reveal="" >
+   <div data-reveal="" style="opacity:0;transform:translateY(22px)">
     <p style="font-size:clamp(15px,1.2vw,17.5px);line-height:1.74;color:#4A453B">Identifying under-served capital is easy. Capturing it is not, it requires the conviction to commit principal capital quickly, the structuring depth to make a complex situation bankable, and origination on the ground where the deals actually are. Mayspear holds all three. We underwrite loss-first, we deploy our own balance sheet, and we keep origination, structuring, execution and capital inside one mandate. That is what turns a market gap into a return.</p>
     <a href="/platform" style="display:inline-flex;align-items:center;gap:12px;margin-top:28px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#191712;border-bottom:1px solid #8C6E3C;padding-bottom:6px;transition:gap .25s">See the capabilities<span style="font-size:14px">→</span></a>
    </div>
@@ -220,7 +220,7 @@ a{color:inherit;text-decoration:none}
 
 <section style="background:#0A0907;border-top:1px solid rgba(184,155,106,.14)">
  <div data-pad="" style="max-width:1320px;margin:0 auto;padding:clamp(80px,11vw,150px) clamp(22px,4vw,52px);text-align:center">
-  <div data-reveal="" >
+  <div data-reveal="" style="opacity:0;transform:translateY(22px)">
    <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(32px,4.6vw,66px);line-height:1.04;letter-spacing:-.015em;max-width:18ch;margin:0 auto">If the giants passed, bring it to us.</h2>
    <p style="margin:26px auto 0;max-width:52ch;font-size:16px;line-height:1.66;color:#9A9081">Too small, too complex, too fast, too far from a head office. That is precisely our mandate.</p>
    <a href="/contact" style="display:inline-flex;align-items:center;gap:12px;margin-top:38px;background:var(--accent,#B89B6A);color:#0C0B09;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:18px 34px;transition:background .25s,transform .25s">Begin a conversation<span style="font-size:14px">→</span></a>

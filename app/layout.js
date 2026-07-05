@@ -8,11 +8,8 @@ export const metadata = {
   },
   description:
     'Mayspear Global is a principal investment and private credit group. We invest and co-invest across private equity, private credit, special situations, M&A, infrastructure, mining, energy and commodities, $1M to $5BN, with a decisive edge in the mid and lower-mid-market the largest firms will not touch.',
-  robots: { index: true, follow: true },
-};
-
-export const viewport = {
   themeColor: '#0C0B09',
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }) {

@@ -5,7 +5,7 @@ body{background:#0C0B09;color:#F1ECE2;font-family:'Archivo',sans-serif;-webkit-f
 ::selection{background:rgba(184,155,106,.32);color:#fff}
 a{color:inherit;text-decoration:none}
 ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#0C0B09}::-webkit-scrollbar-thumb{background:#2a2720;border:2px solid #0C0B09;border-radius:10px}
-@keyframes msReveal{from{}to{opacity:1;transform:none}}
+@keyframes msReveal{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 @media(max-width:920px){[data-navpad] [data-desk]{display:none!important}[data-navpad] [data-mob]{display:inline-flex!important}[data-grid2]{grid-template-columns:1fr!important}[data-cov]{grid-template-columns:1fr 1fr!important}[data-params]{grid-template-columns:1fr!important}[data-stratbody]{grid-template-columns:1fr!important}[data-acc-head]{grid-template-columns:auto 1fr auto!important}[data-stratmeta]{display:none!important}}
 @media(max-width:600px){[data-pad]{padding-left:22px!important;padding-right:22px!important}[data-cov]{grid-template-columns:1fr!important}}
 </style>
@@ -18,11 +18,11 @@ a{color:inherit;text-decoration:none}
   <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(184,155,106,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,155,106,.04) 1px,transparent 1px);background-size:80px 80px;pointer-events:none"></div>
   <div style="position:absolute;inset:0;background:radial-gradient(120% 90% at 80% 0%,rgba(184,155,106,.10),transparent 52%);pointer-events:none"></div>
   <div data-pad="" style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(64px,8vw,104px) clamp(22px,4vw,52px) clamp(48px,5vw,64px)">
-    <div data-reveal="" style="display:flex;align-items:center;gap:14px;margin-bottom:32px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:#A99E89">Investment Mandate</span></div>
-    <h1 data-reveal="" style="font-family:'Libre Caslon Display',serif;font-weight:400;font-size:clamp(38px,5.6vw,82px);line-height:1.03;letter-spacing:-.012em;max-width:18ch">We are precise about what we will and won't finance.</h1>
-    <p data-reveal="" style="margin-top:30px;max-width:66ch;font-size:clamp(16px,1.3vw,18.5px);line-height:1.66;color:#C7BEAE">Mayspear evaluates and executes transactions where structuring complexity, capital flexibility and execution capability create asymmetric opportunity. The coverage below is our investment box: the sectors, structures, counterparties, risk boundaries and indicative sizing that determine what qualifies for capital. Select a strategy for its parameters.</p>
-    <div data-reveal="" style="margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;padding-top:22px;border-top:1px solid rgba(184,155,106,.14);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase"><span style="color:#A99E89">This page · The criteria</span><a href="/platform" style="color:#8B8273;transition:color .2s">What we deploy →</a><a href="/edge" style="color:#8B8273;transition:color .2s">Why the gap exists →</a></div>
-    <div data-reveal="" style="display:flex;flex-wrap:wrap;gap:16px;margin-top:38px">
+    <div data-reveal="" style="opacity:0;transform:translateY(22px);display:flex;align-items:center;gap:14px;margin-bottom:32px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:#A99E89">Investment Mandate</span></div>
+    <h1 data-reveal="" style="opacity:0;transform:translateY(26px);font-family:'Libre Caslon Display',serif;font-weight:400;font-size:clamp(38px,5.6vw,82px);line-height:1.03;letter-spacing:-.012em;max-width:18ch">We are precise about what we will and won't finance.</h1>
+    <p data-reveal="" style="opacity:0;transform:translateY(24px);margin-top:30px;max-width:66ch;font-size:clamp(16px,1.3vw,18.5px);line-height:1.66;color:#C7BEAE">Mayspear evaluates and executes transactions where structuring complexity, capital flexibility and execution capability create asymmetric opportunity. The coverage below is our investment box: the sectors, structures, counterparties, risk boundaries and indicative sizing that determine what qualifies for capital. Select a strategy for its parameters.</p>
+    <div data-reveal="" style="opacity:0;transform:translateY(24px);margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;padding-top:22px;border-top:1px solid rgba(184,155,106,.14);font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase"><span style="color:#A99E89">This page · The criteria</span><a href="/platform" style="color:#8B8273;transition:color .2s">What we deploy →</a><a href="/edge" style="color:#8B8273;transition:color .2s">Why the gap exists →</a></div>
+    <div data-reveal="" style="opacity:0;transform:translateY(24px);display:flex;flex-wrap:wrap;gap:16px;margin-top:38px">
       <a href="/opportunities" style="display:inline-flex;align-items:center;gap:12px;background:var(--accent,#B89B6A);color:#0C0B09;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:16px 28px;transition:background .25s,transform .25s">Submit a transaction<span style="font-size:14px">→</span></a>
       <a href="/partners" style="display:inline-flex;align-items:center;gap:12px;border:1px solid rgba(241,236,226,.24);color:#F1ECE2;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:16px 28px;transition:border-color .25s,background .25s">Capital partners</a>
     </div>
@@ -33,10 +33,10 @@ a{color:inherit;text-decoration:none}
 <section style="background:#0A0907;border-bottom:1px solid rgba(184,155,106,.14)">
   <div data-pad="" style="max-width:1320px;margin:0 auto;padding:clamp(50px,6vw,80px) clamp(22px,4vw,52px)">
     <div data-params="" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(184,155,106,.14);border:1px solid rgba(184,155,106,.14)">
-      <div data-reveal="" style="background:#0A0907;padding:30px 26px"><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8273;margin-bottom:14px">Transaction size</div><div style="font-family:'Libre Caslon Display',serif;font-size:24px;color:var(--accent,#B89B6A)">$2M to $5BN+</div></div>
-      <div data-reveal="" style="background:#0A0907;padding:30px 26px"><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8273;margin-bottom:14px">Structuring</div><div style="font-family:'Libre Caslon Text',serif;font-size:17px;color:#C7BEAE;line-height:1.4">Full capital stack. Debt, equity, hybrid, bespoke.</div></div>
-      <div data-reveal="" style="background:#0A0907;padding:30px 26px"><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8273;margin-bottom:14px">Execution</div><div style="font-family:'Libre Caslon Text',serif;font-size:17px;color:#C7BEAE;line-height:1.4">Event-driven and time-sensitive capability.</div></div>
-      <div data-reveal="" style="background:#0A0907;padding:30px 26px"><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8273;margin-bottom:14px">Reach</div><div style="font-family:'Libre Caslon Text',serif;font-size:17px;color:#C7BEAE;line-height:1.4">Cross-border across six corridors.</div></div>
+      <div data-reveal="" style="opacity:0;transform:translateY(16px);background:#0A0907;padding:30px 26px"><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8273;margin-bottom:14px">Transaction size</div><div style="font-family:'Libre Caslon Display',serif;font-size:24px;color:var(--accent,#B89B6A)">$2M to $5BN+</div></div>
+      <div data-reveal="" style="opacity:0;transform:translateY(16px);background:#0A0907;padding:30px 26px"><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8273;margin-bottom:14px">Structuring</div><div style="font-family:'Libre Caslon Text',serif;font-size:17px;color:#C7BEAE;line-height:1.4">Full capital stack. Debt, equity, hybrid, bespoke.</div></div>
+      <div data-reveal="" style="opacity:0;transform:translateY(16px);background:#0A0907;padding:30px 26px"><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8273;margin-bottom:14px">Execution</div><div style="font-family:'Libre Caslon Text',serif;font-size:17px;color:#C7BEAE;line-height:1.4">Event-driven and time-sensitive capability.</div></div>
+      <div data-reveal="" style="opacity:0;transform:translateY(16px);background:#0A0907;padding:30px 26px"><div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#8B8273;margin-bottom:14px">Reach</div><div style="font-family:'Libre Caslon Text',serif;font-size:17px;color:#C7BEAE;line-height:1.4">Cross-border across six corridors.</div></div>
     </div>
   </div>
 </section>
@@ -45,11 +45,11 @@ a{color:inherit;text-decoration:none}
 <section style="background:#0C0B09">
   <div data-pad="" style="max-width:1320px;margin:0 auto;padding:clamp(64px,8vw,110px) clamp(22px,4vw,52px) clamp(30px,4vw,50px)">
     <div data-grid2="" style="display:grid;grid-template-columns:0.8fr 1.2fr;gap:clamp(34px,5vw,72px);align-items:start">
-      <div data-reveal="" >
+      <div data-reveal="" style="opacity:0;transform:translateY(22px)">
         <div style="display:flex;align-items:center;gap:14px;margin-bottom:22px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:#A99E89">Origination model</span></div>
         <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,3vw,40px);line-height:1.08;letter-spacing:-.01em">How transactions reach us.</h2>
       </div>
-      <div data-reveal="" >
+      <div data-reveal="" style="opacity:0;transform:translateY(22px)">
         
           <div style="border-top:1px solid rgba(184,155,106,.16);padding:20px 0;display:flex;align-items:center;gap:20px"><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent,#B89B6A);width:34px">01</span><span style="font-family:'Libre Caslon Text',serif;font-size:clamp(17px,1.6vw,22px);color:#F1ECE2">Direct corporate and sponsor origination</span></div>
         
@@ -69,10 +69,10 @@ a{color:inherit;text-decoration:none}
 
 <section style="background:#0C0B09">
   <div data-pad="" style="max-width:1320px;margin:0 auto;padding:clamp(30px,4vw,50px) clamp(22px,4vw,52px) clamp(80px,10vw,130px)">
-    <div data-reveal="" style="margin-bottom:18px"><div style="display:flex;align-items:center;gap:14px;margin-bottom:16px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:#A99E89">Strategy coverage</span></div><h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,3.2vw,44px);line-height:1.08;letter-spacing:-.01em">Six mandates. Select to expand.</h2></div>
+    <div data-reveal="" style="opacity:0;transform:translateY(22px);margin-bottom:18px"><div style="display:flex;align-items:center;gap:14px;margin-bottom:16px"><span style="width:34px;height:1px;background:var(--accent,#B89B6A)"></span><span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;color:#A99E89">Strategy coverage</span></div><h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(26px,3.2vw,44px);line-height:1.08;letter-spacing:-.01em">Six mandates. Select to expand.</h2></div>
     <div style="border-top:1px solid rgba(184,155,106,.18)">
       
-        <div data-reveal="" style="border-bottom:1px solid rgba(184,155,106,.16)">
+        <div data-reveal="" style="opacity:0;transform:translateY(12px);border-bottom:1px solid rgba(184,155,106,.16)">
           <button id="pc" data-acc-head="" style="width:100%;background:transparent;border:none;cursor:pointer;text-align:left;display:grid;grid-template-columns:64px 1fr 200px 44px;align-items:center;gap:20px;padding:30px 6px;transition:background .25s,padding-left .25s">
             <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--accent,#B89B6A)">I</span>
             <div><h3 style="font-family:'Libre Caslon Display',serif;font-size:clamp(22px,2.4vw,32px);line-height:1.04;color:#F1ECE2">Private Credit</h3><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#8B8273">Secured &amp; structured lending across the corporate balance sheet</span></div>
@@ -112,7 +112,7 @@ a{color:inherit;text-decoration:none}
           
         </div>
       
-        <div data-reveal="" style="border-bottom:1px solid rgba(184,155,106,.16)">
+        <div data-reveal="" style="opacity:0;transform:translateY(12px);border-bottom:1px solid rgba(184,155,106,.16)">
           <button id="ss" data-acc-head="" style="width:100%;background:transparent;border:none;cursor:pointer;text-align:left;display:grid;grid-template-columns:64px 1fr 200px 44px;align-items:center;gap:20px;padding:30px 6px;transition:background .25s,padding-left .25s">
             <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--accent,#B89B6A)">II</span>
             <div><h3 style="font-family:'Libre Caslon Display',serif;font-size:clamp(22px,2.4vw,32px);line-height:1.04;color:#F1ECE2">Special Situations</h3><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#8B8273">Capital for dislocation, stress and event-driven complexity</span></div>
@@ -122,7 +122,7 @@ a{color:inherit;text-decoration:none}
           
         </div>
       
-        <div data-reveal="" style="border-bottom:1px solid rgba(184,155,106,.16)">
+        <div data-reveal="" style="opacity:0;transform:translateY(12px);border-bottom:1px solid rgba(184,155,106,.16)">
           <button id="ie" data-acc-head="" style="width:100%;background:transparent;border:none;cursor:pointer;text-align:left;display:grid;grid-template-columns:64px 1fr 200px 44px;align-items:center;gap:20px;padding:30px 6px;transition:background .25s,padding-left .25s">
             <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--accent,#B89B6A)">III</span>
             <div><h3 style="font-family:'Libre Caslon Display',serif;font-size:clamp(22px,2.4vw,32px);line-height:1.04;color:#F1ECE2">Infrastructure &amp; Energy</h3><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#8B8273">Long-duration capital for essential systems</span></div>
@@ -132,7 +132,7 @@ a{color:inherit;text-decoration:none}
           
         </div>
       
-        <div data-reveal="" style="border-bottom:1px solid rgba(184,155,106,.16)">
+        <div data-reveal="" style="opacity:0;transform:translateY(12px);border-bottom:1px solid rgba(184,155,106,.16)">
           <button id="pe" data-acc-head="" style="width:100%;background:transparent;border:none;cursor:pointer;text-align:left;display:grid;grid-template-columns:64px 1fr 200px 44px;align-items:center;gap:20px;padding:30px 6px;transition:background .25s,padding-left .25s">
             <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--accent,#B89B6A)">IV</span>
             <div><h3 style="font-family:'Libre Caslon Display',serif;font-size:clamp(22px,2.4vw,32px);line-height:1.04;color:#F1ECE2">Private Equity Transactions</h3><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#8B8273">Control and structured equity in the mid-market</span></div>
@@ -142,7 +142,7 @@ a{color:inherit;text-decoration:none}
           
         </div>
       
-        <div data-reveal="" style="border-bottom:1px solid rgba(184,155,106,.16)">
+        <div data-reveal="" style="opacity:0;transform:translateY(12px);border-bottom:1px solid rgba(184,155,106,.16)">
           <button id="ra" data-acc-head="" style="width:100%;background:transparent;border:none;cursor:pointer;text-align:left;display:grid;grid-template-columns:64px 1fr 200px 44px;align-items:center;gap:20px;padding:30px 6px;transition:background .25s,padding-left .25s">
             <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--accent,#B89B6A)">V</span>
             <div><h3 style="font-family:'Libre Caslon Display',serif;font-size:clamp(22px,2.4vw,32px);line-height:1.04;color:#F1ECE2">Real Assets</h3><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#8B8273">Operational and infrastructure-linked physical assets</span></div>
@@ -152,7 +152,7 @@ a{color:inherit;text-decoration:none}
           
         </div>
       
-        <div data-reveal="" style="border-bottom:1px solid rgba(184,155,106,.16)">
+        <div data-reveal="" style="opacity:0;transform:translateY(12px);border-bottom:1px solid rgba(184,155,106,.16)">
           <button id="npl" data-acc-head="" style="width:100%;background:transparent;border:none;cursor:pointer;text-align:left;display:grid;grid-template-columns:64px 1fr 200px 44px;align-items:center;gap:20px;padding:30px 6px;transition:background .25s,padding-left .25s">
             <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;color:var(--accent,#B89B6A)">VI</span>
             <div><h3 style="font-family:'Libre Caslon Display',serif;font-size:clamp(22px,2.4vw,32px);line-height:1.04;color:#F1ECE2">NPL &amp; Portfolio Acquisitions</h3><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#8B8273">Acquisition and workout of distressed credit</span></div>
@@ -169,7 +169,7 @@ a{color:inherit;text-decoration:none}
 
 <section style="background:#0A0907;border-top:1px solid rgba(184,155,106,.14)">
   <div data-pad="" style="max-width:1320px;margin:0 auto;padding:clamp(76px,10vw,140px) clamp(22px,4vw,52px);text-align:center">
-    <div data-reveal="" >
+    <div data-reveal="" style="opacity:0;transform:translateY(22px)">
       <h2 style="font-family:'Libre Caslon Display',serif;font-size:clamp(30px,4.2vw,60px);line-height:1.05;letter-spacing:-.015em;max-width:22ch;margin:0 auto">Submit transactions for confidential review.</h2>
       <p style="margin:24px auto 0;max-width:54ch;font-size:15.5px;line-height:1.66;color:#9A9081">Adviser, bank, insolvency and corporate-led origination is reviewed directly by the investment team.</p>
       <a href="/opportunities" style="display:inline-flex;align-items:center;gap:12px;margin-top:36px;background:var(--accent,#B89B6A);color:#0C0B09;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:18px 34px;transition:background .25s,transform .25s">Open the submission desk<span style="font-size:14px">→</span></a>
