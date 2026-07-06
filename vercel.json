@@ -9,6 +9,87 @@
     {
       "src": "*.js",
       "use": "@vercel/static"
+    },
+    {
+      "src": "*.txt",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.xml",
+      "use": "@vercel/static"
     }
+  ],
+  "functions": {
+    "api/submit-form.js": {
+      "runtime": "nodejs18.x",
+      "maxDuration": 10
+    }
+  },
+  "rewrites": [
+    { "source": "/", "destination": "/Mayspear%20Global.dc.html" },
+    { "source": "/approach", "destination": "/Approach.dc.html" },
+    { "source": "/careers", "destination": "/Careers.dc.html" },
+    { "source": "/contact", "destination": "/Contact.dc.html" },
+    { "source": "/coverage", "destination": "/Coverage.dc.html" },
+    { "source": "/desks", "destination": "/Desks.dc.html" },
+    { "source": "/edge", "destination": "/Edge.dc.html" },
+    { "source": "/firm", "destination": "/Firm.dc.html" },
+    { "source": "/leadership", "destination": "/Leadership.dc.html" },
+    { "source": "/mandate", "destination": "/Mandate.dc.html" },
+    { "source": "/markets", "destination": "/Markets.dc.html" },
+    { "source": "/mayspear-os", "destination": "/MayspearOS.dc.html" },
+    { "source": "/network", "destination": "/Network.dc.html" },
+    { "source": "/opportunities", "destination": "/Opportunities.dc.html" },
+    { "source": "/partners", "destination": "/Partners.dc.html" },
+    { "source": "/salon", "destination": "/Salon.dc.html" },
+    { "source": "/insights", "destination": "/Insights.dc.html" },
+    { "source": "/insights/global-markets-outlook", "destination": "/Global%20Markets%20Outlook.dc.html" },
+    { "source": "/insights/global-markets-outlook-report", "destination": "/Global-Markets-Outlook-Standalone.html" },
+    { "source": "/insights/africa-finance-gap", "destination": "/Insight-Africa.dc.html" },
+    { "source": "/insights/africa-retention", "destination": "/Insight-AfricaRetention.dc.html" },
+    { "source": "/insights/developed-markets-outlook", "destination": "/Insight-DevelopedMarkets.dc.html" },
+    { "source": "/insights/emerging-markets-outlook", "destination": "/Insight-EmergingMarkets.dc.html" },
+    { "source": "/insights/energy-transition-capital", "destination": "/Insight-Energy.dc.html" },
+    { "source": "/insights/future-of-advisory", "destination": "/Insight-FutureAdvisory.dc.html" },
+    { "source": "/insights/future-of-private-credit", "destination": "/Insight-FuturePrivateCredit.dc.html" },
+    { "source": "/insights/future-of-private-equity", "destination": "/Insight-FuturePrivateEquity.dc.html" },
+    { "source": "/insights/private-credit-gap", "destination": "/Insight-PrivateCredit.dc.html" },
+    { "source": "/insights/succession-capital", "destination": "/Insight-Succession.dc.html" },
+    { "source": "/insights/MayspearNav.dc.html", "destination": "/MayspearNav.dc.html" },
+    { "source": "/insights/MayspearFooter.dc.html", "destination": "/MayspearFooter.dc.html" }
+  ],
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/Mayspear%20Global.dc.html", "destination": "/", "permanent": true },
+    { "source": "/Approach.dc.html", "destination": "/approach", "permanent": true },
+    { "source": "/Careers.dc.html", "destination": "/careers", "permanent": true },
+    { "source": "/Contact.dc.html", "destination": "/contact", "permanent": true },
+    { "source": "/Coverage.dc.html", "destination": "/coverage", "permanent": true },
+    { "source": "/Desks.dc.html", "destination": "/desks", "permanent": true },
+    { "source": "/Edge.dc.html", "destination": "/edge", "permanent": true },
+    { "source": "/Firm.dc.html", "destination": "/firm", "permanent": true },
+    { "source": "/Leadership.dc.html", "destination": "/leadership", "permanent": true },
+    { "source": "/Mandate.dc.html", "destination": "/mandate", "permanent": true },
+    { "source": "/Markets.dc.html", "destination": "/markets", "permanent": true },
+    { "source": "/MayspearOS.dc.html", "destination": "/mayspear-os", "permanent": true },
+    { "source": "/Network.dc.html", "destination": "/network", "permanent": true },
+    { "source": "/Opportunities.dc.html", "destination": "/opportunities", "permanent": true },
+    { "source": "/Partners.dc.html", "destination": "/partners", "permanent": true },
+    { "source": "/Salon.dc.html", "destination": "/salon", "permanent": true },
+    { "source": "/Insights.dc.html", "destination": "/insights", "permanent": true },
+    { "source": "/Global%20Markets%20Outlook.dc.html", "destination": "/insights/global-markets-outlook", "permanent": true },
+    { "source": "/Insight-Africa.dc.html", "destination": "/insights/africa-finance-gap", "permanent": true },
+    { "source": "/Insight-AfricaRetention.dc.html", "destination": "/insights/africa-retention", "permanent": true },
+    { "source": "/Insight-DevelopedMarkets.dc.html", "destination": "/insights/developed-markets-outlook", "permanent": true },
+    { "source": "/Insight-EmergingMarkets.dc.html", "destination": "/insights/emerging-markets-outlook", "permanent": true },
+    { "source": "/Insight-Energy.dc.html", "destination": "/insights/energy-transition-capital", "permanent": true },
+    { "source": "/Insight-FutureAdvisory.dc.html", "destination": "/insights/future-of-advisory", "permanent": true },
+    { "source": "/Insight-FuturePrivateCredit.dc.html", "destination": "/insights/future-of-private-credit", "permanent": true },
+    { "source": "/Insight-FuturePrivateEquity.dc.html", "destination": "/insights/future-of-private-equity", "permanent": true },
+    { "source": "/Insight-PrivateCredit.dc.html", "destination": "/insights/private-credit-gap", "permanent": true },
+    { "source": "/Insight-Succession.dc.html", "destination": "/insights/succession-capital", "permanent": true },
+    { "source": "/Global-Markets-Outlook-Standalone.html", "destination": "/insights/global-markets-outlook-report", "permanent": true },
+    { "source": "/Platform.dc.html", "destination": "/coverage", "permanent": true },
+    { "source": "/platform", "destination": "/coverage", "permanent": true }
   ]
 }

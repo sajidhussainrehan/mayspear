@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="/support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -16,6 +16,13 @@
 <meta property="og:title" content="People & Careers | Mayspear Global">
 <meta property="og:description" content="Build a career in principal private capital. Investment, structuring, origination and execution roles across seven offices worldwide.">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Mayspear Global">
+<meta property="og:url" content="https://www.mayspear.com/careers">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="People & Careers | Mayspear Global">
+<meta name="twitter:description" content="Build a career in principal private capital. Investment, structuring, origination and execution roles across seven offices worldwide.">
+<link rel="canonical" href="https://www.mayspear.com/careers">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -80,7 +87,7 @@ input,select,button,textarea{font-family:inherit;color:inherit}
     </div>
     <div data-reveal style="opacity:1;transform:none;margin-top:48px;border:1px solid rgba(184,155,106,.2);padding:clamp(30px,4vw,46px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
       <div><h3 style="font-family:'Libre Caslon Display',serif;font-size:clamp(22px,2.4vw,30px);line-height:1.1;margin-bottom:8px">Do not see your seat?</h3><p style="font-size:14.5px;line-height:1.6;color:#6B6250;max-width:52ch">We always read approaches from exceptional investing, structuring and origination professionals. Introduce yourself.</p></div>
-      <a href="Contact.dc.html" style="flex:none;display:inline-flex;align-items:center;gap:12px;background:var(--accent,#B89B6A);color:#0C0B09;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:16px 28px;transition:background .25s" style-hover="background:#cdb07e"><svg width="11" height="17" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#0C0B09"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#0C0B09"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="#0C0B09"></rect></svg>Introduce yourself</a>
+      <a href="/contact" style="flex:none;display:inline-flex;align-items:center;gap:12px;background:var(--accent,#B89B6A);color:#0C0B09;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:16px 28px;transition:background .25s" style-hover="background:#cdb07e"><svg width="11" height="17" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#0C0B09"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#0C0B09"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="#0C0B09"></rect></svg>Introduce yourself</a>
     </div>
   </div>
 </section>
@@ -134,7 +141,7 @@ class Component extends DCLogic {
   ];
   componentDidMount() {
     document.documentElement.style.setProperty('--accent', this.props.accent || '#B89B6A');
-    this.roles = this.roles.map((r) => { const o = { ...r, applyHref: 'Contact.dc.html' }; o.open = () => this.setState({ active: o }); return o; });
+    this.roles = this.roles.map((r) => { const o = { ...r, applyHref: '/contact' }; o.open = () => this.setState({ active: o }); return o; });
     this.forceUpdate();
     const reveal = (el) => { if (el.dataset.shown) return; el.dataset.shown = '1'; el.style.transition = 'none'; el.style.animation = 'msReveal .8s cubic-bezier(.2,.7,.2,1) both'; el.style.opacity = '1'; el.style.transform = 'none'; el.addEventListener('animationend', () => { el.style.animation = 'none'; }, { once: true }); };
     const nodes = document.querySelectorAll('[data-reveal]');

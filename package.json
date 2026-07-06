@@ -1,0 +1,8 @@
+{
+  "name": "mayspear-opportunities-form",
+  "version": "1.0.0",
+  "description": "Opportunities form with email functionality for Mayspear Global",
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  }
+}
