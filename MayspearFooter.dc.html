@@ -76,7 +76,7 @@
  </div>
  <sc-if value="{{ showCookie }}" hint-placeholder-val="{{ false }}">
   <div style="position:fixed;left:0;right:0;bottom:0;z-index:95;background:rgba(10,9,7,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(184,155,106,.24)">
-   <div data-cookiebar style="max-width:1320px;margin:0 auto;padding:18px clamp(22px,4vw,52px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+   <div data-cookiebar style="max-width:1320px;margin:0 auto;padding:18px clamp(22px,4vw,52px);display:flex;align-items:center;justify-content:flex-start;gap:24px;flex-wrap:wrap">
     <p style="font-size:12.5px;line-height:1.6;color:#6B6250;max-width:74ch;margin:0">We use cookies to operate this site, understand how it is used, and improve your experience. By selecting <span style="color:#4E4838">Accept</span>, you consent to our use of cookies. See our Cookies and Privacy notices for detail.</p>
     <div style="display:flex;align-items:center;gap:12px;flex:none">
      <button onClick="{{ declineCookie }}" style="display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid rgba(23,20,16,.2);color:#4E4838;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:12px 20px;transition:border-color .25s" style-hover="border-color:#6B5D3E"><svg width="8" height="13" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#4E4838"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#4E4838"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="#4E4838"></rect></svg>Decline</button>
