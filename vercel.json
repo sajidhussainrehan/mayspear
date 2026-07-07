@@ -1,24 +1,6 @@
 {
   "cleanUrls": false,
   "trailingSlash": false,
-  "builds": [
-    {
-      "src": "*.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "*.js",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "*.txt",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "*.xml",
-      "use": "@vercel/static"
-    }
-  ],
   "functions": {
     "api/submit-form.js": {
       "runtime": "nodejs18.x",
