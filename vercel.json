@@ -3,7 +3,6 @@
   "trailingSlash": false,
   "functions": {
     "api/submit-form.js": {
-      "runtime": "nodejs18.x",
       "maxDuration": 10
     }
   },
