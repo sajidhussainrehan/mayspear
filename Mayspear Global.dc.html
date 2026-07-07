@@ -36,14 +36,11 @@ img{max-width:100%;display:block}
 ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:#F8F5EC}::-webkit-scrollbar-thumb{background:#D8CFB8;border:2px solid #F8F5EC;border-radius:10px}
 @keyframes ms-marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes msReveal{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
-@keyframes msIntroMark{from{opacity:0;transform:scale(.55) rotate(-8deg)}60%{opacity:1;transform:scale(1.12) rotate(2deg)}to{opacity:1;transform:scale(1) rotate(0)}}
-@keyframes msIntroRule{from{width:0}to{width:52px}}
-@keyframes msIntroWord{from{opacity:0;transform:translateY(100%)}to{opacity:1;transform:translateY(0)}}
-@keyframes msIntroFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-@keyframes msIntroFadeOut{from{opacity:1}to{opacity:0;visibility:hidden}}
-@keyframes msLoadBar{from{width:0}to{width:100%}}
-@keyframes msGlow{0%,100%{opacity:.7}50%{opacity:1}}
-@keyframes msBoom{from{opacity:1;transform:scale(0)}to{opacity:0;transform:scale(9)}}
+@keyframes wSpear{0%{opacity:1;transform:none scale(.85)}55%{opacity:1;transform:translateY(0) scale(1.04)}100%{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes wWord{from{opacity:0;letter-spacing:.6em}to{opacity:1;letter-spacing:.3em}}
+@keyframes wQuote{from{opacity:1;transform:none}to{opacity:1;transform:translateY(0)}}
+@keyframes wBar{from{width:0%}to{width:100%}}
+@keyframes wOut{from{opacity:1}to{opacity:0}}
 @media(prefers-reduced-motion:reduce){[style*="animation"]{animation-duration:.001s!important}}
 @media(max-width:1180px){
  [data-navpad] [data-desk]{display:none!important}
@@ -61,41 +58,22 @@ img{max-width:100%;display:block}
 </helmet>
 
 <sc-if value="{{ introActive }}" hint-placeholder-val="{{ false }}">
- <div style="position:fixed;inset:0;z-index:500;background:#0C0B09;display:flex;align-items:center;justify-content:center;flex-direction:column;overflow:hidden;transform:{{ introTransform }};transition:transform .85s cubic-bezier(.76,0,.18,1);cursor:pointer" onClick="{{ skipIntro }}">
-  <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(60% 55% at 50% 46%,rgba(184,155,106,.16),transparent 68%);animation:msGlow 5s ease-in-out infinite"></div>
-  <div aria-hidden="true" style="position:absolute;inset:0;background-image:linear-gradient(rgba(184,155,106,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(184,155,106,.05) 1px,transparent 1px);background-size:80px 80px"></div>
-  <sc-if value="{{ introBoom }}" hint-placeholder-val="{{ false }}">
-   <div aria-hidden="true" style="position:absolute;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(184,155,106,.85),rgba(184,155,106,0) 70%);animation:msBoom .8s cubic-bezier(.16,.8,.3,1) both"></div>
-  </sc-if>
-
-  <sc-if value="{{ introLoading }}" hint-placeholder-val="{{ true }}">
-   <div style="position:relative;display:flex;flex-direction:column;align-items:center;animation:msIntroFadeOut .5s ease 1.05s both">
-    <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:#8B8273">Entering Mayspear Global</span>
-    <div style="width:200px;height:1px;background:rgba(184,155,106,.2);margin-top:22px;overflow:hidden">
-     <div style="width:0;height:100%;background:var(--accent,#B89B6A);animation:msLoadBar 1.05s cubic-bezier(.4,0,.2,1) both"></div>
-    </div>
-   </div>
-  </sc-if>
-
-  <sc-if value="{{ introMarkShow }}" hint-placeholder-val="{{ false }}">
-   <div style="position:relative;display:flex;flex-direction:column;align-items:center">
-    <svg width="72" height="135" viewBox="0 0 20 30" fill="none" style="opacity:0;animation:msIntroMark .9s cubic-bezier(.16,.8,.24,1) .05s both;filter:drop-shadow(0 0 26px rgba(184,155,106,.35))">
-     <path d="M10 0 L16 9 L10 14 L4 9 Z" fill="var(--accent,#B89B6A)"></path>
-     <path d="M10 14 L11.1 9.5 L10 0 L8.9 9.5 Z" fill="#0A0907" opacity="0.28"></path>
-     <rect x="9.25" y="12.5" width="1.5" height="17.5" fill="var(--accent,#B89B6A)"></rect>
-     <rect x="5.5" y="16" width="9" height="1.4" fill="var(--accent,#B89B6A)"></rect>
-    </svg>
-    <div style="width:0;height:1px;background:var(--accent,#B89B6A);margin:28px 0 30px;animation:msIntroRule .6s cubic-bezier(.2,.8,.2,1) .85s both"></div>
-    <div style="max-width:min(760px,82vw);text-align:center;opacity:0;animation:msIntroFade .9s ease 1.15s both">
-     <p style="font-family:'Libre Caslon Display',serif;font-style:italic;font-weight:400;font-size:clamp(22px,3.4vw,38px);line-height:1.28;letter-spacing:-.005em;color:#F1ECE2">"The world moves on capital.<br>Conviction decides who moves first."</p>
-    </div>
-    <div style="margin-top:34px;display:flex;align-items:center;gap:14px;opacity:0;animation:msIntroFade .8s ease 1.9s both">
-     <span style="width:20px;height:1px;background:rgba(184,155,106,.5)"></span>
-     <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#8B8273">Mayspear Global &middot; Principal Capital</span>
-     <span style="width:20px;height:1px;background:rgba(184,155,106,.5)"></span>
-    </div>
-   </div>
-  </sc-if>
+ <div style="position:fixed;inset:0;z-index:500;background:#0C0B09;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;animation:{{ introOutAnim }}">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(60% 50% at 50% 42%,rgba(184,155,106,.10),transparent 65%)"></div>
+  <div style="position:relative;animation:wSpear 1s cubic-bezier(.2,.8,.2,1) both">
+   <svg width="82" height="152" viewBox="0 0 20 30" fill="none" style="display:block;margin:0 auto">
+    <path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#B89B6A"></path>
+    <path d="M10 14 L11.1 9.5 L10 0 L8.9 9.5 Z" fill="#0A0907" opacity="0.28"></path>
+    <rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#B89B6A"></rect>
+    <rect x="5.5" y="16" width="9" height="1.4" fill="#B89B6A"></rect>
+   </svg>
+  </div>
+  <div style="position:relative;margin-top:30px;font-family:'Libre Caslon Text',serif;font-size:clamp(22px,4vw,32px);letter-spacing:.3em;color:#F1ECE2;animation:wWord 1.1s ease .5s both">MAYSPEAR GLOBAL</div>
+  <div style="position:relative;margin-top:30px;font-family:'Libre Caslon Display',serif;font-style:italic;font-weight:700;font-size:clamp(17px,2vw,24px);color:#F1ECE2;max-width:20ch;line-height:1.24;letter-spacing:-.005em;text-shadow:0 2px 30px rgba(184,155,106,.3);animation:wQuote .9s ease 1.1s both">Conviction is capital.<br><span style="color:#B89B6A">Everything else is noise.</span></div>
+  <div style="position:relative;margin-top:52px;width:200px;height:2px;background:rgba(184,155,106,.18);overflow:hidden">
+   <div style="height:100%;background:#B89B6A;animation:wBar 6.6s linear .3s both"></div>
+  </div>
+  <button onClick="{{ skipIntro }}" style="position:relative;margin-top:26px;display:inline-flex;align-items:center;gap:9px;background:transparent;border:none;padding:0;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:#6B5D3E;animation:wQuote .9s ease 1.4s both" style-hover="color:#B89B6A"><svg width="8" height="12" viewBox="0 0 20 30" fill="currentColor" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg>Skip</button>
  </div>
 </sc-if>
 
@@ -196,13 +174,12 @@ class Component extends DCLogic {
   { tag: 'SG · APAC', city: 'Singapore', role: 'Asia Pacific · private credit & mid-market origination' },
   { tag: 'BR · LATAM', city: 'São Paulo', role: 'Latin America · infrastructure, mining & special situations' },
  ];
- state = { introActive: false, introHiding: false, introBoom: false, introLoading: true, introMarkShow: false };
+ state = { introActive: false, introLeaving: false };
  skipIntro = () => {
-  if (this._introT0) clearTimeout(this._introT0);
   if (this._introT1) clearTimeout(this._introT1);
   if (this._introT2) clearTimeout(this._introT2);
-  this.setState({ introHiding: true, introBoom: true });
-  setTimeout(() => this.setState({ introActive: false }), 850);
+  this.setState({ introLeaving: true });
+  setTimeout(() => this.setState({ introActive: false }), 400);
  };
  componentDidMount() {
   document.documentElement.style.setProperty('--accent', this.props.accent || '#B89B6A');
@@ -213,9 +190,8 @@ class Component extends DCLogic {
    if ((!seen || force) && !reduced) {
     this.setState({ introActive: true });
     sessionStorage.setItem('ms_intro_seen', '1');
-    this._introT0 = setTimeout(() => this.setState({ introLoading: false, introMarkShow: true }), 1100);
-    this._introT1 = setTimeout(() => this.setState({ introHiding: true, introBoom: true }), 6100);
-    this._introT2 = setTimeout(() => this.setState({ introActive: false }), 6950);
+    this._introT1 = setTimeout(() => this.setState({ introLeaving: true }), 6900);
+    this._introT2 = setTimeout(() => this.setState({ introActive: false }), 7300);
    }
   } catch (e) {}
   const reveal = (el) => { if (el.dataset.shown) return; el.dataset.shown = '1'; el.style.transition = 'none'; el.style.animation = 'msReveal .85s cubic-bezier(.2,.7,.2,1) both'; el.style.opacity = '1'; el.style.transform = 'none'; el.addEventListener('animationend', () => { el.style.animation = 'none'; }, { once: true }); };
@@ -227,7 +203,7 @@ class Component extends DCLogic {
   this._safety = setTimeout(() => { document.querySelectorAll('[data-reveal]').forEach((el) => { if (getComputedStyle(el).opacity === '0') { el.style.transition = 'none'; el.style.animation = 'none'; el.style.opacity = '1'; el.style.transform = 'none'; } }); }, 2200);
  }
  componentWillUnmount() { if (this._io) this._io.disconnect(); if (this._safety) clearTimeout(this._safety); }
- renderVals() { return { caps: this.caps, offices: this.offices, introActive: this.state.introActive, introBoom: this.state.introBoom, introLoading: this.state.introLoading, introMarkShow: this.state.introMarkShow, introTransform: this.state.introHiding ? 'translateY(-100%)' : 'translateY(0)', skipIntro: this.skipIntro }; }
+ renderVals() { return { caps: this.caps, offices: this.offices, introActive: this.state.introActive, introOutAnim: this.state.introLeaving ? 'wOut .4s ease both' : 'none', skipIntro: this.skipIntro }; }
 }
 </script>
 </body>
