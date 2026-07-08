@@ -14,10 +14,9 @@ export default async function handler(req, res) {
       return res.status(400).json({ message: 'Missing required fields' });
     }
 
-    // Create transporter using Namecheap SMTP
-    // Note: You'll need to replace these with your actual Namecheap email credentials
+    // Create transporter using Namecheap Private Email SMTP
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.namecheap.com',
+      host: process.env.SMTP_HOST || 'mail.privateemail.com',
       port: process.env.SMTP_PORT || 465,
       secure: true, // true for 465, false for other ports
       auth: {
