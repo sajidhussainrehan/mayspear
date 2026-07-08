@@ -67,32 +67,35 @@ select option{background:#F0EADC;color:#171410}
      <form onSubmit="{{ onSubmit }}" style="display:grid;grid-template-columns:1fr 1fr;gap:26px 22px">
       <div style="grid-column:1 / -1;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent,#B89B6A);padding-bottom:6px;border-bottom:1px solid rgba(184,155,106,.2)">Route to a desk</div>
       <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Requirement</span>
-       <select required style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#4E4838;outline:none;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)">
+       <select name="requirement" required style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#4E4838;outline:none;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)">
         <option value="">Select.</option><option>Private credit and direct lending</option><option>Acquisition finance</option><option>Refinancing and recapitalisation</option><option>Special situations and distressed</option><option>Infrastructure and project finance</option><option>Energy and power finance</option><option>Working capital and trade finance</option><option>Succession and ownership transition</option><option>NPL and portfolio acquisition</option><option>Co-investment and capital partnership</option><option>Other</option>
        </select>
       </label>
       <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Sector desk</span>
-       <select required style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#4E4838;outline:none;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)">
+       <select name="sectorDesk" required style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#4E4838;outline:none;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)">
         <option value="">Select.</option><option>Energy and power systems</option><option>Infrastructure and utilities</option><option>Data centres and digital infrastructure</option><option>Critical minerals and mining</option><option>Industrial and manufacturing</option><option>Logistics and supply chain</option><option>Defence industrial</option><option>Real estate credit</option><option>Healthcare</option><option>Financial institutions</option><option>Commodities and trade</option><option>Other</option>
        </select>
       </label>
       <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Geography desk</span>
-       <select required style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#4E4838;outline:none;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)">
+       <select name="geographyDesk" required style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#4E4838;outline:none;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)">
         <option value="">Select.</option><option>North America</option><option>Latin America</option><option>Africa</option><option>Middle East and GCC</option><option>Europe</option><option>Asia Pacific</option>
        </select>
       </label>
       <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Transaction size</span>
-       <select required style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#4E4838;outline:none;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)">
+       <select name="transactionSize" required style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#4E4838;outline:none;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)">
         <option value="">Select.</option><option>$1M to $50M</option><option>$50M to $250M</option><option>$250M to $1BN</option><option>$1BN to $5BN</option><option>$5BN and above</option>
        </select>
       </label>
       <div style="grid-column:1 / -1;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent,#B89B6A);padding-bottom:6px;border-bottom:1px solid rgba(184,155,106,.2);margin-top:14px">Your details</div>
-      <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Name</span><input required style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#171410;outline:none;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)"></label>
-      <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Organisation</span><input required style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#171410;outline:none;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)"></label>
-      <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Email</span><input type="email" required style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#171410;outline:none;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)"></label>
-      <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Role or side</span><input placeholder="Owner, sponsor, lender, adviser" style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#171410;outline:none;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)"></label>
-      <label style="display:flex;flex-direction:column;gap:9px;grid-column:1 / -1"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">The situation, counterparties and timeline</span><textarea rows="4" required style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#171410;outline:none;resize:vertical;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)"></textarea></label>
-      <button type="submit" style="grid-column:1 / -1;justify-self:start;display:inline-flex;align-items:center;gap:12px;background:var(--accent,#B89B6A);color:#0C0B09;border:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:17px 32px;margin-top:8px;transition:background .25s,transform .25s" style-hover="background:#cdb07e;transform:translateY(-2px)"><svg width="11" height="17" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#0C0B09"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#0C0B09"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="#0C0B09"></rect></svg>Submit to the desk<span style="display:inline-flex;align-items:center"><svg width="11" height="17" viewBox="0 0 20 30" fill="currentColor" style="flex:none;transform:rotate(90deg)"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg></span></button>
+      <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Name</span><input name="name" required style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#171410;outline:none;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)"></label>
+      <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Organisation</span><input name="organisation" required style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#171410;outline:none;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)"></label>
+      <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Email</span><input type="email" name="email" required style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#171410;outline:none;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)"></label>
+      <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Role or side</span><input name="roleOrSide" placeholder="Owner, sponsor, lender, adviser" style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#171410;outline:none;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)"></label>
+      <label style="display:flex;flex-direction:column;gap:9px;grid-column:1 / -1"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">The situation, counterparties and timeline</span><textarea name="situation" rows="4" required style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#171410;outline:none;resize:vertical;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)"></textarea></label>
+      <button type="submit" disabled="{{ submitting }}" style="grid-column:1 / -1;justify-self:start;display:inline-flex;align-items:center;gap:12px;background:var(--accent,#B89B6A);color:#0C0B09;border:none;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:17px 32px;margin-top:8px;transition:background .25s,transform .25s" style-hover="background:#cdb07e;transform:translateY(-2px)"><svg width="11" height="17" viewBox="0 0 20 30" fill="none" style="flex:none"><path d="M10 0 L16 9 L10 14 L4 9 Z" fill="#0C0B09"></path><rect x="9.25" y="12.5" width="1.5" height="17.5" fill="#0C0B09"></rect><rect x="5.5" y="16" width="9" height="1.4" fill="#0C0B09"></rect></svg>{{ submitLabel }}<span style="display:inline-flex;align-items:center"><svg width="11" height="17" viewBox="0 0 20 30" fill="currentColor" style="flex:none;transform:rotate(90deg)"><path d="M10 0 L16 9 L10 14 L4 9 Z"></path><rect x="9.25" y="12.5" width="1.5" height="17.5"></rect><rect x="5.5" y="16" width="9" height="1.4"></rect></svg></span></button>
+      <sc-if value="{{ hasError }}" hint-placeholder-val="{{ false }}">
+       <p style="grid-column:1 / -1;font-size:12.5px;line-height:1.6;color:#9A5B5B;margin-top:2px">{{ errorMessage }}</p>
+      </sc-if>
       <p style="grid-column:1 / -1;font-size:12px;line-height:1.6;color:#6B5D3E;margin-top:4px">All submissions are confidential. Routing to a desk does not constitute an offer, a commitment to provide capital, or financial advice.</p>
      </form>
     </sc-if>
@@ -127,7 +130,7 @@ select option{background:#F0EADC;color:#171410}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#B89B6A&quot;,&quot;options&quot;:[&quot;#B89B6A&quot;,&quot;#8A98A8&quot;,&quot;#7E9485&quot;,&quot;#9A5B5B&quot;],&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
- state = { submitted: false };
+ state = { submitted: false, submitting: false, errorMessage: '' };
  offices = [
   { tag: 'UK · EUROPE', city: 'London', role: 'Headquarters and governance', hq: true },
   { tag: 'NY · USA', city: 'New York', role: 'North America' },
@@ -148,7 +151,35 @@ class Component extends DCLogic {
  }
  componentWillUnmount() { if (this._io) this._io.disconnect(); if (this._safety) clearTimeout(this._safety); }
  renderVals() {
-  return { offices: this.offices, submitted: this.state.submitted, notSubmitted: !this.state.submitted, onSubmit: (e) => { e.preventDefault(); this.setState({ submitted: true }); window.scrollTo({ top: 0, behavior: 'smooth' }); } };
+  return {
+   offices: this.offices,
+   submitted: this.state.submitted,
+   notSubmitted: !this.state.submitted,
+   submitting: this.state.submitting,
+   submitLabel: this.state.submitting ? 'Sending…' : 'Submit to the desk',
+   hasError: !!this.state.errorMessage,
+   errorMessage: this.state.errorMessage,
+   onSubmit: async (e) => {
+    e.preventDefault();
+    if (this.state.submitting) return;
+    this.setState({ submitting: true, errorMessage: '' });
+    try {
+     const form = e.target;
+     const data = Object.fromEntries(new FormData(form).entries());
+     data.formType = 'contact';
+     const response = await fetch('/api/submit-form', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+     const result = await response.json();
+     if (response.ok) {
+      this.setState({ submitted: true, submitting: false });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+     } else {
+      this.setState({ submitting: false, errorMessage: result.message || 'Something went wrong. Please try again.' });
+     }
+    } catch (err) {
+     this.setState({ submitting: false, errorMessage: 'Unable to reach the server. Please check your connection and try again.' });
+    }
+   },
+  };
  }
 }
 </script>
