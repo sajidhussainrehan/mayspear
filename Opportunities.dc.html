@@ -82,7 +82,7 @@ select option{background:#F0EADC;color:#171410}
       </div>
       <div data-reveal style="opacity:1;transform:none">
         <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
-          <form id="opportunitiesForm" style="display:grid;grid-template-columns:1fr 1fr;gap:26px 22px">
+          <form id="opportunitiesForm" onSubmit="{{ onSubmit }}" style="display:grid;grid-template-columns:1fr 1fr;gap:26px 22px">
             <div style="grid-column:1 / -1;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent,#B89B6A);padding-bottom:6px;border-bottom:1px solid rgba(184,155,106,.2)">The transaction</div>
             <label style="display:flex;flex-direction:column;gap:9px"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6B5D3E">Deal type</span>
               <select name="dealType" required style="background:transparent;border:none;border-bottom:1px solid rgba(184,155,106,.3);padding:10px 0;font-size:15px;color:#4E4838;outline:none;transition:border-color .25s" style-focus="border-color:var(--accent,#B89B6A)"><option value="">Select.</option><option>Private credit / lending</option><option>Special situations / distressed</option><option>Restructuring / refinancing</option><option>Infrastructure / energy</option><option>Private equity / buyout</option><option>Real assets</option><option>NPL / portfolio acquisition</option><option>Acquisition finance</option><option>Other</option></select>
