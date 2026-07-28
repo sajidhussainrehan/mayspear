@@ -241,7 +241,7 @@ class Component extends DCLogic {
     try { localStorage.setItem('ms_deal_promo', '1'); } catch (e) {}
     this.setState({ [sentKey]: true, [submittingKey]: false });
    } else {
-    this.setState({ [submittingKey]: false, [errorKey]: result.message || 'Something went wrong. Please try again.' });
+    this.setState({ [submittingKey]: false, [errorKey]: result.error || result.message || 'Something went wrong. Please try again.' });
    }
   } catch (err) {
    this.setState({ [submittingKey]: false, [errorKey]: 'Unable to reach the server. Please check your connection and try again.' });

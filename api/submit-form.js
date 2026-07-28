@@ -122,10 +122,11 @@ export default async function handler(req, res) {
       return res.status(400).json({ message: 'Missing required fields' });
     }
 
+    const smtpPort = Number(process.env.SMTP_PORT) || 465;
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'mail.privateemail.com',
-      port: process.env.SMTP_PORT || 465,
-      secure: true,
+      port: smtpPort,
+      secure: smtpPort === 465, // true for 465 (implicit TLS), false for 587 (STARTTLS)
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
